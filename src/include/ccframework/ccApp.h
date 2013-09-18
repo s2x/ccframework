@@ -21,6 +21,7 @@ class ccApp {
 	bool loadConfig(std::string config_file);
 public:
 	ccApp(char **env);
+	ccApp(std::string config_file);
 	~ccApp();
 
 	static std::string getConfigValue(std::string name);

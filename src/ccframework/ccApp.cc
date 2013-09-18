@@ -23,6 +23,17 @@ ccApp::ccApp(char **env) {
 					&ccController::__404Action));
 	instance = this;
 }
+
+ccApp::ccApp(std::string config_file) {
+	this->loadConfig(config_file);
+	ctemplate::mutable_default_template_cache()->SetTemplateRootDirectory(this->config->getConfigValue("template_dir",""));
+	this->router = new ccRouter();
+	this->default_countroller = new ccController(this);
+	this->getRouter()->addRoute("__404",
+			new ccSpecificRouterFunctor<ccController>(this->default_countroller,
+					&ccController::__404Action));
+	instance = this;
+}
 ccApp::~ccApp() {
 	// TODO Auto-generated destructor stub
 
