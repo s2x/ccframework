@@ -5,7 +5,9 @@
 AM_CPPFLAGS = \
 	-DPACKAGE_LOCALE_DIR=\""$(localedir)"\" \
 	-DPACKAGE_SRC_DIR=\""$(srcdir)"\" \
-	-DPACKAGE_DATA_DIR=\""$(pkgdatadir)"\"
+	-DPACKAGE_DATA_DIR=\""$(pkgdatadir)"\" \
+	$(YAML_CPP_CFLAGS) \
+	$(LIBPCRE_CFLAGS)
 
 AM_CFLAGS =\
 	 -Wall\
@@ -36,10 +38,12 @@ libccframework_la_CXXFLAGS = -Iinclude
 
 libccframework_la_LDFLAGS = 
 
-libccframework_la_LIBADD = 
+libccframework_la_LIBADD =  \
+	$(YAML_CPP_LIBS) \
+	$(LIBPCRE_LIBS)
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libccframework-0.1.pc
+pkgconfig_DATA = libccframework.pc
 
 EXTRA_DIST = \
 	libccframework.pc

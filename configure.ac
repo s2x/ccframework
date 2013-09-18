@@ -34,6 +34,10 @@ LT_INIT
 
 
 
+PKG_CHECK_MODULES(LIBPCRE,libpcre)
+
+PKG_CHECK_MODULES(YAML_CPP,yaml-cpp)
+
 AC_OUTPUT([
 Makefile
 src/libccframework.pc
