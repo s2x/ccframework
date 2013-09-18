@@ -32,7 +32,9 @@ libccframework_la_SOURCES =  \
 	ccframework/response/ccTemplateResponse.cc \
 	ccframework/router/ccRoute.cc \
 	ccframework/router/ccRouteMatcher.cc \
-	ccframework/router/ccRouter.cc
+	ccframework/router/ccRouter.cc \
+	vendor/md5/md5.cc \
+	vendor/md5/md5.h
 
 libccframework_la_CXXFLAGS = -Iinclude 
 
@@ -43,10 +45,11 @@ libccframework_la_LIBADD =  \
 	$(LIBPCRE_LIBS)
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libccframework.pc
+pkgconfig_DATA = ccframework.pc
 
 EXTRA_DIST = \
-	libccframework.pc
+	ccframework.pc.in\
+	ccframework.pc
 
 SUBDIRS = \
 	include \

@@ -40,7 +40,7 @@ PKG_CHECK_MODULES(YAML_CPP,yaml-cpp)
 
 AC_OUTPUT([
 Makefile
-src/libccframework.pc
+src/ccframework.pc
 src/Makefile
 po/Makefile.in
 src/include/Makefile
