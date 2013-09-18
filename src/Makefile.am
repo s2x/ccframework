@@ -42,7 +42,7 @@ pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libccframework-0.1.pc
 
 EXTRA_DIST = \
-	libccframework-0.1.pc.in
+	libccframework.pc
 
 SUBDIRS = \
 	include \

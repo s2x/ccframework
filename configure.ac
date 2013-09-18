@@ -36,7 +36,7 @@ LT_INIT
 
 AC_OUTPUT([
 Makefile
-src/libccframework-0.1.pc
+src/libccframework.pc
 src/Makefile
 po/Makefile.in
 src/include/Makefile
