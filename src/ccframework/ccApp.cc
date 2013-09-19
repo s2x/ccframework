@@ -13,6 +13,7 @@ ccApp *ccApp::instance = NULL;
 ccConfigLoader *ccApp::config = NULL;
 
 ccApp::ccApp(char **env) {
+	this->request = NULL;
 	this->envp = env;
 	this->loadConfig(this->getInitParam("CCF_CONFIG_FILE"));
 	ctemplate::mutable_default_template_cache()->SetTemplateRootDirectory(this->config->getConfigValue("template_dir",""));
@@ -25,6 +26,7 @@ ccApp::ccApp(char **env) {
 }
 
 ccApp::ccApp(std::string config_file) {
+	this->request = NULL;
 	this->loadConfig(config_file);
 	ctemplate::mutable_default_template_cache()->SetTemplateRootDirectory(this->config->getConfigValue("template_dir",""));
 	this->router = new ccRouter();
@@ -45,22 +47,22 @@ ccApp::~ccApp() {
 ccResponse *ccApp::processRequest(FCGX_Request fcgi_request) {
 	ctemplate::mutable_default_template_cache()->ReloadAllIfChanged(
 			ctemplate::TemplateCache::IMMEDIATE_RELOAD);
-	ccRequest *request = new ccRequest(fcgi_request);
+	this->request = new ccRequest(fcgi_request);
 
 	// autostart session
 	if (this->getConfigValue("session.autostart", "0") == "1") {
-		request->setSession(new ccSession(request));
+		this->request->setSession(new ccSession(request));
 	}
 
-	ccRouterFunctor* route = this->router->getRoute(request);
-	ccResponse *ret = route->Call(request);
+	ccRouterFunctor* route = this->router->getRoute(this->request);
+	ccResponse *ret = route->Call(this->request);
 
-	if (request->getSession()) {
+	if (this->request->getSession()) {
 		ccCookie *cs = new ccCookie(
 				this->getConfigValue("session.session_id", "CCF_SESSSION_ID"),request->getSession()->getId());
 		ret->addCookie(cs);
 	}
-	delete request;
+	delete this->request;
 	return ret;
 }
 
@@ -90,6 +92,11 @@ std::string ccApp::getInitParam(std::string name) {
 	  return "";
 }
 
+ccRequest* ccApp::getRequest() {
+	return request;
+}
+
 
 } /* namespace ccFramework */
+
 

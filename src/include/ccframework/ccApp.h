@@ -16,6 +16,7 @@ class ccApp {
 	char **envp;
 	static ccApp *instance;
 	ccController *default_countroller;
+	ccRequest *request;
 	ccRouter *router;
 	static ccConfigLoader *config;
 	bool loadConfig(std::string config_file);
@@ -38,6 +39,8 @@ public:
 	static ccApp *getInstance(){
 		return instance;
 	}
+
+	ccRequest *getRequest();
 };
 
 } /* namespace ccFramework */
