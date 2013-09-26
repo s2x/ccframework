@@ -82,5 +82,18 @@ void ccRequest::setSession(ccSession* session) {
 	this->session = session;
 }
 
+
+int ccRequest::getRequestParameterAsInt(std::string name, int default_value ) {
+	if (!this->hasRequestParameter(name)) return default_value;
+	return ccCommon::string2int(this->getRequestParameter(name));
+}
+
+double ccRequest::getRequestParameterAsDouble(std::string name, double default_value ) {
+	if (!this->hasRequestParameter(name)) return default_value;
+	return ccCommon::string2double(this->getRequestParameter(name));
+}
+
+
+
 } /* namespace ccFramework */
 

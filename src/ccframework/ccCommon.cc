@@ -146,5 +146,29 @@ std::string ccCommon::htmlTag(std::string name, std::string value) {
 
 }
 
+double ccCommon::string2double(std::string value) {
+	double tmp;
+	std::istringstream ( value ) >> tmp;
+	return tmp;
+}
+
+int ccCommon::string2int(std::string value) {
+	int tmp;
+	std::istringstream ( value ) >> tmp;
+	return tmp;
+}
+
+std::string ccCommon::int2string(int value, std::string format) {
+	char buffer [50];
+	sprintf (buffer, format.c_str() ,value);
+	return buffer;
+}
+
+std::string ccCommon::double2string(double value, std::string format) {
+	char buffer [50];
+	sprintf (buffer, format.c_str() ,value);
+	return buffer;
+}
+
 } /* namespace ccFramework */
 

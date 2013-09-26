@@ -26,6 +26,8 @@ public:
 	std::string getEnvParamter(std::string name);
 	bool hasRequestParameter(std::string name);
 	std::string getRequestParameter(std::string name);
+	int getRequestParameterAsInt(std::string name, int default_value = 0);
+	double getRequestParameterAsDouble(std::string name, double default_value = 0.0);
 	std::string getRequestParameter(std::string name, std::string default_value);
 	std::string getCookie(std::string name, std::string default_value = "");
 	bool hasCookie(std::string name);

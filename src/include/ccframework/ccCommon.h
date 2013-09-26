@@ -67,6 +67,11 @@ public:
 	static std::string md5hash(std::string val);
 	static std::string htmlTag(std::string name, std::string value, std::map<std::string, std::string> attr);
 	static std::string htmlTag(std::string name, std::string value);
+
+	static double string2double(std::string value);
+	static int string2int(std::string value);
+	static std::string int2string(int value, std::string format = "%d");
+	static std::string double2string(double value, std::string format = "%f");
 };
 
 } /* namespace ccFramework */
