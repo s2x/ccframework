@@ -34,7 +34,6 @@ void ccRouter::addRoute(const std::string name, std::string pattern,
 	ccRouterFunctor* functor) {
 	this->functors[name] = functor;
 	this->route_matcher->addRoute(new ccRoute(name, pattern));
-	//new ccRoute(name, pattern, functor);
 
 }
 

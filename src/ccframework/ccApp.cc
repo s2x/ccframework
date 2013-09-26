@@ -12,19 +12,6 @@ namespace ccFramework {
 ccApp *ccApp::instance = NULL;
 ccConfigLoader *ccApp::config = NULL;
 
-ccApp::ccApp(char **env) {
-	this->request = NULL;
-	this->envp = env;
-	this->loadConfig(this->getInitParam("CCF_CONFIG_FILE"));
-	ctemplate::mutable_default_template_cache()->SetTemplateRootDirectory(this->config->getConfigValue("template_dir",""));
-	this->router = new ccRouter();
-	this->default_countroller = new ccController(this);
-	this->getRouter()->addRoute("__404",
-			new ccSpecificRouterFunctor<ccController>(this->default_countroller,
-					&ccController::__404Action));
-	instance = this;
-}
-
 ccApp::ccApp(std::string config_file) {
 	this->request = NULL;
 	this->loadConfig(config_file);
@@ -35,6 +22,12 @@ ccApp::ccApp(std::string config_file) {
 			new ccSpecificRouterFunctor<ccController>(this->default_countroller,
 					&ccController::__404Action));
 	instance = this;
+
+	//boostrap some config
+
+
+
+	this->acl = new ccAcl();
 }
 ccApp::~ccApp() {
 	// TODO Auto-generated destructor stub

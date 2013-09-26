@@ -20,4 +20,7 @@ nobase_include_HEADERS = ccframework/ccApp.h \
 	ccframework/ccRouteMatcher.h \
 	ccframework/ccRouter.h \
 	ccframework/ccSession.h \
-	ccframework/ccTemplateResponse.h
+	ccframework/ccTemplateResponse.h \
+	ccframework/ccRole.h \
+	ccframework/ccAcl.h \
+	ccframework/ccResource.h

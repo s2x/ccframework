@@ -35,10 +35,10 @@ public:
 	void setLayout(const std::string& layout);
 	void setParameter(std::string param, std::string val);
 	void addCss(std::string uri);
-	void setTitle(std::string uri);
-	void setDescription(std::string uri);
-	void setKeywords(std::string uri);
-	void addMetatag(std::string uri);
+	void setTitle(std::string value);
+	void setDescription(std::string value);
+	void setKeywords(std::string value);
+	void addMetatag(std::map<std::string, std::string> params);
 
 	ctemplate::TemplateDictionary *getDict();
 	ctemplate::TemplateDictionary *getLayoutDict();
@@ -46,15 +46,23 @@ public:
 	void static addDefaultCss(std::string uri);
 	void static addDefaultHeadJs(std::string uri);
 	void static addDefaultFooterJs(std::string uri);
+	std::string getDescription();
+	std::string getKeywords();
+	std::string getTitle();
+
 protected:
 	std::string renderCssList(std::set<std::string> stylesheets);
 	std::string renderJsList(std::set<std::string> javascripts);
+	std::string renderMetaList(std::set<std::string> javascripts);
 	std::set<std::string> stylesheets;
+	std::set<std::string> metas;
 	static std::set<std::string> default_stylesheets;
 	static std::set<std::string> default_head_javascripts;
 	static std::set<std::string> default_footer_javascripts;
 	std::string layout;
 	std::string title;
+	std::string keywords;
+	std::string description;
 	std::string template_name;
 	ctemplate::TemplateDictionary *dict;
 	ctemplate::TemplateDictionary *layout_dict;

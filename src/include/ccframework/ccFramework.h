@@ -18,6 +18,9 @@ class ccConfig;
 class ccConfigLoader;
 class ccEvent;
 class ccEventDispatcher;
+class ccRole;
+class ccResource;
+class ccAcl;
 }
 #include <iostream>
 #include <fstream>
@@ -38,4 +41,7 @@ class ccEventDispatcher;
 #include "ccSession.h"
 #include "ccConfig.h"
 #include "ccConfigLoader.h"
+#include "ccRole.h"
+#include "ccResource.h"
+#include "ccAcl.h"
 #endif /* CCFRAMEWORK_H_ */

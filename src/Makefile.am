@@ -7,7 +7,8 @@ AM_CPPFLAGS = \
 	-DPACKAGE_SRC_DIR=\""$(srcdir)"\" \
 	-DPACKAGE_DATA_DIR=\""$(pkgdatadir)"\" \
 	$(YAML_CPP_CFLAGS) \
-	$(LIBPCRE_CFLAGS)
+	$(LIBPCRE_CFLAGS) \
+	-std=c++11
 
 AM_CFLAGS =\
 	 -Wall\
@@ -33,6 +34,9 @@ libccframework_la_SOURCES =  \
 	ccframework/router/ccRoute.cc \
 	ccframework/router/ccRouteMatcher.cc \
 	ccframework/router/ccRouter.cc \
+	ccframework/acl/ccRole.cc \
+	ccframework/acl/ccAcl.cc \
+	ccframework/acl/ccResource.cc \
 	vendor/md5/md5.cc \
 	vendor/md5/md5.h
 

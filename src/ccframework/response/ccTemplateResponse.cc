@@ -33,6 +33,11 @@ ccTemplateResponse::ccTemplateResponse(std::string dict_name, std::string templa
 	this->template_name = template_name;
 	this->layout_dict = new ctemplate::TemplateDictionary(dict_name);
 	this->dict = this->layout_dict->AddIncludeDictionary("RAW_CONTENT");
+
+	//set positioning stuf
+	this->description = ccApp::getInstance()->getConfigValue("templates.default_description","");
+	this->title = ccApp::getInstance()->getConfigValue("templates.default_title","");
+	this->keywords = ccApp::getInstance()->getConfigValue("templates.default_keywords","");
 }
 
 ccTemplateResponse::~ccTemplateResponse() {
@@ -51,18 +56,24 @@ void ccTemplateResponse::setParameter(std::string param, std::string val) {
 ccResponse* ccTemplateResponse::render() {
 	std::string r_content;
 
+	//prepare some defult metas
+	this->addMetatag({std::make_pair("name","description"), std::make_pair("content",this->description)});
+	this->addMetatag({std::make_pair("name","keywords"), std::make_pair("content",this->keywords)});
+
 	//Set javascripts and css
 	this->layout_dict->SetValue("HEAD_STYLES",this->renderCssList(ccTemplateResponse::default_stylesheets));
 	this->layout_dict->SetValue("HEAD_JAVASCRIPTS",this->renderJsList(ccTemplateResponse::default_head_javascripts));
 	this->layout_dict->SetValue("FOOTER_JAVASCRIPTS",this->renderJsList(ccTemplateResponse::default_footer_javascripts));
+	this->layout_dict->SetValue("HEAD_METAS",this->renderMetaList(this->metas));
+	this->layout_dict->SetValue("HEAD_TITLE", ccCommon::htmlTag("title",this->title));
 
 	//Set template file
 	this->dict->SetFilename(template_name);
-	
-	std::map<std::string, void *> tmp;
-	tmp["template"] = (void *)this;
-	ccFramework::ccEventDispatcher::notify("ccTemplate.beforeRenderLayout",tmp);
 
+	// dispatcher before render
+	ccFramework::ccEventDispatcher::notify("ccTemplate.beforeRenderLayout",{std::make_pair("template", (void *)this)});
+
+	// render a template
 	ctemplate::ExpandTemplate(this->layout, ctemplate::DO_NOT_STRIP, this->layout_dict, &r_content);
 	return new ccResponse(r_content);
 }
@@ -102,4 +113,43 @@ void ccTemplateResponse::addDefaultFooterJs(std::string uri) {
 	ccTemplateResponse::default_footer_javascripts.insert(uri);
 }
 
+std::string ccTemplateResponse::getDescription(){
+	return description;
 }
+
+std::string ccTemplateResponse::getKeywords(){
+	return keywords;
+}
+
+void ccTemplateResponse::setTitle(std::string value) {
+	this->title = value;
+}
+
+void ccTemplateResponse::setDescription(std::string value) {
+	this->description = value;
+}
+
+void ccTemplateResponse::setKeywords(std::string value) {
+	this->keywords = value;
+}
+
+void ccTemplateResponse::addMetatag(std::map<std::string, std::string> params) {
+	this->metas.insert(ccCommon::htmlTag("meta","",params));
+}
+
+std::string ccTemplateResponse::getTitle(){
+	return title;
+}
+
+std::string ccTemplateResponse::renderMetaList(
+		std::set<std::string> javascripts) {
+	std::string ret="";
+	for(std::set<std::string>::iterator i = metas.begin(); i != metas.end(); ++i) {
+		ret += (*i)+"\n";
+	}
+	return ret;
+}
+
+}
+
+

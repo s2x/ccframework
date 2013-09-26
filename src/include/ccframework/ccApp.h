@@ -18,10 +18,10 @@ class ccApp {
 	ccController *default_countroller;
 	ccRequest *request;
 	ccRouter *router;
+	ccAcl *acl;
 	static ccConfigLoader *config;
 	bool loadConfig(std::string config_file);
 public:
-	ccApp(char **env);
 	ccApp(std::string config_file);
 	~ccApp();
 

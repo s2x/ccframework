@@ -121,4 +121,30 @@ std::string ccCommon::UriDecode(const std::string & sSrc) {
 	delete[] pStart;
 	return sResult;
 }
+
+std::string ccCommon::htmlTag(std::string name, std::string value,
+		std::map<std::string, std::string> attr) {
+
+	std::string ret = "<"+name;
+
+	for (std::map<std::string, std::string>::iterator it = attr.begin();
+			it != attr.end(); ++it) {
+		ret += " "+it->first+"=\""+it->second+"\"";
+	}
+
+	if (value.size()>0) {
+		ret += +">"+value;
+		ret += "</"+name+">";
+	} else {
+		ret += "/>";
+	}
+	return ret;
+}
+
+std::string ccCommon::htmlTag(std::string name, std::string value) {
+	return "<"+name+">"+value+"</"+name+">";
+
+}
+
 } /* namespace ccFramework */
+

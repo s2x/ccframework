@@ -65,6 +65,8 @@ public:
 	static std::string trim(std::string s);
 	static bool file_exists(std::string filename);
 	static std::string md5hash(std::string val);
+	static std::string htmlTag(std::string name, std::string value, std::map<std::string, std::string> attr);
+	static std::string htmlTag(std::string name, std::string value);
 };
 
 } /* namespace ccFramework */

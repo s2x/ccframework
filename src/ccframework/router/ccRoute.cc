@@ -72,8 +72,6 @@ std::string ccRoute::prepare(std::string pattern) {
 			ret.append(pattern.substr(substring_start, substring_length));
 			this->route_parts.push_back(
 					pattern.substr(substring_start, substring_length));
-//			substring_start = ovector[0];
-//			substring_length = ovector[2] - ovector[1];
 			substring_start = ovector[2];
 			substring_length = ovector[3] - ovector[2];
 			ret.append("([^/]++)");
@@ -92,7 +90,6 @@ std::string ccRoute::prepare(std::string pattern) {
 	}
 
 	if (error) delete error;
-	//if (subject) delete subject;
 
 	/* number of elements in the output vector */
 	return ret;
@@ -104,7 +101,6 @@ std::string ccRoute::getRouteParameter(std::string name) {
 
 std::string ccRoute::getRouteParameter(std::string name,
 		std::string default_value) {
-//	name = "{:"+name+"}";
 	if (this->hasRouteParameter(name)) {
 		return this->request_params[name];
 	}
