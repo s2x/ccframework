@@ -10,7 +10,8 @@
 #include <stdlib.h>
 namespace ccFramework {
 
-ccRoute::ccRoute(std::string name, std::string pattern, ccRouterFunctor* functor) {
+ccRoute::ccRoute(std::string name, std::string pattern,
+		ccRouterFunctor* functor) {
 	// TODO Auto-generated constructor stub
 	const char *error = NULL;
 	int erroffset;
@@ -19,10 +20,11 @@ ccRoute::ccRoute(std::string name, std::string pattern, ccRouterFunctor* functor
 	this->pattern = "^" + this->prepare(pattern) + "$";
 	this->re = pcre_compile(this->pattern.c_str(), 0, &error, &erroffset, NULL);
 
-	if (error) delete error;
+	if (error)
+		delete error;
 }
 
-ccRouterFunctor* ccRoute::getFunctor(){
+ccRouterFunctor* ccRoute::getFunctor() {
 	return this->functor;
 }
 
@@ -34,11 +36,11 @@ bool ccRoute::match(ccRequest *request) {
 
 	this->request_params.clear();
 
-	std::string request_uri= request->getEnvParamter("REQUEST_URI");
-	request_uri = request_uri.substr(0,request_uri.find_first_of("?"));
+	std::string request_uri = request->getEnvParamter("REQUEST_URI");
+	request_uri = request_uri.substr(0, request_uri.find_first_of("?"));
 
-	rc = pcre_exec(this->re, NULL, request_uri.c_str(), request_uri.length(), 0, 0,
-			ovector, 30);
+	rc = pcre_exec(this->re, NULL, request_uri.c_str(), request_uri.length(), 0,
+			0, ovector, 30);
 	if (rc < 0)
 		return false;
 
@@ -47,7 +49,7 @@ bool ccRoute::match(ccRequest *request) {
 		substring_length = ovector[2 * i + 1] - ovector[2 * i];
 
 		this->request_params.insert(
-				std::pair<std::string, std::string>(this->route_params[(i-1)],
+				std::pair<std::string, std::string>(this->route_params[(i - 1)],
 						request_uri.substr(substring_start, substring_length)));
 	}
 	return true;
@@ -96,7 +98,8 @@ std::string ccRoute::prepare(std::string pattern) {
 		return pattern;
 	}
 
-	if (error) delete error;
+	if (error)
+		delete error;
 
 	/* number of elements in the output vector */
 	return ret;
@@ -115,7 +118,7 @@ std::string ccRoute::getRouteParameter(std::string name,
 }
 
 bool ccRoute::hasRouteParameter(std::string name) {
-	return this->request_params.count( name );
+	return this->request_params.count(name);
 }
 
 ccRoute::~ccRoute() {
@@ -124,14 +127,33 @@ ccRoute::~ccRoute() {
 }
 
 ccResponse *ccRoute::Call(ccRequest* request) {
-	if (ccApp::getInstance()->getAcl()->isAllowed(request->getSession()->get("acl.user",""), this->getName())) {
+	if (ccApp::getInstance()->getAcl()->isAllowed("__route_" + this->getName(),
+			request->getSession()->get("acl.user_role", ccAcl::DEFAULT_ROLE))) {
 		return this->functor->Call(request);
 	} else {
-		throw ccException(ccException::ERROR_FORBIDDEN, ccException::ERROR_MSG_FORBIDDEN);
+		throw ccException(ccException::ERROR_FORBIDDEN,
+				ccException::ERROR_MSG_FORBIDDEN);
 	}
 	return NULL;
 }
 
-} /* namespace ccFramework */
+void ccRoute::setPermision(std::string role, bool allowed) {
+	ccApp::getInstance()->getAcl()->addPermision("__route_" + this->getName(),
+			role, allowed);
 
+}
+
+void ccRoute::inheritPermissions(std::string route_name) {
+	ccResource *tmp = ccApp::getInstance()->getAcl()->getResource("__route_" +route_name);
+	ccResource *this_tmp = ccApp::getInstance()->getAcl()->getResource("__route_" +this->getName());
+	if (tmp && this_tmp) this_tmp->setParent(tmp);
+
+}
+
+
+
+
+
+
+} /* namespace ccFramework */
 

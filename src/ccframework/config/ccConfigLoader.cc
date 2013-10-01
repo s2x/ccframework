@@ -62,23 +62,26 @@ bool ccConfigLoader::load(std::string config_file) {
 	return true;
 }
 
-std::string ccConfigLoader::arraySearch(YAML::Node node, std::string path) {
-	if (!node || path.length() == 0)
-		return "";
+std::string ccConfigLoader::arraySearch(YAML::Node node, std::string path,
+		std::string default_value) {
+
+	if (!node || path.length() == 0) return default_value;
+
 	std::string tmp_name = path;
 	std::size_t found = tmp_name.find(".", found);
 	if (found != std::string::npos) {
 		std::string node_name = tmp_name.substr(0, found);
 		tmp_name = tmp_name.substr(found + 1);
-		return this->arraySearch(node[node_name.c_str()], tmp_name);
+		return this->arraySearch(node[node_name.c_str()], tmp_name, default_value);
 	}
-	if (node[tmp_name.c_str()]) return node[tmp_name.c_str()].as<std::string>();
-	return "";
+	if (node[tmp_name.c_str()])
+		return node[tmp_name.c_str()].as<std::string>();
+	return default_value;
 }
 
 std::string ccConfigLoader::getConfigValue(std::string name,
 		std::string value) {
-	return this->arraySearch(this->config, name);
+	return this->arraySearch(this->config, name, value);
 }
 
 } /* namespace ccFramework */

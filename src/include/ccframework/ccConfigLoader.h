@@ -13,7 +13,7 @@ namespace ccFramework {
 class ccConfigLoader {
 	YAML::Node config;
 	std::string config_file;
-	std::string arraySearch(YAML::Node, std::string path);
+	std::string arraySearch(YAML::Node, std::string path, std::string default_value="");
 	void arraySet(YAML::Node, std::string path, std::string value);
 public:
 	bool load(std::string config_file);

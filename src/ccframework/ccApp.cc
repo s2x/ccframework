@@ -8,7 +8,6 @@
 #include "ccframework/ccFramework.h"
 #include "fcgio.h"
 #include "fcgi_config.h"  // HAVE_IOSTREAM_WITHASSIGN_STREAMBUF
-
 namespace ccFramework {
 
 ccApp *ccApp::instance = NULL;
@@ -30,7 +29,6 @@ ccApp::ccApp(std::string config_file) {
 	this->cerr_streambuf = std::cerr.rdbuf();
 
 	this->acl = new ccAcl();
-	this->acl->addRole("_GUEST");
 	this->acl->setAllowAll(true);
 }
 ccApp::~ccApp() {
@@ -62,6 +60,10 @@ ccResponse *ccApp::processRequest(FCGX_Request fcgi_request) {
 	if (this->getConfigValue("session.autostart", "0") == "1") {
 		this->request->setSession(new ccSession(request));
 	}
+
+	this->getRequest()->getSession()->set("acl.user_role",
+			this->getRequest()->getSession()->get("acl.user_role",
+					ccAcl::DEFAULT_ROLE));
 
 	try {
 		ccRoute *route = this->router->getRoute(this->request);
@@ -129,10 +131,9 @@ void ccApp::run() {
 	FCGX_Finish_r(&request);
 }
 
-ccAcl* ccApp::getAcl(){
+ccAcl* ccApp::getAcl() {
 	return this->acl;
 }
 
 } /* namespace ccFramework */
-
 

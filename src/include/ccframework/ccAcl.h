@@ -16,7 +16,14 @@ class ccAcl {
 	std::vector<ccRole *> roles;
 	std::vector<ccResource *> resources;
 	bool allow_all = false;
+	bool allow_first = true;
+
+	std::map<ccResource *, std::map <ccRole*, bool > > permisions;
+
+//	bool checkPermistion
 public:
+	static const std::string DEFAULT_ROLE;
+
 	ccAcl();
 	virtual ~ccAcl();
 	void addRole(std::string name, std::string parent="");
@@ -30,8 +37,12 @@ public:
 	bool hasResource(std::string name);
 	bool isAllowAll();
 	void setAllowAll(bool allowAll = false);
+	bool isAllowFirst();
+	void setAllowFirst(bool allowFirst = true);
 
-	bool isAllowed(std::string role, std::string resource);
+	bool isAllowed(std::string resource, std::string role);
+
+	ccAcl *addPermision(std::string resource, std::string role, bool allowed);
 };
 
 } /* namespace ccFramework */

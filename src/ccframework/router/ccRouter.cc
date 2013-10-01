@@ -25,10 +25,13 @@ ccRouter::~ccRouter() {
 }
 
 ccRoute *ccRouter::getRoute(ccRequest *request) {
+	std::cerr<<"Checking for: "<<request->getEnvParamter("REQUEST_URI")<<std::endl;
+
 	for (std::vector<ccRoute *>::iterator it = this->routes.begin();
 			it != this->routes.end(); ++it) {
-
+		std::cerr<<"Checking route: "<<(*it)->getName()<<std::endl;
 		if ((*it)->match(request)) {
+			std::cerr<<"Route matched: "<<(*it)->getName()<<std::endl;
 			std::map<std::string, std::string> tmp = (*it)->getRouteParameters();
 			for (std::map<std::string, std::string>::iterator itp = tmp.begin();itp != tmp.end(); ++itp) {
 				request->setRequestParameter(itp->first, itp->second);

@@ -24,6 +24,9 @@ public:
 	std::string getRouteParameter(std::string name);
 	std::string getRouteParameter(std::string name, std::string default_value);
 	ccResponse *Call(ccRequest* request);
+	void setPermision(std::string role, bool allowed);
+	void inheritPermissions(std::string route_name);
+
 	virtual ~ccRoute();
 
 	const std::string& getName() const {
