@@ -10,11 +10,11 @@
 #include <stdlib.h>
 namespace ccFramework {
 
-ccRoute::ccRoute(std::string name, std::string pattern) {
+ccRoute::ccRoute(std::string name, std::string pattern, ccRouterFunctor* functor) {
 	// TODO Auto-generated constructor stub
 	const char *error = NULL;
 	int erroffset;
-
+	this->functor = functor;
 	this->name = name;
 	this->pattern = "^" + this->prepare(pattern) + "$";
 	this->re = pcre_compile(this->pattern.c_str(), 0, &error, &erroffset, NULL);
@@ -22,7 +22,11 @@ ccRoute::ccRoute(std::string name, std::string pattern) {
 	if (error) delete error;
 }
 
-bool ccRoute::match(std::string subject) {
+ccRouterFunctor* ccRoute::getFunctor(){
+	return this->functor;
+}
+
+bool ccRoute::match(ccRequest *request) {
 	int ovector[30];
 	int rc;
 	int substring_length = 0;
@@ -30,7 +34,10 @@ bool ccRoute::match(std::string subject) {
 
 	this->request_params.clear();
 
-	rc = pcre_exec(this->re, NULL, subject.c_str(), subject.length(), 0, 0,
+	std::string request_uri= request->getEnvParamter("REQUEST_URI");
+	request_uri = request_uri.substr(0,request_uri.find_first_of("?"));
+
+	rc = pcre_exec(this->re, NULL, request_uri.c_str(), request_uri.length(), 0, 0,
 			ovector, 30);
 	if (rc < 0)
 		return false;
@@ -41,7 +48,7 @@ bool ccRoute::match(std::string subject) {
 
 		this->request_params.insert(
 				std::pair<std::string, std::string>(this->route_params[(i-1)],
-						subject.substr(substring_start, substring_length)));
+						request_uri.substr(substring_start, substring_length)));
 	}
 	return true;
 }
@@ -116,4 +123,10 @@ ccRoute::~ccRoute() {
 // TODO Auto-generated destructor stub
 }
 
+ccResponse *ccRoute::Call(ccRequest* request) {
+	this->functor->Call(request);
+}
+
 } /* namespace ccFramework */
+
+

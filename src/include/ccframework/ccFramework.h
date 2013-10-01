@@ -7,7 +7,6 @@ class ccQueryParser;
 class ccRequest;
 class ccResponse;
 class ccRoute;
-class ccRouteMatcher;
 class ccRouter;
 class ccRouterFunctor;
 class ccTemplateResponse;
@@ -21,6 +20,7 @@ class ccEventDispatcher;
 class ccRole;
 class ccResource;
 class ccAcl;
+class ccException;
 }
 #include <iostream>
 #include <fstream>
@@ -33,9 +33,8 @@ class ccAcl;
 #include "ccQueryParser.h"
 #include "ccRequest.h"
 #include "ccResponse.h"
-#include "ccRouteMatcher.h"
-#include "ccRouter.h"
 #include "ccRoute.h"
+#include "ccRouter.h"
 #include "ccTemplateResponse.h"
 #include "ccCommon.h"
 #include "ccSession.h"
@@ -44,4 +43,5 @@ class ccAcl;
 #include "ccRole.h"
 #include "ccResource.h"
 #include "ccAcl.h"
+#include "ccException.h"
 #endif /* CCFRAMEWORK_H_ */

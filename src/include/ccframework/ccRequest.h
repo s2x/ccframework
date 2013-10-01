@@ -23,7 +23,7 @@ class ccRequest {
 public:
 	ccRequest(FCGX_Request request);
 	virtual ~ccRequest();
-	std::string getEnvParamter(std::string name);
+	std::string getEnvParamter(std::string name, std::string default_value ="");
 	bool hasRequestParameter(std::string name);
 	std::string getRequestParameter(std::string name);
 	int getRequestParameterAsInt(std::string name, int default_value = 0);

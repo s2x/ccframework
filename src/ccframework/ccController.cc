@@ -20,14 +20,13 @@ ccController::~ccController() {
 
 
 ccResponse *ccController::forward(std::string route_name, ccRequest *request) {
-	ccRouterFunctor *route = this->app->getRouter()->getRoute(route_name);
+	ccRoute *route = this->app->getRouter()->getRoute(route_name);
+	this->app->getRouter()->setActiveRoute(route);
 	ccResponse *ret = route->Call(request);
 	return ret;
 }
 
-ccResponse* ccController::__404Action(ccRequest* request) {
-
-	//return this->forward("test", request);
+ccResponse* ccController::__errorAction(ccRequest* request, ccException e) {
 	ccTemplateResponse tpl("test_test","_404.tpl");
 	tpl.setParameter("CONTENT","TestController::__404Action["+request->getRequestParameter("megatest")+"]");
     return tpl.render();

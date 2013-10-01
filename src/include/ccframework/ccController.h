@@ -17,7 +17,7 @@ public:
 	ccResponse *forward(std::string route_name, ccRequest *request);
 	ccController(ccApp *app);
 	virtual ~ccController();
-    ccResponse *__404Action(ccRequest *request);
+    ccResponse *__errorAction(ccRequest *request, ccException e);
     ccRouter *getRouter();
 };
 

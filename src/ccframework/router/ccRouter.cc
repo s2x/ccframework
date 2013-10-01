@@ -1,5 +1,5 @@
 /*
- * ccRouter.cpp
+ * ccRoute.cpp
  *
  *  Created on: 30-07-2013
  *      Author: piotr
@@ -10,45 +10,59 @@
 namespace ccFramework {
 
 ccRouter::ccRouter() {
-	this->route_matcher = new ccRouteMatcher();
-	this->functors.clear();
 	// TODO Auto-generated constructor stub
+
 }
 
 ccRouter::~ccRouter() {
-	delete this->route_matcher;
-	if (this->functors.size()==0) return;
-	while (this->functors.size()) {
-		delete this->functors.begin()->second;
-		this->functors.erase(this->functors.begin());
-
-	};
 	// TODO Auto-generated destructor stub
-}
+		while (this->routes.size()) {
+                delete (*this->routes.begin());
+                this->routes.erase(this->routes.begin());
 
-void ccRouter::addRoute(std::string name, ccRouterFunctor* functor) {
-	this->functors[name] = functor;
-}
-
-void ccRouter::addRoute(const std::string name, std::string pattern,
-	ccRouterFunctor* functor) {
-	this->functors[name] = functor;
-	this->route_matcher->addRoute(new ccRoute(name, pattern));
+        };
 
 }
 
-ccRouterFunctor* ccRouter::getRoute(std::string route_name) {
-	if (this->functors.find( route_name ) != this->functors.end()) {
-		return this->functors[route_name];
-		this->active_route = route_name;
+ccRoute *ccRouter::getRoute(ccRequest *request) {
+	for (std::vector<ccRoute *>::iterator it = this->routes.begin();
+			it != this->routes.end(); ++it) {
+
+		if ((*it)->match(request)) {
+			std::map<std::string, std::string> tmp = (*it)->getRouteParameters();
+			for (std::map<std::string, std::string>::iterator itp = tmp.begin();itp != tmp.end(); ++itp) {
+				request->setRequestParameter(itp->first, itp->second);
+			}
+			return (*it);
+		}
 	}
-	return this->functors["__404"];
+	throw ccException("404", "Page not found!");
+	return NULL;
 }
 
-ccRouterFunctor* ccRouter::getRoute(ccRequest *request) {
-	this->active_route = this->route_matcher->getRoute(request);
-	if (this->functors.find( this->active_route  ) != this->functors.end()) return this->functors[this->active_route ];
-	return this->functors["__404"];
+ccRoute* ccRouter::getRoute(std::string route_name) {
+	for (std::vector<ccRoute *>::iterator it = this->routes.begin();
+			it != this->routes.end(); ++it) {
+
+		if ((*it)->getName() == route_name) {
+			return (*it);
+		}
+	}
+	return NULL;
+}
+
+void ccRouter::addRoute(ccRoute* route) {
+	this->routes.push_back(route);
+}
+
+ccRoute* ccRouter::getActiveRoute() {
+	return this->active_route;
+}
+
+void ccRouter::setActiveRoute(ccRoute* activeRoute) {
+	active_route = activeRoute;
 }
 
 } /* namespace ccFramework */
+
+

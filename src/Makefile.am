@@ -25,6 +25,7 @@ libccframework_la_SOURCES =  \
 	ccframework/ccQueryParser.cc \
 	ccframework/ccRequest.cc \
 	ccframework/ccSession.cc \
+	ccframework/ccException.cc \
 	ccframework/config/ccConfig.cc \
 	ccframework/config/ccConfigLoader.cc \
 	ccframework/events/ccEvent.cc \
@@ -32,7 +33,6 @@ libccframework_la_SOURCES =  \
 	ccframework/response/ccResponse.cc \
 	ccframework/response/ccTemplateResponse.cc \
 	ccframework/router/ccRoute.cc \
-	ccframework/router/ccRouteMatcher.cc \
 	ccframework/router/ccRouter.cc \
 	ccframework/acl/ccRole.cc \
 	ccframework/acl/ccAcl.cc \

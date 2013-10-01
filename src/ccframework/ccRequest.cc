@@ -22,11 +22,10 @@ ccRequest::~ccRequest() {
 	if (this->session != NULL) delete this->session;
 }
 
-std::string ccRequest::getEnvParamter(std::string name) {
+std::string ccRequest::getEnvParamter(std::string name, std::string default_value) {
 	char *tmp = FCGX_GetParam(name.c_str(), this->request.envp);
-	if (tmp)
-		return tmp;
-	return "";
+	if (tmp) return tmp;
+	return default_value;
 }
 
 void ccRequest::parseGetParameters() {

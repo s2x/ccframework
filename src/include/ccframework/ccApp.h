@@ -13,7 +13,6 @@
 namespace ccFramework {
 
 class ccApp {
-	char **envp;
 	static ccApp *instance;
 	ccController *default_countroller;
 	ccRequest *request;
@@ -21,15 +20,25 @@ class ccApp {
 	ccAcl *acl;
 	static ccConfigLoader *config;
 	bool loadConfig(std::string config_file);
+
+	std::streambuf * cin_streambuf;
+	std::streambuf * cout_streambuf;
+	std::streambuf * cerr_streambuf;
+
 public:
+	static const int ERROR_401 = 401;
+	static const int ERROR_403 = 403;
+	static const int ERROR_404 = 404;
+	static const int ERROR_500= 500;
+
 	ccApp(std::string config_file);
 	~ccApp();
 
 	static std::string getConfigValue(std::string name);
 	static std::string getConfigValue(std::string name, std::string value);
-	std::string getInitParam(std::string name);
 
 	virtual void init() {};
+	void run();
 	ccRouter *getRouter() {
 		return this->router;
 	}

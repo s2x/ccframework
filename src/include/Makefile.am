@@ -17,10 +17,10 @@ nobase_include_HEADERS = ccframework/ccApp.h \
 	ccframework/ccRequest.h \
 	ccframework/ccResponse.h \
 	ccframework/ccRoute.h \
-	ccframework/ccRouteMatcher.h \
 	ccframework/ccRouter.h \
 	ccframework/ccSession.h \
 	ccframework/ccTemplateResponse.h \
 	ccframework/ccRole.h \
 	ccframework/ccAcl.h \
-	ccframework/ccResource.h
+	ccframework/ccResource.h \
+	ccframework/ccException.h
