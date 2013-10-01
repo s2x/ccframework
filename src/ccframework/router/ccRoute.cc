@@ -124,7 +124,12 @@ ccRoute::~ccRoute() {
 }
 
 ccResponse *ccRoute::Call(ccRequest* request) {
-	this->functor->Call(request);
+	if (ccApp::getInstance()->getAcl()->isAllowed(request->getSession()->get("acl.user",""), this->getName())) {
+		return this->functor->Call(request);
+	} else {
+		throw ccException(ccException::ERROR_FORBIDDEN, ccException::ERROR_MSG_FORBIDDEN);
+	}
+	return NULL;
 }
 
 } /* namespace ccFramework */

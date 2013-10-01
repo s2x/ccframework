@@ -42,4 +42,48 @@ bool ccAcl::hasRole(std::string name) {
 	return false;
 }
 
+void ccAcl::addResource(std::string name, std::string parent) {
+	if (!this->hasResource("name")) {
+		ccResource *tmp = new ccResource(name);
+		this->resources.push_back(tmp);
+		if (this->hasResource(parent)) {
+			tmp->setParent(this->getResource(parent));
+		}
+	}
+}
+
+ccResource* ccAcl::getResource(std::string name) {
+	for (int i=0; i<this->resources.size(); i++) {
+		if (this->resources[i]->getName() == name) this->resources[i];
+	}
+	return NULL;
+}
+
+bool ccAcl::isAllowAll(){
+	return allow_all;
+}
+
+void ccAcl::setAllowAll(bool allowAll) {
+	this->allow_all = allowAll;
+}
+
+bool ccAcl::hasResource(std::string name) {
+	for (int i=0; i<this->resources.size(); i++) {
+		if (this->resources[i]->getName() == name) return true;
+	}
+	return false;
+}
+
+bool ccAcl::isAllowed(std::string role, std::string resource) {
+	if (this->isAllowAll()) {
+		//looking only for deny entry
+
+		return true;
+	}
+
+	return false;
+}
+
 } /* namespace ccFramework */
+
+

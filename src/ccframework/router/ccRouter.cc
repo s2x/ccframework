@@ -52,6 +52,7 @@ ccRoute* ccRouter::getRoute(std::string route_name) {
 }
 
 void ccRouter::addRoute(ccRoute* route) {
+	ccApp::getInstance()->getAcl()->addResource("__route_"+route->getName());
 	this->routes.push_back(route);
 }
 

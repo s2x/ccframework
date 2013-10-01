@@ -27,9 +27,12 @@ ccResponse *ccController::forward(std::string route_name, ccRequest *request) {
 }
 
 ccResponse* ccController::__errorAction(ccRequest* request, ccException e) {
-	ccTemplateResponse tpl("test_test","_404.tpl");
-	tpl.setParameter("CONTENT","TestController::__404Action["+request->getRequestParameter("megatest")+"]");
-    return tpl.render();
+	ccTemplateResponse tpl("__error","_error.tpl");
+	tpl.setParameter("ERROR_NUMBER", e.getCode());
+	tpl.setParameter("ERROR_MSG", e.getMessage());
+	ccResponse *ret = tpl.render();
+	ret->setHeader("Status",e.getCode());
+    return ret;
 }
 
 ccRouter* ccController::getRouter() {

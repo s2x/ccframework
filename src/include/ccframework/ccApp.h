@@ -26,10 +26,6 @@ class ccApp {
 	std::streambuf * cerr_streambuf;
 
 public:
-	static const int ERROR_401 = 401;
-	static const int ERROR_403 = 403;
-	static const int ERROR_404 = 404;
-	static const int ERROR_500= 500;
 
 	ccApp(std::string config_file);
 	~ccApp();
@@ -50,6 +46,7 @@ public:
 	}
 
 	ccRequest *getRequest();
+	ccAcl* getAcl();
 };
 
 } /* namespace ccFramework */

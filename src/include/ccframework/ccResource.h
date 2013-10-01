@@ -11,9 +11,14 @@
 namespace ccFramework {
 
 class ccResource {
+	std::string name;
+	ccResource *parent;
 public:
-	ccResource();
+	ccResource(std::string name, ccResource *parent = NULL);
 	virtual ~ccResource();
+	ccResource* getParent();
+	void setParent(ccResource* parent);
+	std::string getName();
 };
 
 } /* namespace ccFramework */

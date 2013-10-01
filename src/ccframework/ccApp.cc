@@ -30,6 +30,8 @@ ccApp::ccApp(std::string config_file) {
 	this->cerr_streambuf = std::cerr.rdbuf();
 
 	this->acl = new ccAcl();
+	this->acl->addRole("_GUEST");
+	this->acl->setAllowAll(true);
 }
 ccApp::~ccApp() {
 #if HAVE_IOSTREAM_WITHASSIGN_STREAMBUF
@@ -127,5 +129,10 @@ void ccApp::run() {
 	FCGX_Finish_r(&request);
 }
 
+ccAcl* ccApp::getAcl(){
+	return this->acl;
+}
+
 } /* namespace ccFramework */
+
 

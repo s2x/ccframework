@@ -16,6 +16,15 @@ class ccException {
 	std::string code;
 	std::string msg;
 public:
+	static const std::string ERROR_UNAUTHORIZED;
+	static const std::string ERROR_FORBIDDEN;
+	static const std::string ERROR_NOT_FOUND;
+	static const std::string ERROR_INTERNAL_SERVER_ERROR;
+
+
+	static const std::string ERROR_MSG_INTERNAL_SERVER_ERROR;
+	static const std::string ERROR_MSG_FORBIDDEN;
+
 	ccException(std::string code, std::string msg);
 	virtual ~ccException();
 	std::string getCode();
