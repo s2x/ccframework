@@ -43,7 +43,7 @@ ccRouter* ccController::getRouter() {
 ccResponse* ccController::redirect(std::string url, std::string code) {
 	ccResponse* ret= new ccResponse();
 	ret->redirect(url);
-	ret->setHeader("Status",code);
+	if (code != "") ret->setHeader("Status",code);
 	ret->setContent("<!DOCTYPE html> \
 <html> \
     <head> \

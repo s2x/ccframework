@@ -36,7 +36,7 @@ bool ccRoute::match(ccRequest *request) {
 
 	this->request_params.clear();
 
-	std::string request_uri = request->getEnvParamter("REDIRECT_URL");
+	std::string request_uri = request->getEnvParamter("REDIRECT_URL",request->getEnvParamter("REQUEST_URI"));
 	request_uri = request_uri.substr(0, request_uri.find_first_of("?"));
 
 	rc = pcre_exec(this->re, NULL, request_uri.c_str(), request_uri.length(), 0,
