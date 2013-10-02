@@ -13,6 +13,7 @@ ccRequest::ccRequest(FCGX_Request request) {
 	// TODO Auto-generated constructor stub
 	this->request = request;
 	this->session = NULL;
+	this->parsePostParameters();
 	this->parseGetParameters();
 	this->parseCookieParameters();
 }
@@ -31,8 +32,23 @@ std::string ccRequest::getEnvParamter(std::string name, std::string default_valu
 void ccRequest::parseGetParameters() {
 	char *tmp = FCGX_GetParam("QUERY_STRING", this->request.envp);
 	ccQueryParser qp(tmp);
-	this->params = qp.getAllParameters();
+	this->query_params= qp.getAllParameters();
 }
+
+
+void ccRequest::parsePostParameters() {
+	char buf[256];
+	memset(buf,0,sizeof(buf));
+	std::string tmp="";
+	while (FCGX_GetStr(buf, sizeof(buf), request.in) > 0) {
+	    tmp.append(buf);
+		memset(buf,0,sizeof(buf));
+	}
+	ccQueryParser qp(tmp);
+	this->post_params = qp.getAllParameters();
+}
+
+
 void ccRequest::parseCookieParameters() {
 	char *tmp = FCGX_GetParam("HTTP_COOKIE", this->request.envp);
 	if (tmp!=NULL) {
@@ -42,23 +58,20 @@ void ccRequest::parseCookieParameters() {
 }
 
 bool ccRequest::hasRequestParameter(std::string name) {
-	return this->params.count(name);
+	return this->query_params.count(name);
 }
 
-std::string ccRequest::getRequestParameter(std::string name) {
-	return this->getRequestParameter(name, "");
-}
 std::string ccRequest::getRequestParameter(std::string name,
 		std::string default_value) {
 	if (this->hasRequestParameter(name)) {
-		return ccCommon::UriDecode(this->params[name]);
+		return ccCommon::UriDecode(this->query_params[name]);
 	}
 	return default_value;
 }
 
 void ccFramework::ccRequest::setRequestParameter(std::string name,
 		std::string value) {
-	this->params[name] = value;
+	this->query_params[name] = value;
 }
 
 std::string ccRequest::getCookie(std::string name, std::string default_value) {
@@ -92,7 +105,23 @@ double ccRequest::getRequestParameterAsDouble(std::string name, double default_v
 	return ccCommon::string2double(this->getRequestParameter(name));
 }
 
+bool ccRequest::hasPostParameter(std::string name) {
 
+	return (this->post_params.find(name)!=this->post_params.end())?true:false;
+}
+
+std::string ccRequest::getPostParameter(std::string name,
+		std::string default_value) {
+
+	if (this->hasPostParameter(name)) return this->post_params[name];
+	return default_value;
+
+}
+
+int ccRequest::getMethod() {
+	if (this->getEnvParamter("REQUEST_METHOD","GET")=="POST") return ccRequest::POST;
+	//if (this->getEnvParamter("REQUEST_METHOD","GET")=="GET") return ccRequest::GET;
+	return ccRequest::GET;
+}
 
 } /* namespace ccFramework */
-

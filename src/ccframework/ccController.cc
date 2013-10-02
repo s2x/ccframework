@@ -40,5 +40,24 @@ ccRouter* ccController::getRouter() {
 }
 
 
-} /* namespace ccFramework */
+ccResponse* ccController::redirect(std::string url, std::string code) {
+	ccResponse* ret= new ccResponse();
+	ret->redirect(url);
+	ret->setHeader("Status",code);
+	ret->setContent("<!DOCTYPE html> \
+<html> \
+    <head> \
+        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> \
+        <meta http-equiv=\"refresh\" content=\"1;url="+url+"\" /> \
+        <title>Redirecting to "+url+"</title> \
+    </head> \
+    <body> \
+        Redirecting to <a href=\""+url+"\">%1$s</a>. \
+    </body> \
+</html>");
+	return ret;
 
+}
+
+
+} /* namespace ccFramework */

@@ -50,6 +50,7 @@ ccApp::~ccApp() {
 }
 
 ccResponse *ccApp::processRequest(FCGX_Request fcgi_request) {
+
 	ctemplate::mutable_default_template_cache()->ReloadAllIfChanged(
 			ctemplate::TemplateCache::IMMEDIATE_RELOAD);
 
@@ -126,6 +127,12 @@ void ccApp::run() {
 		FCGX_FPrintF(request.out, "%s"
 				"\r\n"
 				"%s", resp->getHeaders().c_str(), resp->getContent().c_str());
+		//FCGX_FPrintF(request.out,"<pre>");
+	    //for ( ; *request.envp != NULL; request.envp++) {
+	    //	FCGX_FPrintF(request.out,"%s\n", *request.envp);
+	    //}
+		//FCGX_FPrintF(request.out,"</pre>");
+
 		delete resp;
 	}
 	FCGX_Finish_r(&request);

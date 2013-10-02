@@ -19,6 +19,8 @@ public:
 	virtual ~ccController();
     ccResponse *__errorAction(ccRequest *request, ccException e);
     ccRouter *getRouter();
+
+    ccResponse *redirect(std::string url, std::string code = "302");
 };
 
 } /* namespace ccFramework */

@@ -25,7 +25,7 @@ ccRouter::~ccRouter() {
 }
 
 ccRoute *ccRouter::getRoute(ccRequest *request) {
-	std::cerr<<"Checking for: "<<request->getEnvParamter("REQUEST_URI")<<std::endl;
+	std::cerr<<"Checking for: "<<request->getEnvParamter("REDIRECT_URL")<<std::endl;
 
 	for (std::vector<ccRoute *>::iterator it = this->routes.begin();
 			it != this->routes.end(); ++it) {
