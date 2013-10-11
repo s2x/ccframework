@@ -14,6 +14,7 @@ class ccRoute {
 	std::vector<std::string> route_params;
 	std::vector<std::string> route_parts;
 	std::map<std::string, std::string> request_params;
+	std::map<std::string, std::string> params_type;
 	ccRouterFunctor* functor;
 public:
 	ccRoute(std::string name, ccRouterFunctor* functor);
@@ -26,6 +27,9 @@ public:
 	ccResponse *Call(ccRequest* request);
 	void setPermision(std::string role, bool allowed);
 	void inheritPermissions(std::string route_name);
+	void setParameterType(std::string name, std::string patter);
+	std::string getUrl(std::map<std::string, std::string> params);
+
 
 	virtual ~ccRoute();
 

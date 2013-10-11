@@ -29,15 +29,17 @@ const std::string& ccTemplateResponse::getLayout() const {
 }
 
 ccTemplateResponse::ccTemplateResponse(std::string dict_name, std::string template_name) {
-	this->layout = "layout.tpl";
+	std::string rname = ccApp::getInstance()->getRouter()->getActiveRouteName();
+
+	this->layout = ccApp::getInstance()->getConfigValue("routes."+rname+".layout",ccApp::getInstance()->getConfigValue("templates.default_template","layout.tpl"));
 	this->template_name = template_name;
 	this->layout_dict = new ctemplate::TemplateDictionary(dict_name);
 	this->dict = this->layout_dict->AddIncludeDictionary("RAW_CONTENT");
 
-	//set positioning stuf
-	this->description = ccApp::getInstance()->getConfigValue("templates.default_description","");
-	this->title = ccApp::getInstance()->getConfigValue("templates.default_title","");
-	this->keywords = ccApp::getInstance()->getConfigValue("templates.default_keywords","");
+	//set positioning stuff
+	this->description = ccApp::getInstance()->getConfigValue("routes."+rname+".description",ccApp::getInstance()->getConfigValue("templates.default_description",""));
+	this->title = ccApp::getInstance()->getConfigValue("routes."+rname+".title",ccApp::getInstance()->getConfigValue("templates.default_title",""));
+	this->keywords = ccApp::getInstance()->getConfigValue("routes."+rname+".keywords",ccApp::getInstance()->getConfigValue("templates.default_keywords",""));
 }
 
 ccTemplateResponse::~ccTemplateResponse() {
