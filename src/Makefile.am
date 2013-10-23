@@ -16,6 +16,7 @@ AM_CFLAGS =\
 
 lib_LTLIBRARIES = libccframework.la
 
+bin_PROGRAMS = routertest
 
 libccframework_la_SOURCES =  \
 	ccframework/ccApp.cc \
@@ -47,6 +48,12 @@ libccframework_la_LDFLAGS =
 libccframework_la_LIBADD =  \
 	$(YAML_CPP_LIBS) \
 	$(LIBPCRE_LIBS)
+
+routertest_SOURCES = test/router-test.cc
+routertest_LDADD = libccframework.la \
+	-lctemplate \
+	-lfcgi \
+	-lfcgi++
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = ccframework.pc
