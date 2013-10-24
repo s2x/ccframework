@@ -220,6 +220,11 @@ std::string ccRoute::getUrl(std::map<std::string, std::string> params) {
 	return ret;
 }
 
+std::string ccRoute::getUrl(std::string query_string) {
+	ccQueryParser qp(query_string);
+	return this->getUrl(qp.getAllParameters());
+}
 
 } /* namespace ccFramework */
+
 

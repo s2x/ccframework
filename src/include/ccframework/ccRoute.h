@@ -19,17 +19,28 @@ class ccRoute {
 public:
 	ccRoute(std::string name, ccRouterFunctor* functor);
 	ccRoute(std::string name, std::string pattern,  ccRouterFunctor* functor);
+
 	bool match(ccRequest *request);
 	std::string prepare(std::string pattern);
+
+	//if is active route then get paramters
 	bool hasRouteParameter(std::string name);
 	std::string getRouteParameter(std::string name);
 	std::string getRouteParameter(std::string name, std::string default_value);
+
+	// run controle/action
 	ccResponse *Call(ccRequest* request);
+
+	// permisions
 	void setPermision(std::string role, bool allowed);
 	void inheritPermissions(std::string route_name);
-	void setParameterType(std::string name, std::string patter);
-	std::string getUrl(std::map<std::string, std::string> params);
 
+
+	void setParameterType(std::string name, std::string patter);
+
+	// genertaing urls
+	std::string getUrl(std::map<std::string, std::string> params);
+	std::string getUrl(std::string query_string);
 
 	virtual ~ccRoute();
 

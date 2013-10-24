@@ -28,10 +28,16 @@ class ccApp {
 public:
 
 	ccApp(std::string config_file);
-	~ccApp();
+	virtual ~ccApp();
 
 	static std::string getConfigValue(std::string name);
 	static std::string getConfigValue(std::string name, std::string value);
+
+
+	//helpers
+	static std::string genUrl(std::string route_name, std::string query_string);
+	static std::string genUrl(std::string route_name, std::map<std::string, std::string> params);
+	static std::string getActiveRouteName();
 
 	virtual void init() {};
 	void run();
