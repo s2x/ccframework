@@ -23,7 +23,8 @@ libccframework_la_SOURCES =  \
 	ccframework/ccCommon.cc \
 	ccframework/ccController.cc \
 	ccframework/ccCookie.cc \
-	ccframework/ccQueryParser.cc \
+	ccframework/parsers/ccQueryParser.cc \
+	ccframework/parsers/ccMultipartParser.cc \
 	ccframework/ccRequest.cc \
 	ccframework/ccSession.cc \
 	ccframework/ccException.cc \

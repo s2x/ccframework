@@ -163,11 +163,11 @@ void ccApp::run() {
 		FCGX_FPrintF(request.out, "%s"
 				"\r\n"
 				"%s", resp->getHeaders().c_str(), resp->getContent().c_str());
-		//FCGX_FPrintF(request.out,"<pre>");
-		//for ( ; *request.envp != NULL; request.envp++) {
-		//	FCGX_FPrintF(request.out,"%s\n", *request.envp);
-		//}
-		//FCGX_FPrintF(request.out,"</pre>");
+		FCGX_FPrintF(request.out,"<pre>");
+		for ( ; *request.envp != NULL; request.envp++) {
+			FCGX_FPrintF(request.out,"%s\n", *request.envp);
+		}
+		FCGX_FPrintF(request.out,"</pre>");
 
 		//free memory
 		delete resp;

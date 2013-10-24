@@ -21,6 +21,7 @@ class ccRole;
 class ccResource;
 class ccAcl;
 class ccException;
+class ccMultipartParser;
 }
 #include <iostream>
 #include <fstream>
@@ -44,4 +45,5 @@ class ccException;
 #include "ccResource.h"
 #include "ccAcl.h"
 #include "ccException.h"
+#include "ccMultipartParser.h"
 #endif /* CCFRAMEWORK_H_ */
