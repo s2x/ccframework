@@ -39,7 +39,7 @@ bool ccCommon::file_exists(std::string filename) {
 	}
 	return ret;
 }
-
+/*
 std::string ccCommon::ltrim(std::string s) {
 	s.erase(s.begin(),
 			std::find_if(s.begin(), s.end(),
@@ -55,11 +55,30 @@ std::string ccCommon::rtrim(std::string s) {
 			s.end());
 	return s;
 }
+*/
+
+std::string ccCommon::rtrim(std::string s, std::string delimiters)
+{
+   s.erase( s.find_last_not_of( delimiters ) + 1 );
+   return s;
+}
+
+std::string ccCommon::ltrim(std::string s,  std::string delimiters)
+{
+   s.erase( 0, s.find_first_not_of( delimiters ) );
+   return s;
+}
+
+std::string ccCommon::trim(std::string s, std::string delimiters)
+{
+    //s.erase( s.find_last_not_of( delimiters ) + 1 ).erase( 0, s.erase( s.find_last_not_of( delimiters ) + 1 ).find_first_not_of( delimiters ) );
+    return ltrim(rtrim(s));
+}
 
 // trim from both ends
-std::string ccCommon::trim(std::string s) {
-	return ltrim(rtrim(s));
-}
+//std::string ccCommon::trim(std::string s) {
+//	return ltrim(rtrim(s));
+//}
 
 std::string ccCommon::UriEncode(const std::string & sSrc) {
 	const char DEC2HEX[16 + 1] = "0123456789ABCDEF";
@@ -121,6 +140,8 @@ std::string ccCommon::UriDecode(const std::string & sSrc) {
 	delete[] pStart;
 	return sResult;
 }
+
+
 
 std::string ccCommon::htmlTag(std::string name, std::string value,
 		std::map<std::string, std::string> attr) {

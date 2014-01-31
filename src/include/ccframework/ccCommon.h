@@ -60,9 +60,9 @@ public:
 	virtual ~ccCommon();
 	static std::string UriEncode(const std::string & sSrc);
 	static std::string UriDecode(const std::string & sSrc);
-	static std::string ltrim(std::string s);
-	static std::string rtrim(std::string s);
-	static std::string trim(std::string s);
+	static std::string ltrim(std::string s, std::string delimiters = " \f\n\r\t\v" );
+	static std::string rtrim(std::string s, std::string delimiters = " \f\n\r\t\v" );
+	static std::string trim(std::string s, std::string delimiters = " \f\n\r\t\v" );
 	static bool file_exists(std::string filename);
 	static std::string md5hash(std::string val);
 	static std::string htmlTag(std::string name, std::string value, std::map<std::string, std::string> attr);

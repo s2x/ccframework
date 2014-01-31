@@ -37,15 +37,25 @@ void ccRequest::parseGetParameters() {
 
 
 void ccRequest::parsePostParameters() {
-	char buf[256];
+	char buf[4000];
 	memset(buf,0,sizeof(buf));
 	std::string tmp="";
 	while (FCGX_GetStr(buf, sizeof(buf), request.in) > 0) {
 	    tmp.append(buf);
 		memset(buf,0,sizeof(buf));
 	}
-	ccQueryParser qp(tmp);
-	this->post_params = qp.getAllParameters();
+	std::string content_type = this->getEnvParamter("CONTENT_TYPE","");
+	if (content_type.find("multipart/form-data;",0)==0) {
+		int bound_pos = content_type.find("boundary=",0);
+		if (bound_pos != std::string::npos) {
+			std::string boundry = content_type.substr((bound_pos+9));
+			ccMultipartParser mpp(tmp, boundry);
+			this->post_params = mpp.getAllParameters();
+		}
+	}else {
+		ccQueryParser qp(tmp);
+		this->post_params = qp.getAllParameters();
+	}
 }
 
 

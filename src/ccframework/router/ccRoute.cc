@@ -178,6 +178,8 @@ std::string ccRoute::getUrl(std::map<std::string, std::string> params) {
 	int substring_start = 0;
 	bool has_params = false;
 
+	std::map<std::string, std::string> set_params = params;
+
 	pcre *pre = pcre_compile("{:(.*?)}", 0, &error, &erroffset, NULL);
 	do {
 		rc = pcre_exec(pre, NULL, tmp_pattern.c_str(), tmp_pattern.length(), offset, 0, ovector,
@@ -191,22 +193,38 @@ std::string ccRoute::getUrl(std::map<std::string, std::string> params) {
 			substring_start = ovector[2];
 			substring_length = ovector[3] - ovector[2];
 			route_part = tmp_pattern.substr(substring_start, substring_length);
-			if (params.count(route_part))ret.append(params[route_part]);
+			if (params.count(route_part)) {
+				ret.append(ccCommon::UriEncode(params[route_part]));
+				set_params.erase(route_part);
+			}
+			else {
+				throw ccException("500","Route "+this->getName()+" require paramter: "+route_part);
+			}
 		}
 		offset = ovector[1];
 	} while (rc >= 0);
-
 	pcre_free(pre);
-	if (!has_params) {
-		//this->route_parts.push_back(pattern);
-		return this->pattern;
+
+	std::string query = "";
+	for(std::map<std::string, std::string>::iterator it = set_params.begin(); it != set_params.end(); ++it) {
+		query+=ccCommon::UriEncode(it->first)+"="+ccCommon::UriEncode(it->second);
+		if (it != --set_params.end()) query += "&";
 	}
 
 	if (error) delete error;
+
+	if (!has_params) ret = this->pattern;
+	if (query!="") ret += "?"+query;
+
 	/* number of elements in the output vector */
 	return ret;
 }
 
+std::string ccRoute::getUrl(std::string query_string) {
+	ccQueryParser qp(query_string);
+	return this->getUrl(qp.getAllParameters());
+}
 
 } /* namespace ccFramework */
+
 
