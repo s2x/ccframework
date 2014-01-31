@@ -12,6 +12,8 @@ namespace ccFramework {
 const std::string ccAcl::DEFAULT_ROLE = "__GUEST";
 
 ccAcl::ccAcl() {
+	this->allow_all = true;
+	this->allow_first = true;
 	// TODO Auto-generated constructor stub
 	this->addRole(ccAcl::DEFAULT_ROLE, "");
 }

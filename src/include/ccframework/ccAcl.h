@@ -15,8 +15,8 @@ namespace ccFramework {
 class ccAcl {
 	std::vector<ccRole *> roles;
 	std::vector<ccResource *> resources;
-	bool allow_all = false;
-	bool allow_first = true;
+	bool allow_all;
+	bool allow_first;
 
 	std::map<ccResource *, std::map <ccRole*, bool > > permisions;
 

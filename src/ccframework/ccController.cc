@@ -39,6 +39,14 @@ ccRouter* ccController::getRouter() {
 	return this->app->getRouter();
 }
 
+std::string ccController::genUrl(std::string route_name, std::map<std::string, std::string> params) {
+	ccRoute *route = this->getRouter()->getRoute(route_name);
+	
+	if (route) {
+		return route->getUrl(params);
+	}
+	return "";
+}
 
 ccResponse* ccController::redirect(std::string url, std::string code) {
 	ccResponse* ret= new ccResponse();

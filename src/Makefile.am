@@ -8,7 +8,7 @@ AM_CPPFLAGS = \
 	-DPACKAGE_DATA_DIR=\""$(pkgdatadir)"\" \
 	$(YAML_CPP_CFLAGS) \
 	$(LIBPCRE_CFLAGS) \
-	-std=c++11
+	-std=c++0x
 
 AM_CFLAGS =\
 	 -Wall\
