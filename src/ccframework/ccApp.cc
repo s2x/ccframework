@@ -66,8 +66,10 @@ ccResponse *ccApp::processRequest(FCGX_Request fcgi_request) {
 	this->request = new ccRequest(fcgi_request);
 
 	// autostart session
+	this->getRequest()->setSession(new ccSession(request));
 	if (this->getConfigValue("session.autostart", "0") == "1") {
-		this->request->setSession(new ccSession(request));
+		//autosave
+		this->getRequest()->getSession()->setSave(true);
 	}
 
 	//get role from session
@@ -85,7 +87,7 @@ ccResponse *ccApp::processRequest(FCGX_Request fcgi_request) {
 	}
 
 	// save session if exists and set session id to cookie
-	if (this->request->getSession()) {
+	if (this->getRequest()->getSession()) {
 		ccCookie *cs = new ccCookie(
 				this->getConfigValue("session.session_id", "CCF_SESSSION_ID"),
 				request->getSession()->getId());
@@ -163,11 +165,11 @@ void ccApp::run() {
 		FCGX_FPrintF(request.out, "%s"
 				"\r\n"
 				"%s", resp->getHeaders().c_str(), resp->getContent().c_str());
-		FCGX_FPrintF(request.out,"<pre>");
-		for ( ; *request.envp != NULL; request.envp++) {
-			FCGX_FPrintF(request.out,"%s\n", *request.envp);
-		}
-		FCGX_FPrintF(request.out,"</pre>");
+		//FCGX_FPrintF(request.out,"<pre>");
+		//for ( ; *request.envp != NULL; request.envp++) {
+		//	FCGX_FPrintF(request.out,"%s\n", *request.envp);
+		//}
+		//FCGX_FPrintF(request.out,"</pre>");
 
 		//free memory
 		delete resp;

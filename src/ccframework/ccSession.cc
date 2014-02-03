@@ -30,8 +30,7 @@ ccSession::ccSession(ccRequest *request) {
 
 	this->session_file = sess_dir + "/" + this->id + ".sess";
 	this->loadSession();
-	// TODO Auto-generated constructor stub
-
+	this->save = false;
 }
 
 void ccSession::loadSession() {
@@ -48,8 +47,14 @@ std::string ccSession::get(std::string path, std::string val) {
 
 ccSession::~ccSession() {
 // TODO Auto-generated destructor stub
-	this->session->save();
+	if (this->save) this->session->save();
 	delete this->session;
 }
 
+void ccSession::setSave(bool save) {
+	this->save = save;
+}
+
 } /* namespace ccFramework */
+
+

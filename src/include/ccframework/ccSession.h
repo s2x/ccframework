@@ -16,6 +16,7 @@ class ccSession {
 	std::string session_file;
 	ccConfigLoader *session;
 	void loadSession();
+	bool save;
 public:
 	void set(std::string path, std::string val);
 	std::string get(std::string path, std::string val="");
@@ -28,6 +29,8 @@ public:
 	const std::string& getId() const {
 		return id;
 	}
+
+	void setSave(bool save);
 };
 
 } /* namespace ccFramework */
