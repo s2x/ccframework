@@ -3,7 +3,7 @@ exec_prefix=@exec_prefix@
 libdir=@libdir@
 datarootdir=@datarootdir@
 datadir=@datadir@
-includedir=@includedir@/libccframework
+includedir=@includedir@/ccframework
 
 Name: ccframework
 Description: Sample library created by Anjuta project wizard.

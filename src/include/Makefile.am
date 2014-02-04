@@ -24,4 +24,17 @@ nobase_include_HEADERS = ccframework/ccApp.h \
 	ccframework/ccAcl.h \
 	ccframework/ccResource.h \
 	ccframework/ccException.h \
-	ccframework/ccMultipartParser.h
+	ccframework/ccMultipartParser.h \
+	ccframework/ctemplate/template.h \
+	ccframework/ctemplate/template_cache.h \
+	ccframework/ctemplate/template_string.h \
+	ccframework/ctemplate/template_enums.h \
+	ccframework/ctemplate/template_pathops.h \
+	ccframework/ctemplate/template_modifiers.h \
+	ccframework/ctemplate/template_dictionary.h \
+	ccframework/ctemplate/template_dictionary_interface.h \
+	ccframework/ctemplate/template_annotator.h \
+	ccframework/ctemplate/template_emitter.h \
+	ccframework/ctemplate/template_namelist.h \
+	ccframework/ctemplate/per_expand_data.h \
+	ccframework/ctemplate/str_ref.h
