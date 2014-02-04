@@ -1,6 +1,8 @@
 #!/bin/sh
 # Run this to generate all the initial makefiles, etc.
 
+rm -rf autom4te.cache
+
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
 
@@ -135,7 +137,7 @@ do
 	fi
       fi
       echo "Running aclocal $aclocalinclude ..."
-      aclocal $aclocalinclude
+      aclocal $aclocalinclude -I m4
       if grep "^A[CM]_CONFIG_HEADER" configure.ac >/dev/null; then
 	echo "Running autoheader..."
 	autoheader
@@ -143,7 +145,7 @@ do
       echo "Running automake --gnu $am_opt ..."
       automake --add-missing --copy --gnu $am_opt
       echo "Running autoconf ..."
-      autoconf
+      autoconf -f -W all,no-obsolete
     )
   fi
 done

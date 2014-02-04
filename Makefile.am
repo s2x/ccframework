@@ -1,6 +1,9 @@
 ## Process this file with automake to produce Makefile.in
 ## Created by Anjuta
 
+# Make sure that when we re-make ./configure, we get the macros we need
+ACLOCAL_AMFLAGS = -I m4
+
 SUBDIRS = src po
 
 libccframeworkdocdir = ${prefix}/doc/libccframework
