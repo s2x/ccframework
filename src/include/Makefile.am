@@ -24,7 +24,6 @@ nobase_include_HEADERS = ccframework/ccApp.h \
 	ccframework/ccAcl.h \
 	ccframework/ccResource.h \
 	ccframework/ccException.h \
-	ccframework/ccException.h \
 	ccframework/ccMultipartParser.h \
 	ccframework/ccBaseHelper.h \
 	ccframework/ctemplate/template.h \
