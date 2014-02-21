@@ -22,6 +22,7 @@ class ccResource;
 class ccAcl;
 class ccException;
 class ccMultipartParser;
+class ccBaseHelper;
 }
 #include <iostream>
 #include <fstream>
@@ -46,4 +47,5 @@ class ccMultipartParser;
 #include "ccAcl.h"
 #include "ccException.h"
 #include "ccMultipartParser.h"
+#include "ccBaseHelper.h"
 #endif /* CCFRAMEWORK_H_ */
