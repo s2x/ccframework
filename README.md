@@ -5,16 +5,18 @@ Extreme fast C++ framework for web projects. Designed for low-cost VPS as well a
 
 Requirements
 ===========
-* Git for source download
-* G++ compiler with support for C++11
-
+* Git for source download,
+* G++ compiler with support for C++11,
+* LibFcgi,
+* Yaml-cpp >= 5.1, see: https://code.google.com/p/yaml-cpp/
+* 
 
 Debian 7 installation instructions
 ===========
 Here is list of packages to install before compile ccFramework
-* install some dev packages
-<code>apt-get install g++ autconf intltool libtool libglib2.0-dev libyaml-cpp-dev 
-
+* install some debian packages
+<code>apt-get install g++ autconf intltool libtool libglib2.0-dev libfcgi-dev</code>
+* install Yaml-cpp
 * clone repo: <code>git clone https://github.com/s2x/ccframework.git</code>
 * change dir: <code>cd ccframework</code>
 
