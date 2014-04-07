@@ -12,6 +12,12 @@ Requirements
 Debian 7 installation instructions
 ===========
 Here is list of packages to install before compile ccFramework
+* install some dev packages
+<code>apt-get install g++ autconf intltool libtool libglib2.0-dev libyaml-cpp-dev 
+
+* clone repo: <code>git clone https://github.com/s2x/ccframework.git</code>
+* change dir: <code>cd ccframework</code>
+
 
 
 RoadMap
