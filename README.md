@@ -7,9 +7,9 @@ Requirements
 ===========
 * Git for source download,
 * G++ compiler with support for C++11,
-* LibFcgi,
+* autotools,
+* libfcgi,
 * Yaml-cpp >= 5.1, see: https://code.google.com/p/yaml-cpp/
-* 
 
 Debian 7 installation instructions
 ===========
@@ -17,9 +17,14 @@ Here is list of packages to install before compile ccFramework
 * install some debian packages
 <code>apt-get install g++ autconf intltool libtool libglib2.0-dev libfcgi-dev</code>
 * install Yaml-cpp
+ * install Requirements: <code>apt-get install libboost-dev cmake</code>
+ * download source: <code>wget https://yaml-cpp.googlecode.com/files/yaml-cpp-0.5.1.tar.gz</code>
+ * unpack source: <code>tar -xvf yaml-cpp-0.5.1.tar.gz && cd yaml-cpp-0.5.1</code>
+ * complie: <code>cmake . && make && make install</code>
 * clone repo: <code>git clone https://github.com/s2x/ccframework.git</code>
 * change dir: <code>cd ccframework</code>
-
+* run autogen: <code>./autogen.sh</code>
+* install: <code>make && make install</code>
 
 
 RoadMap
