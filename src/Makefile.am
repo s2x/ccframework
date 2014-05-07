@@ -93,4 +93,6 @@ EXTRA_DIST = \
 
 SUBDIRS = vendor \
 	include \
-	.
+	. \
+	test
+	

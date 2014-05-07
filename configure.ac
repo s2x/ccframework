@@ -115,4 +115,5 @@ src/vendor/md5/Makefile
 src/vendor/ctemplate/Makefile
 src/vendor/ctemplate/base/Makefile
 src/vendor/ctemplate/htmlparser/Makefile
+src/test/Makefile
 ])

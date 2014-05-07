@@ -48,6 +48,11 @@ std::string ccController::genUrl(std::string route_name, std::map<std::string, s
 	return "";
 }
 
+std::string ccFramework::ccController::genUrl(std::string route_name) {
+	std::map<std::string, std::string> params;
+	return this->genUrl(route_name, params);
+}
+
 ccResponse* ccController::redirect(std::string url, std::string code) {
 	ccResponse* ret= new ccResponse();
 	ret->redirect(url);
@@ -69,3 +74,5 @@ ccResponse* ccController::redirect(std::string url, std::string code) {
 
 
 } /* namespace ccFramework */
+
+
