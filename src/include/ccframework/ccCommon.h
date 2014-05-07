@@ -72,6 +72,7 @@ public:
 	static int string2int(std::string value);
 	static std::string int2string(int value, std::string format = "%d");
 	static std::string double2string(double value, std::string format = "%f");
+	static std::string replaceAll(std::string from, std::string to, std::string str);
 };
 
 } /* namespace ccFramework */

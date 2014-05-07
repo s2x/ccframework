@@ -123,7 +123,7 @@ bool ccRequest::hasPostParameter(std::string name) {
 std::string ccRequest::getPostParameter(std::string name,
 		std::string default_value) {
 
-	if (this->hasPostParameter(name)) return this->post_params[name];
+	if (this->hasPostParameter(name)) return ccCommon::UriDecode(this->post_params[name]);
 	return default_value;
 
 }

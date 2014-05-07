@@ -109,8 +109,9 @@ std::string ccCommon::UriDecode(const std::string & sSrc) {
 // sign but are not followed by two hexadecimal characters
 // (0-9, A-F) are reserved for future extension"
 
-	const unsigned char * pSrc = (const unsigned char *) sSrc.c_str();
-	const int SRC_LEN = sSrc.length();
+	std::string src = ccCommon::replaceAll("+"," ",sSrc);
+	const unsigned char * pSrc = (const unsigned char *) src.c_str();
+	const int SRC_LEN = src.length();
 	const unsigned char * const SRC_END = pSrc + SRC_LEN;
 // last decodable '%'
 	const unsigned char * const SRC_LAST_DEC = SRC_END - 2;
@@ -138,6 +139,7 @@ std::string ccCommon::UriDecode(const std::string & sSrc) {
 
 	std::string sResult(pStart, pEnd);
 	delete[] pStart;
+
 	return sResult;
 }
 
@@ -191,5 +193,19 @@ std::string ccCommon::double2string(double value, std::string format) {
 	return buffer;
 }
 
-} /* namespace ccFramework */
 
+
+std::string ccCommon::replaceAll(std::string from, std::string to, std::string str)  {
+    std::string ret = str;
+	if(from.empty())
+        return "";
+    size_t start_pos = 0;
+    while((start_pos = ret.find(from, start_pos)) != std::string::npos) {
+    	ret.replace(start_pos, from.length(), to);
+        start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
+    }
+
+    return ret;
+}
+
+} /* namespace ccFramework */
