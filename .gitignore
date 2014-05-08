@@ -12,7 +12,13 @@ Makefile
 /install-sh
 /missing
 /src/test/router_test
-
+/config.h
+/config.log
+/config.status
+/po/POTFILES
+/po/stamp-it
+/libtool
+/stamp-h1
 
 #anjuta 
 .anjuta/
