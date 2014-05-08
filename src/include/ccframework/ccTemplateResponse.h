@@ -35,6 +35,7 @@ public:
 	void setLayout(const std::string& layout);
 	void setParameter(std::string param, std::string val);
 	void addCss(std::string uri);
+    void addJs(std::string uri, bool footer = false);
 	void setTitle(std::string value);
 	void setDescription(std::string value);
 	void setKeywords(std::string value);
@@ -55,6 +56,8 @@ protected:
 	std::string renderJsList(std::set<std::string> javascripts);
 	std::string renderMetaList(std::set<std::string> javascripts);
 	std::set<std::string> stylesheets;
+    std::set<std::string> javascripts_head;
+    std::set<std::string> javascripts_foot;
 	std::set<std::string> metas;
 	static std::set<std::string> default_stylesheets;
 	static std::set<std::string> default_head_javascripts;

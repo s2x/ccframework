@@ -1,6 +1,7 @@
 # http://www.gnu.org/software/automake
 
 Makefile.in
+Makefile
 
 # http://www.gnu.org/software/autoconf
 
@@ -10,9 +11,19 @@ Makefile.in
 /depcomp
 /install-sh
 /missing
-/src/.deps
+/src/test/router_test
+
 
 #anjuta 
 .anjuta/
 .anjuta_sym_db.db
+
+#build files
+*.o
+*.lo
+*.la
+*.deps
+*.libs
+*.dirstamp
+*.pc
 

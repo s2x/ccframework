@@ -59,9 +59,14 @@ ccResponse *ccApp::processRequest(FCGX_Request fcgi_request) {
 	ccResponse *ret = NULL;
 
 	//reload cache if template changes
+	if (this->getConfigValue("templates.cache", "0") == "0") {
 	ctemplate::mutable_default_template_cache()->ReloadAllIfChanged(
 			ctemplate::TemplateCache::IMMEDIATE_RELOAD);
+	} else {
+		ctemplate::mutable_default_template_cache()->ReloadAllIfChanged(
+				ctemplate::TemplateCache::LAZY_RELOAD);
 
+	}
 	//proces fastcgi headers
 	this->request = new ccRequest(fcgi_request);
 

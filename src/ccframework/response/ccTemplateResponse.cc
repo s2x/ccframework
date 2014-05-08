@@ -64,8 +64,8 @@ ccResponse* ccTemplateResponse::render() {
 
 	//Set javascripts and css
 	this->layout_dict->SetValue("HEAD_STYLES",this->renderCssList(ccTemplateResponse::default_stylesheets));
-	this->layout_dict->SetValue("HEAD_JAVASCRIPTS",this->renderJsList(ccTemplateResponse::default_head_javascripts));
-	this->layout_dict->SetValue("FOOTER_JAVASCRIPTS",this->renderJsList(ccTemplateResponse::default_footer_javascripts));
+	this->layout_dict->SetValue("HEAD_JAVASCRIPTS",this->renderJsList(ccTemplateResponse::default_head_javascripts) + this->renderJsList(this->javascripts_head));
+	this->layout_dict->SetValue("FOOTER_JAVASCRIPTS",this->renderJsList(ccTemplateResponse::default_footer_javascripts) + this->renderJsList(this->javascripts_foot));
 	this->layout_dict->SetValue("HEAD_METAS",this->renderMetaList(this->metas));
 	this->layout_dict->SetValue("HEAD_TITLE", ccCommon::htmlTag("title",this->title));
 
@@ -150,6 +150,11 @@ std::string ccTemplateResponse::renderMetaList(
 		ret += (*i)+"\n";
 	}
 	return ret;
+}
+
+void ccTemplateResponse::addJs(std::string uri, bool footer) {
+    if (footer) this->javascripts_foot.insert(uri);
+    else this->javascripts_head.insert(uri);
 }
 
 }
