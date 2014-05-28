@@ -1,20 +1,20 @@
 /*
- * ccBaseFormElement.cpp
+ * ccFormRenderer.cc
  *
- *  Created on: 7 maj 2014
+ *  Created on: 28-05-2014
  *      Author: piotr
  */
 
-#include "ccBaseFormElement.h"
+#include "ccFormRenderer.h"
 
 namespace ccFramework {
 
-ccBaseFormElement::ccBaseFormElement() {
+ccFormRenderer::ccFormRenderer() {
 	// TODO Auto-generated constructor stub
 
 }
 
-ccBaseFormElement::~ccBaseFormElement() {
+ccFormRenderer::~ccFormRenderer() {
 	// TODO Auto-generated destructor stub
 }
 

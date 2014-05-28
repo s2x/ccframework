@@ -23,6 +23,11 @@ class ccAcl;
 class ccException;
 class ccMultipartParser;
 class ccBaseHelper;
+class ccBaseForm;
+class ccBaseFormElement;
+class ccFormElementText;
+class ccFormElementLabel;
+class ccBaseFormRenderer;
 }
 #include <iostream>
 #include <fstream>
@@ -48,4 +53,9 @@ class ccBaseHelper;
 #include "ccException.h"
 #include "ccMultipartParser.h"
 #include "ccBaseHelper.h"
+#include "ccBaseForm.h"
+#include "ccBaseFormElement.h"
+#include "ccFormElementText.h"
+#include "ccFormElementLabel.h"
+#include "ccBaseFormRenderer.h"
 #endif /* CCFRAMEWORK_H_ */
