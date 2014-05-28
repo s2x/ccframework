@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-noinst_bin_PROGRAMS=router_test
+bin_PROGRAMS=router_test
 
 router_test_SOURCES=router_test.cc
 
