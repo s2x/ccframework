@@ -37,7 +37,7 @@ void ccRequest::parseGetParameters() {
 
 
 void ccRequest::parsePostParameters() {
-	char buf[4000];
+	char buf[100];
 	memset(buf,0,sizeof(buf));
 	std::string tmp="";
 	while (FCGX_GetStr(buf, sizeof(buf), request.in) > 0) {

@@ -89,6 +89,9 @@ ccResponse *ccApp::processRequest(FCGX_Request fcgi_request) {
 		ret = route->Call(this->request);
 	} catch (ccException &e) {
 		ret = this->default_countroller->__errorAction(this->request, e);
+	} catch (...) {
+		ccException e("500","Internal Error");
+		ret = this->default_countroller->__errorAction(this->request, e);
 	}
 
 	// save session if exists and set session id to cookie
@@ -215,6 +218,10 @@ std::string ccApp::genUrl(std::string route_name,
  */
 std::string ccApp::getActiveRouteName() {
 	return ccApp::instance->getRouter()->getActiveRouteName();
+}
+
+ccConfigLoader* ccApp::getConfig() {
+	return config;
 }
 
 } /* namespace ccFramework */

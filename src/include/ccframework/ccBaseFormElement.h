@@ -25,14 +25,15 @@ protected:
 public:
 	ccBaseFormElement(std::string name);
 	virtual ~ccBaseFormElement();
-	virtual std::string getDefaultContent();
+	//getters and setters
 	virtual std::string getContent();
-	virtual void setContent(const std::string& content);
+	virtual ccBaseFormElement* setContent(const std::string& content);
 	virtual std::string render();
 
-	void setAttribute(std::string name, std::string value = "");
+	ccBaseFormElement *setAttribute(std::string name, std::string value = "");
 	virtual std::string getTemplateFile();
 	virtual void setTemplateFile(std::string templateFile);
+	const std::string& getName() const;
 };
 
 } /* namespace ccFramework */

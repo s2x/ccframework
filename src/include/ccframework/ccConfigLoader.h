@@ -23,6 +23,7 @@ public:
 	ccConfigLoader(std::string filename);
 	bool save();
 	virtual ~ccConfigLoader();
+	const YAML::Node& getConfig() const;
 };
 
 } /* namespace ccFramework */

@@ -28,6 +28,7 @@ class ccBaseFormElement;
 class ccFormElementText;
 class ccFormElementLabel;
 class ccBaseFormRenderer;
+class ccFormElementFormStart;
 }
 #include <iostream>
 #include <fstream>
@@ -57,5 +58,5 @@ class ccBaseFormRenderer;
 #include "ccBaseFormElement.h"
 #include "ccFormElementText.h"
 #include "ccFormElementLabel.h"
-#include "ccBaseFormRenderer.h"
+#include "ccFormElementFormStart.h"
 #endif /* CCFRAMEWORK_H_ */

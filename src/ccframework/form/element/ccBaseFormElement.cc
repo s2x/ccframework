@@ -42,8 +42,9 @@ std::string ccBaseFormElement::render() {
 	return ret;
 }
 
-void ccBaseFormElement::setAttribute(std::string name, std::string value) {
+ccBaseFormElement *ccBaseFormElement::setAttribute(std::string name, std::string value) {
 	this->attributes[name] = value;
+	return this;
 }
 
 std::string ccBaseFormElement::getTemplateFile() {
@@ -54,18 +55,16 @@ void ccBaseFormElement::setTemplateFile( std::string templateFile) {
 	template_file = templateFile;
 }
 
-} /* namespace ccFramework */
-
-std::string ccFramework::ccBaseFormElement::getContent(){
+std::string ccBaseFormElement::getContent(){
 	return this->content;
 }
 
-std::string ccFramework::ccBaseFormElement::getDefaultContent() {
-	return "";
+ccBaseFormElement* ccBaseFormElement::setContent(const std::string& content) {
+	this->content = content;
+	return this;
 }
 
-void ccFramework::ccBaseFormElement::setContent(const std::string& content) {
-	this->content = content;
-}
+const std::string& ccBaseFormElement::getName() const {	return this->name; }
+} /* namespace ccFramework */
 
 

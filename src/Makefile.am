@@ -71,9 +71,7 @@ libccframework_la_SOURCES =  \
 	ccframework/acl/ccResource.cc \
 	ccframework/helpers/ccBaseHelper.cc \
 	ccframework/form/ccBaseForm.cc \
-	ccframework/form/element/ccBaseFormElement.cc \
-	ccframework/form/render/ccBaseFormRenderer.cc \
-	ccframework/form/render/ccFormRenderer.cc
+	ccframework/form/element/ccBaseFormElement.cc
 
 libccframework_la_CXXFLAGS = -Wall -Wwrite-strings -Woverloaded-virtual -Wno-sign-compare -Iinclude -Ivendor/ctemplate -Iinclude/ccframework -std=c++0x
 libccframework_la_LDFLAGS = 

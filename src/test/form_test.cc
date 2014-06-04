@@ -4,11 +4,20 @@ using namespace ccFramework;
 
 
 int main() {
+	std::string form_content;
+	std::string form_template = "{{form_test_start}}{{form_test_end}}";
+
+	ctemplate::TemplateDictionary dict("test_form");
+	ccBaseForm form("test");
 	ccFormElementText text("test");
 	ccFormElementLabel label("test");
 
-	printf("Render simple input type: %s\n",text.render().c_str());
-	printf("Render simple input type: %s\n",label.render().c_str());
+	form.addElement(&text);
+	form.ExpandTemplate(&dict);
+	ctemplate::StringToTemplateCache("test_form",form_template,ctemplate::DO_NOT_STRIP);
+	ctemplate::ExpandTemplate("test_form",ctemplate::DO_NOT_STRIP, &dict, &form_content);
+	std::cout<<form_content<<std::endl;
+
 	//printf("default route is: %s", );
 	return 0;
 	//controller.genUrl("default",{}).c_str()

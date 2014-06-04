@@ -53,6 +53,7 @@ public:
 
 	ccRequest *getRequest();
 	ccAcl* getAcl();
+	static  ccConfigLoader* getConfig();
 };
 
 } /* namespace ccFramework */

@@ -85,3 +85,7 @@ std::string ccConfigLoader::getConfigValue(std::string name,
 }
 
 } /* namespace ccFramework */
+
+const YAML::Node& ccFramework::ccConfigLoader::getConfig() const {
+	return config;
+}
