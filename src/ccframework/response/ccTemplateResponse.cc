@@ -20,9 +20,9 @@
 #include "ccframework/ccFramework.h"
 
 namespace ccFramework {
-std::set<std::string> ccTemplateResponse::default_stylesheets;
-std::set<std::string> ccTemplateResponse::default_head_javascripts;
-std::set<std::string> ccTemplateResponse::default_footer_javascripts;
+std::deque<std::string> ccTemplateResponse::default_stylesheets;
+std::deque<std::string> ccTemplateResponse::default_head_javascripts;
+std::deque<std::string> ccTemplateResponse::default_footer_javascripts;
 
 const std::string& ccTemplateResponse::getLayout() const {
 	return layout;
@@ -63,7 +63,7 @@ ccResponse* ccTemplateResponse::render() {
 	this->addMetatag({std::make_pair("name","keywords"), std::make_pair("content",this->keywords)});
 
 	//Set javascripts and css
-	this->layout_dict->SetValue("HEAD_STYLES",this->renderCssList(ccTemplateResponse::default_stylesheets));
+	this->layout_dict->SetValue("HEAD_STYLES",this->renderCssList(ccTemplateResponse::default_stylesheets) + this->renderCssList(this->stylesheets));
 	this->layout_dict->SetValue("HEAD_JAVASCRIPTS",this->renderJsList(ccTemplateResponse::default_head_javascripts) + this->renderJsList(this->javascripts_head));
 	this->layout_dict->SetValue("FOOTER_JAVASCRIPTS",this->renderJsList(ccTemplateResponse::default_footer_javascripts) + this->renderJsList(this->javascripts_foot));
 	this->layout_dict->SetValue("HEAD_METAS",this->renderMetaList(this->metas));
@@ -79,9 +79,9 @@ ccResponse* ccTemplateResponse::render() {
 	ctemplate::ExpandTemplate(this->layout, ctemplate::DO_NOT_STRIP, this->layout_dict, &r_content);
 	return new ccResponse(r_content);
 }
-std::string ccTemplateResponse::renderCssList(std::set<std::string> stylesheets) {
+std::string ccTemplateResponse::renderCssList(std::deque<std::string> stylesheets) {
 	std::string ret="";
-	for(std::set<std::string>::iterator i = stylesheets.begin(); i != stylesheets.end(); ++i) {
+	for(std::deque<std::string>::iterator i = stylesheets.begin(); i != stylesheets.end(); ++i) {
 		ret = ret + "<link href=\""+(*i)+"\" rel=\"stylesheet\">\n";
 	}
 	return ret;
@@ -96,23 +96,23 @@ ctemplate::TemplateDictionary* ccTemplateResponse::getLayoutDict() {
 	return this->layout_dict;
 }
 
-std::string ccTemplateResponse::renderJsList(std::set<std::string> javascripts) {
+std::string ccTemplateResponse::renderJsList(std::deque<std::string> javascripts) {
 	std::string ret="";
-	for(std::set<std::string>::iterator i = javascripts.begin(); i != javascripts.end(); ++i) {
+	for(std::deque<std::string>::iterator i = javascripts.begin(); i != javascripts.end(); ++i) {
 		ret = ret + "<script src=\""+(*i)+"\"></script>\n";
 	}
 	return ret;
 }
 
 void ccTemplateResponse::addDefaultCss(std::string uri) {
-	ccTemplateResponse::default_stylesheets.insert(uri);
+	ccTemplateResponse::default_stylesheets.push_back(uri);
 }
 void ccTemplateResponse::addDefaultHeadJs(std::string uri) {
-	ccTemplateResponse::default_head_javascripts.insert(uri);
+	ccTemplateResponse::default_head_javascripts.push_back(uri);
 }
 
 void ccTemplateResponse::addDefaultFooterJs(std::string uri) {
-	ccTemplateResponse::default_footer_javascripts.insert(uri);
+	ccTemplateResponse::default_footer_javascripts.push_back(uri);
 }
 
 std::string ccTemplateResponse::getDescription(){
@@ -136,7 +136,7 @@ void ccTemplateResponse::setKeywords(std::string value) {
 }
 
 void ccTemplateResponse::addMetatag(std::map<std::string, std::string> params) {
-	this->metas.insert(ccCommon::htmlTag("meta","",params));
+	this->metas.push_back(ccCommon::htmlTag("meta","",params));
 }
 
 std::string ccTemplateResponse::getTitle(){
@@ -144,19 +144,22 @@ std::string ccTemplateResponse::getTitle(){
 }
 
 std::string ccTemplateResponse::renderMetaList(
-		std::set<std::string> javascripts) {
+		std::deque<std::string> javascripts) {
 	std::string ret="";
-	for(std::set<std::string>::iterator i = metas.begin(); i != metas.end(); ++i) {
+	for(std::deque<std::string>::iterator i = metas.begin(); i != metas.end(); ++i) {
 		ret += (*i)+"\n";
 	}
 	return ret;
 }
 
 void ccTemplateResponse::addJs(std::string uri, bool footer) {
-    if (footer) this->javascripts_foot.insert(uri);
-    else this->javascripts_head.insert(uri);
+    if (footer) this->javascripts_foot.push_back(uri);
+    else this->javascripts_head.push_back(uri);
+}
+
+void ccTemplateResponse::addCss(std::string uri) {
+	this->stylesheets.push_back(uri);
 }
 
 }
-
 

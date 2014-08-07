@@ -18,9 +18,9 @@ class ccRequest {
 	void parsePostParameters();
 	void parseGetParameters();
 	void parseCookieParameters();
-	std::map<std::string, std::string> query_params;
-	std::map<std::string, std::string> post_params;
-	std::map<std::string, std::string> cookies;
+	ccArray *query_params;
+	ccArray *post_params;
+	ccArray *cookies;
 public:
 
 	static const int POST = 1;

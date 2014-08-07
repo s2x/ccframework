@@ -10,6 +10,7 @@
 namespace ccFramework {
 
 ccQueryParser::ccQueryParser(std::string query, std::string sep) {
+	this->QueryElemets = new ccArray();
 	this->query = query;
 	this->map_pairs(this->query,this->QueryElemets, sep);
 }
@@ -18,20 +19,27 @@ ccQueryParser::~ccQueryParser() {
 	// TODO Auto-generated destructor stub
 }
 
-std::map<std::string, std::string>& ccQueryParser::map_pairs(std::string character_string,
-		std::map<std::string, std::string>& Elements, std::string sep) {
+ccArray *ccQueryParser::map_pairs(std::string character_string,
+		ccArray *Elements, std::string sep) {
 	std::string test,key,value;
 	std::vector<std::string>::iterator it;
 	std::vector<std::string> words;
 
 	words = split(character_string, sep);
 	for (it = words.begin(); it != words.end(); ++it) {
-		test = *it;
+    	test = *it;
 		const std::string::size_type pos_eq = test.find('=');
 		if (pos_eq != std::string::npos) {
-			key = ccCommon::trim(test.substr(0, pos_eq));
-			value = test.substr(pos_eq + 1);
-			Elements.insert(std::pair<std::string, std::string>(key, value));
+			key = ccCommon::UriDecode(ccCommon::trim(test.substr(0, pos_eq)));
+			value = ccCommon::UriDecode(test.substr(pos_eq + 1));
+			if (Elements->count(key)) {
+				Elements->addChild(key)->setValue(value);
+			} else {
+				//add new element
+				Elements->getChild(key)->setValue(value);
+			}
+			//
+			//Elements.insert(std::pair<std::string, std::string>(key, value));
 		}
 
 	}

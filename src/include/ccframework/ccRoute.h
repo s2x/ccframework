@@ -40,6 +40,7 @@ public:
 
 	// genertaing urls
 	std::string getUrl(std::map<std::string, std::string> params);
+	std::string getUrl(ccArray *array);
 	std::string getUrl(std::string query_string);
 
 	virtual ~ccRoute();

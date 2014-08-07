@@ -10,6 +10,21 @@
 #include <stdlib.h>
 namespace ccFramework {
 
+void array_get_leafs(ccArray *root, std::vector<ccArray *> *leafs) {
+
+  if (root->hasChildrens()) {
+    std::vector<ccArray *> tmp = root->getChildrens();
+		for (std::vector<ccArray *>::iterator it = tmp.begin(); it != tmp.end();
+				++it) {
+			array_get_leafs((*it), leafs);
+		}
+
+  } else {
+    leafs->push_back(root);
+  }
+}
+
+
 ccRoute::ccRoute(std::string name, std::string pattern,
 		ccRouterFunctor* functor) {
 	// TODO Auto-generated constructor stub
@@ -166,6 +181,19 @@ void ccRoute::setParameterType(std::string name, std::string param_patter) {
 	this->re = pcre_compile(tmp_pattern.c_str(), 0, &error, &erroffset, NULL);
 }
 
+std::string ccRoute::getUrl(ccArray *array) {
+	std::vector<ccArray *> leafs;
+	std::map<std::string, std::string> params;
+	array_get_leafs(array, &leafs);
+
+	for (std::vector<ccArray *>::iterator it = leafs.begin() ; it != leafs.end(); ++it) {
+		params.insert(std::make_pair((*it)->getName(),(*it)->getValue()));
+	}
+
+	return ccRoute::getUrl(params);
+}
+
+
 std::string ccRoute::getUrl(std::map<std::string, std::string> params) {
 	std::string ret = "";
 	int erroffset;
@@ -226,5 +254,4 @@ std::string ccRoute::getUrl(std::string query_string) {
 }
 
 } /* namespace ccFramework */
-
 
