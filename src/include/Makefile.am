@@ -5,7 +5,6 @@ SUBDIRS = \
 	ccframework
 
 nobase_include_HEADERS = ccframework/ccApp.h \
-	ccframework/ccArray.h \
 	ccframework/ccCommon.h \
 	ccframework/ccConfig.h \
 	ccframework/ccConfigLoader.h \

@@ -76,33 +76,31 @@ void ccRequest::parseCookieParameters() {
 }
 
 bool ccRequest::hasRequestParameter(std::string name) {
-	return this->query_params->count(name);
+	return this->query_params.count(name);
 }
 
 std::string ccRequest::getRequestParameter(std::string name,
 		std::string default_value) {
-        
-        
 	if (this->hasRequestParameter(name)) {
-		return this->query_params->getChild(name)->getValue();
+		return ccCommon::UriDecode(this->query_params[name]);
 	}
 	return default_value;
 }
 
 void ccFramework::ccRequest::setRequestParameter(std::string name,
 		std::string value) {
-	this->query_params->getChild(name)->setValue(value);
+	this->query_params[name] = value;
 }
 
 std::string ccRequest::getCookie(std::string name, std::string default_value) {
 	if (this->hasCookie(name)) {
-		return this->cookies->getChild(name)->getValue();
+		return this->cookies[name];
 	}
 	return default_value;
 }
 
 bool ccRequest::hasCookie(std::string name) {
-	return this->cookies->count(name);
+	return this->cookies.count(name);
 }
 
 
@@ -127,14 +125,13 @@ double ccRequest::getRequestParameterAsDouble(std::string name, double default_v
 
 bool ccRequest::hasPostParameter(std::string name) {
 
-	return this->post_params->count(name);
+	return (this->post_params.find(name)!=this->post_params.end())?true:false;
 }
 
 std::string ccRequest::getPostParameter(std::string name,
 		std::string default_value) {
-	if (this->hasPostParameter(name)) {
-        return this->post_params->getChild(name)->getValue();
-    }
+
+	if (this->hasPostParameter(name)) return ccCommon::UriDecode(this->post_params[name]);
 	return default_value;
 
 }

@@ -11,15 +11,14 @@
 #include <map>
 #include <vector>
 #include <algorithm>
-#include "ccArray.h"
 using std::vector;
 
 namespace ccFramework {
 
 class ccQueryParser {
 	std::string query;
-	ccArray *QueryElemets;
-	ccArray *map_pairs(std::string character_string, ccArray *Elements, std::string sep = "&");
+	std::map<std::string, std::string> QueryElemets;
+	std::map<std::string, std::string>& map_pairs(std::string character_string, std::map<std::string, std::string>& Elements, std::string sep = "&");
 	vector<std::string> split(const std::string& s, const std::string& delim, const bool keep_empty = true);
 
 public:
@@ -27,7 +26,7 @@ public:
 	virtual ~ccQueryParser();
 	std::string getParameter(std::string name);
 
-	ccArray *getAllParameters(){
+	const std::map<std::string, std::string>& getAllParameters() const {
 		return QueryElemets;
 	}
 };

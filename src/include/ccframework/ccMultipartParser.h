@@ -13,14 +13,14 @@
 namespace ccFramework {
 
 class ccMultipartParser {
-	ccArray *QueryElemets;
+	std::map<std::string, std::string> QueryElemets;
 	void parsePart(std::string part);
 
 public:
 	ccMultipartParser(std::string query, std::string sep = "&");
 	virtual ~ccMultipartParser();
 
-	ccArray *getAllParameters() {
+	const std::map<std::string, std::string>& getAllParameters() const {
 		return QueryElemets;
 	}
 };

@@ -28,10 +28,8 @@ ccRoute *ccRouter::getRoute(ccRequest *request) {
 	for (std::vector<ccRoute *>::iterator it = this->routes.begin();
 			it != this->routes.end(); ++it) {
 		if ((*it)->match(request)) {
-            std::cerr<<"Route Found: "<<(*it)->getName()<<std::endl;
 			std::map<std::string, std::string> tmp = (*it)->getRouteParameters();
 			for (std::map<std::string, std::string>::iterator itp = tmp.begin();itp != tmp.end(); ++itp) {
-                std::cerr<<" * add paramter: "<<itp->first<<": "<<itp->second<<std::endl;
 				request->setRequestParameter(itp->first, itp->second);
 			}
 			return (*it);

@@ -1,7 +1,6 @@
 #ifndef CCFRAMEWORK_H_
 #define CCFRAMEWORK_H_
 namespace ccFramework {
-class ccArray;
 class ccApp;
 class ccController;
 class ccQueryParser;
@@ -34,7 +33,6 @@ class ccFormElementFormStart;
 #include <iostream>
 #include <fstream>
 #include "yaml-cpp/yaml.h"
-#include "ccArray.h"
 #include "ccCookie.h"
 #include "ccApp.h"
 #include "ccEvent.h"
