@@ -21,7 +21,6 @@
 #define _CC_TEMPLATE_H_
 #include <iostream>
 #include <set>
-#include <deque>
 #include <ctemplate/template.h>
 #include "ccFramework.h"
 
@@ -53,16 +52,16 @@ public:
 	std::string getTitle();
 
 protected:
-	std::string renderCssList(std::deque<std::string> stylesheets);
-	std::string renderJsList(std::deque<std::string> javascripts);
-	std::string renderMetaList(std::deque<std::string> javascripts);
-	std::deque<std::string> stylesheets;
-    std::deque<std::string> javascripts_head;
-    std::deque<std::string> javascripts_foot;
-	std::deque<std::string> metas;
-	static std::deque<std::string> default_stylesheets;
-	static std::deque<std::string> default_head_javascripts;
-	static std::deque<std::string> default_footer_javascripts;
+	std::string renderCssList(std::set<std::string> stylesheets);
+	std::string renderJsList(std::set<std::string> javascripts);
+	std::string renderMetaList(std::set<std::string> javascripts);
+	std::set<std::string> stylesheets;
+    std::set<std::string> javascripts_head;
+    std::set<std::string> javascripts_foot;
+	std::set<std::string> metas;
+	static std::set<std::string> default_stylesheets;
+	static std::set<std::string> default_head_javascripts;
+	static std::set<std::string> default_footer_javascripts;
 	std::string layout;
 	std::string title;
 	std::string keywords;

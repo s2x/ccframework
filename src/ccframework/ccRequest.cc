@@ -6,7 +6,7 @@
  */
 
 #include "ccframework/ccFramework.h"
-#include <sstream> 
+
 namespace ccFramework {
 
 ccRequest::ccRequest(FCGX_Request request) {
@@ -37,33 +37,25 @@ void ccRequest::parseGetParameters() {
 
 
 void ccRequest::parsePostParameters() {
-
-    char * content_length_str = FCGX_GetParam("CONTENT_LENGTH", request.envp);
-    if (content_length_str) {
-
-                     
-        unsigned long content_length = 1000000;
-        content_length = strtol(content_length_str,
-                                &content_length_str,
-                                10);
-        
-        char *buf = new char[content_length];
-        memset(buf,0,content_length);
-        FCGX_GetStr(buf, content_length, request.in);
-        std::string content_type = this->getEnvParamter("CONTENT_TYPE","");
-        if (content_type.find("multipart/form-data;",0)==0) {
-            int bound_pos = content_type.find("boundary=",0);
-            if (bound_pos != std::string::npos) {
-                std::string boundry = content_type.substr((bound_pos+9));
-                ccMultipartParser mpp(buf, boundry);
-                this->post_params = mpp.getAllParameters();
-            }
-        }else {
-            ccQueryParser qp(buf);
-            this->post_params = qp.getAllParameters();
-        }
-        delete buf;
-    }
+	char buf[100];
+	memset(buf,0,sizeof(buf));
+	std::string tmp="";
+	while (FCGX_GetStr(buf, sizeof(buf), request.in) > 0) {
+	    tmp.append(buf);
+		memset(buf,0,sizeof(buf));
+	}
+	std::string content_type = this->getEnvParamter("CONTENT_TYPE","");
+	if (content_type.find("multipart/form-data;",0)==0) {
+		int bound_pos = content_type.find("boundary=",0);
+		if (bound_pos != std::string::npos) {
+			std::string boundry = content_type.substr((bound_pos+9));
+			ccMultipartParser mpp(tmp, boundry);
+			this->post_params = mpp.getAllParameters();
+		}
+	}else {
+		ccQueryParser qp(tmp);
+		this->post_params = qp.getAllParameters();
+	}
 }
 
 
@@ -76,33 +68,31 @@ void ccRequest::parseCookieParameters() {
 }
 
 bool ccRequest::hasRequestParameter(std::string name) {
-	return this->query_params->count(name);
+	return this->query_params.count(name);
 }
 
 std::string ccRequest::getRequestParameter(std::string name,
 		std::string default_value) {
-        
-        
 	if (this->hasRequestParameter(name)) {
-		return this->query_params->getChild(name)->getValue();
+		return ccCommon::UriDecode(this->query_params[name]);
 	}
 	return default_value;
 }
 
 void ccFramework::ccRequest::setRequestParameter(std::string name,
 		std::string value) {
-	this->query_params->getChild(name)->setValue(value);
+	this->query_params[name] = value;
 }
 
 std::string ccRequest::getCookie(std::string name, std::string default_value) {
 	if (this->hasCookie(name)) {
-		return this->cookies->getChild(name)->getValue();
+		return this->cookies[name];
 	}
 	return default_value;
 }
 
 bool ccRequest::hasCookie(std::string name) {
-	return this->cookies->count(name);
+	return this->cookies.count(name);
 }
 
 
@@ -127,14 +117,13 @@ double ccRequest::getRequestParameterAsDouble(std::string name, double default_v
 
 bool ccRequest::hasPostParameter(std::string name) {
 
-	return this->post_params->count(name);
+	return (this->post_params.find(name)!=this->post_params.end())?true:false;
 }
 
 std::string ccRequest::getPostParameter(std::string name,
 		std::string default_value) {
-	if (this->hasPostParameter(name)) {
-        return this->post_params->getChild(name)->getValue();
-    }
+
+	if (this->hasPostParameter(name)) return ccCommon::UriDecode(this->post_params[name]);
 	return default_value;
 
 }

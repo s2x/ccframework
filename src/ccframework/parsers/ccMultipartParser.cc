@@ -10,7 +10,7 @@
 namespace ccFramework {
 
 ccMultipartParser::ccMultipartParser(std::string query, std::string sep) {
-	this->QueryElemets = new ccArray();
+
 	// TODO Auto-generated constructor stub
 	std::string real_sep = "--"+sep;
 	long pos = 0;
@@ -21,6 +21,7 @@ ccMultipartParser::ccMultipartParser(std::string query, std::string sep) {
 
 	while (pos != std::string::npos && pos !=endofdata) {
 		std::string part = query.substr((pos+real_sep.length()), (endpos-pos-real_sep.length()));
+		//std::cerr<<part<<std::endl;
 		this->parsePart(part);
 		pos = query.find(real_sep,endpos);
 		endpos =query.find(real_sep,pos+1);
@@ -54,9 +55,7 @@ void ccMultipartParser::parsePart(std::string part) {
 	    	}
 	    	if (data_section == false && ccCommon::trim(to).length()==0) data_section = true;
 	    }
-	    if (ccCommon::trim(name)!= "") {
-            this->QueryElemets->getChild(ccCommon::trim(name))->setValue(value);
-        }
+	    if (ccCommon::trim(name)!= "") this->QueryElemets[ccCommon::trim(name)] = value;
 	  }
 }
 

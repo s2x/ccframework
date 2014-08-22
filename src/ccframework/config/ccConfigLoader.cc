@@ -64,11 +64,11 @@ bool ccConfigLoader::load(std::string config_file) {
 
 std::string ccConfigLoader::arraySearch(YAML::Node node, std::string path,
 		std::string default_value) {
+
 	if (!node || path.length() == 0) return default_value;
 
 	std::string tmp_name = path;
-	std::size_t found = 0;
-	found = tmp_name.find(".", found);
+	std::size_t found = tmp_name.find(".", found);
 	if (found != std::string::npos) {
 		std::string node_name = tmp_name.substr(0, found);
 		tmp_name = tmp_name.substr(found + 1);
