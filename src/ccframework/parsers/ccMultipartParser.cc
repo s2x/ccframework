@@ -21,7 +21,6 @@ ccMultipartParser::ccMultipartParser(std::string query, std::string sep) {
 
 	while (pos != std::string::npos && pos !=endofdata) {
 		std::string part = query.substr((pos+real_sep.length()), (endpos-pos-real_sep.length()));
-		//std::cerr<<part<<std::endl;
 		this->parsePart(part);
 		pos = query.find(real_sep,endpos);
 		endpos =query.find(real_sep,pos+1);

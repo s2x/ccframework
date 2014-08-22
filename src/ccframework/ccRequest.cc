@@ -6,7 +6,7 @@
  */
 
 #include "ccframework/ccFramework.h"
-
+#include <sstream> 
 namespace ccFramework {
 
 ccRequest::ccRequest(FCGX_Request request) {
@@ -37,25 +37,33 @@ void ccRequest::parseGetParameters() {
 
 
 void ccRequest::parsePostParameters() {
-	char buf[100];
-	memset(buf,0,sizeof(buf));
-	std::string tmp="";
-	while (FCGX_GetStr(buf, sizeof(buf), request.in) > 0) {
-	    tmp.append(buf);
-		memset(buf,0,sizeof(buf));
-	}
-	std::string content_type = this->getEnvParamter("CONTENT_TYPE","");
-	if (content_type.find("multipart/form-data;",0)==0) {
-		int bound_pos = content_type.find("boundary=",0);
-		if (bound_pos != std::string::npos) {
-			std::string boundry = content_type.substr((bound_pos+9));
-			ccMultipartParser mpp(tmp, boundry);
-			this->post_params = mpp.getAllParameters();
-		}
-	}else {
-		ccQueryParser qp(tmp);
-		this->post_params = qp.getAllParameters();
-	}
+
+    char * content_length_str = FCGX_GetParam("CONTENT_LENGTH", request.envp);
+    if (content_length_str) {
+
+                     
+        unsigned long content_length = 1000000;
+        content_length = strtol(content_length_str,
+                                &content_length_str,
+                                10);
+        
+        char *buf = new char[content_length];
+        memset(buf,0,content_length);
+        FCGX_GetStr(buf, content_length, request.in);
+        std::string content_type = this->getEnvParamter("CONTENT_TYPE","");
+        if (content_type.find("multipart/form-data;",0)==0) {
+            int bound_pos = content_type.find("boundary=",0);
+            if (bound_pos != std::string::npos) {
+                std::string boundry = content_type.substr((bound_pos+9));
+                ccMultipartParser mpp(buf, boundry);
+                this->post_params = mpp.getAllParameters();
+            }
+        }else {
+            ccQueryParser qp(buf);
+            this->post_params = qp.getAllParameters();
+        }
+        delete buf;
+    }
 }
 
 
