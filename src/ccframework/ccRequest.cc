@@ -41,15 +41,15 @@ void ccRequest::parsePostParameters() {
     char * content_length_str = FCGX_GetParam("CONTENT_LENGTH", request.envp);
     if (content_length_str) {
 
-                     
         unsigned long content_length = 1000000;
         content_length = strtol(content_length_str,
                                 &content_length_str,
                                 10);
         
-        char *buf = new char[content_length];
-        memset(buf,0,content_length);
+        char *buf = new char[content_length+1];
+        memset(buf,0,content_length+1);
         FCGX_GetStr(buf, content_length, request.in);
+
         std::string content_type = this->getEnvParamter("CONTENT_TYPE","");
         if (content_type.find("multipart/form-data;",0)==0) {
             int bound_pos = content_type.find("boundary=",0);
