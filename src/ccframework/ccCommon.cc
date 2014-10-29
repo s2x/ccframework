@@ -208,4 +208,19 @@ std::string ccCommon::replaceAll(std::string from, std::string to, std::string s
     return ret;
 }
 
+std::vector<std::string> ccCommon::explode(const std::string& s,
+		char delim) {
+    std::vector<std::string> result;
+    std::istringstream iss(s);
+
+    for (std::string token; std::getline(iss, token, delim); )
+    {
+        result.push_back(std::move(token));
+    }
+
+    return result;
+}
+
 } /* namespace ccFramework */
+
+

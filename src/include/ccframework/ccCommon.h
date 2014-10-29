@@ -73,6 +73,8 @@ public:
 	static std::string int2string(int value, std::string format = "%d");
 	static std::string double2string(double value, std::string format = "%f");
 	static std::string replaceAll(std::string from, std::string to, std::string str);
+
+	static std::vector<std::string> explode(std::string const & s, char delim);
 };
 
 } /* namespace ccFramework */
