@@ -101,7 +101,7 @@ fi
 
 PKG_CHECK_MODULES(LIBPCRE,libpcre)
 
-PKG_CHECK_MODULES(YAML_CPP,yaml-cpp)
+# PKG_CHECK_MODULES(YAML_CPP,yaml-cpp)
 
 AC_OUTPUT([
 Makefile
@@ -109,11 +109,13 @@ src/ccframework.pc
 src/Makefile
 po/Makefile.in
 src/include/Makefile
-src/vendor/Makefile
 src/include/ccframework/Makefile
+src/vendor/Makefile
 src/vendor/md5/Makefile
 src/vendor/ctemplate/Makefile
 src/vendor/ctemplate/base/Makefile
 src/vendor/ctemplate/htmlparser/Makefile
+src/vendor/yaml-cpp/Makefile
+src/vendor/yaml-cpp/contrib/Makefile
 src/test/Makefile
 ])

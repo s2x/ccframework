@@ -1,7 +1,2 @@
 ## Process this file with automake to produce Makefile.in
-
-
-SUBDIRS = \
-	md5 \
-	ctemplate \
-	yaml-cpp
+SUBDIRS = contrib

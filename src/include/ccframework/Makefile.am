@@ -1,1 +1,1 @@
-#SUBDIRS = ctemplate
+#SUBDIRS = ctemplate yaml-cpp

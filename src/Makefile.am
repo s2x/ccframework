@@ -19,6 +19,58 @@ lib_LTLIBRARIES = libccframework.la
 
 
 libccframework_la_SOURCES =  \
+vendor/yaml-cpp/contrib/graphbuilderadapter.cpp	\
+vendor/yaml-cpp/contrib/graphbuilder.cpp	\
+vendor/yaml-cpp/contrib/graphbuilderadapter.h \
+vendor/yaml-cpp/scanscalar.cpp \
+vendor/yaml-cpp/memory.cpp \
+vendor/yaml-cpp/emitterstate.cpp \
+vendor/yaml-cpp/nodeevents.cpp \
+vendor/yaml-cpp/nodeevents.h \
+vendor/yaml-cpp/scanner.cpp \
+vendor/yaml-cpp/node_data.cpp \
+vendor/yaml-cpp/scantag.cpp \
+vendor/yaml-cpp/directives.cpp \
+vendor/yaml-cpp/binary.cpp \
+vendor/yaml-cpp/stringsource.h \
+vendor/yaml-cpp/node.cpp \
+vendor/yaml-cpp/exp.cpp \
+vendor/yaml-cpp/nodebuilder.cpp \
+vendor/yaml-cpp/emitterstate.h \
+vendor/yaml-cpp/parse.cpp \
+vendor/yaml-cpp/ptr_vector.h \
+vendor/yaml-cpp/ostream_wrapper.cpp \
+vendor/yaml-cpp/emitter.cpp \
+vendor/yaml-cpp/exp.h \
+vendor/yaml-cpp/nodebuilder.h \
+vendor/yaml-cpp/stream.cpp \
+vendor/yaml-cpp/regeximpl.h \
+vendor/yaml-cpp/scantoken.cpp \
+vendor/yaml-cpp/tag.h \
+vendor/yaml-cpp/token.h \
+vendor/yaml-cpp/scanner.h \
+vendor/yaml-cpp/regex.h \
+vendor/yaml-cpp/ptr_stack.h \
+vendor/yaml-cpp/collectionstack.h \
+vendor/yaml-cpp/scanscalar.h \
+vendor/yaml-cpp/tag.cpp \
+vendor/yaml-cpp/emitterutils.h \
+vendor/yaml-cpp/emit.cpp \
+vendor/yaml-cpp/convert.cpp \
+vendor/yaml-cpp/null.cpp \
+vendor/yaml-cpp/emitterutils.cpp \
+vendor/yaml-cpp/stream.h \
+vendor/yaml-cpp/streamcharsource.h \
+vendor/yaml-cpp/regex.cpp \
+vendor/yaml-cpp/indentation.h \
+vendor/yaml-cpp/emitfromevents.cpp \
+vendor/yaml-cpp/scantag.h \
+vendor/yaml-cpp/parser.cpp \
+vendor/yaml-cpp/singledocparser.h \
+vendor/yaml-cpp/singledocparser.cpp \
+vendor/yaml-cpp/directives.h\
+vendor/yaml-cpp/setting.h\
+    vendor/yaml-cpp/simplekey.cpp \
     vendor/ctemplate/base/arena-inl.h \
     vendor/ctemplate/base/arena.cc \
     vendor/ctemplate/base/arena.h \
