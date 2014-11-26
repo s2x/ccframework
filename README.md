@@ -15,7 +15,7 @@ Debian 7 installation instructions
 ===========
 Here is list of packages to install before compile ccFramework
 * install some debian packages
-<code>apt-get install g++ autconf intltool libtool libglib2.0-dev libfcgi-dev</code>
+<code>apt-get install g++ autoconf intltool libtool libglib2.0-dev libfcgi-dev</code>
 * install Yaml-cpp
  * install Requirements: <code>apt-get install libboost-dev cmake</code>
  * download source: <code>wget https://yaml-cpp.googlecode.com/files/yaml-cpp-0.5.1.tar.gz</code>
