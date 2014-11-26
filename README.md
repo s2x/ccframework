@@ -8,8 +8,7 @@ Requirements
 * Git for source download,
 * G++ compiler with support for C++11,
 * autotools,
-* libfcgi,
-* Yaml-cpp >= 5.1, see: https://code.google.com/p/yaml-cpp/
+* libfcgi
 
 Debian 7 installation instructions
 ===========
