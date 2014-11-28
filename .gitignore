@@ -12,7 +12,7 @@ Makefile
 /install-sh
 /missing
 /src/test/router_test
-/src/test/form_testt
+/src/test/form_test
 /config.h
 /config.log
 /config.status
