@@ -29,7 +29,6 @@ ccMultipartParser::ccMultipartParser(std::string query, std::string sep) {
 }
 
 void ccMultipartParser::parsePart(std::string part) {
-	  char delims = '\n';
 	  std::stringstream ss(ccCommon::trim(part));
 	  std::string to;
 	  std::string value = "";
