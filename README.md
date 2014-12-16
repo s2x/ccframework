@@ -39,9 +39,9 @@ Version 0.3
 
 Version 0.2
 * Simple translation module,
+* Rewrite session module - add session providers (memory, file, memcached)
 * Add examples of use
  
-
 Version 0.1
 * Support of array in request,
 * Switch to ccArray with simple ini (un)serializer,
