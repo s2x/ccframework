@@ -23,18 +23,28 @@ Here is list of packages to install before compile ccFramework
 
 RoadMap
 ===========
-Version 0.4
+Version 0.6
 * Stabilize the API
 * Add some Documentation
 
-Version 0.3
+Version 0.5
 * Forms support - a lot work to do here
-* Add ACL to routing
+
+Version 0.4
 * Add loadable plugins
+
+Version 0.3
+* Rewrite routing as tree structure
+* Add ACL to routing
 
 Version 0.2
 * Simple translation module,
+* Add examples of use
+ 
+
+Version 0.1
 * Support of array in request,
 * Switch to ccArray with simple ini (un)serializer,
+* Completly remove yaml-cpp from source - no more boosts needed,
 * Cleanup dependencies and fix automake files.
-* Add examples of use
+
