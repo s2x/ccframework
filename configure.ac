@@ -14,6 +14,20 @@ AC_CONFIG_MACRO_DIR([m4])
 AC_PROG_CPP
 AC_PROG_CXX
 
+if ! which $CXX >/dev/null 2>&1; then
+AC_MSG_ERROR([No C++ compiler found. Please install a C++ compiler.])
+fi
+
+AC_LANG_PUSH([C++])
+AC_CHECK_HEADERS([boost/shared_ptr.hpp], [],
+    [AC_MSG_ERROR(You need the Boost libraries.)])
+    
+AC_CHECK_HEADERS([fcgiapp.h], [],
+    [AC_MSG_ERROR(You need the FastCgi libraries.)])
+AC_LANG_POP([C++])
+
+
+
 
 
 dnl ***************************************************************************
