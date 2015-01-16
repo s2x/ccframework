@@ -954,13 +954,13 @@ class HelperTemplateNode : public TemplateNode {
                       const TemplateDictionaryInterface *dictionary,
                       PerExpandData *per_expand_data,
                       const TemplateCache *) const {
-		std::string text = token_.text;
+
+	    std::string text = token_.text;
 		text = text.substr(0,token_.textlen);
 		std::string name = text;
 		std::map<std::string, std::string> params;
 		if (int pos = text.find(" ",0)) {
 			name = text.substr(0,pos);
-			output_buffer->Emit(name.c_str(), name.length());
 			std::string pair,param,value;
 			pos = text.find(" ",pos);
 			while (pos != text.npos) {
