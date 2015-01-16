@@ -46,5 +46,5 @@ Version 0.1
 * Support of array in request,
 * Switch to ccArray with simple ini (un)serializer,
 * Completly remove yaml-cpp from source - no more boosts needed,
-* Cleanup dependencies and fix automake files.
+* ~~Cleanup dependencies and fix automake files.~~
 
