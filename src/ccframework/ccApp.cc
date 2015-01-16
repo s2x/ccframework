@@ -52,6 +52,10 @@ ccApp::~ccApp() {
 	delete this->router;
 	delete this->default_countroller;
 	delete this->config;
+
+	for (std::map<std::string, ccController*>::iterator it=this->registred_controllers.begin(); it!=this->registred_controllers.end(); ++it) {
+		delete (it->second);
+	}
 }
 
 ccResponse *ccApp::processRequest(FCGX_Request fcgi_request) {
@@ -224,5 +228,17 @@ ccConfigLoader* ccApp::getConfig() {
 	return config;
 }
 
+void ccApp::registerController(std::string name, ccController* controller) {
+	if (this->registred_controllers.count(name)==0) {
+		this->registred_controllers[name] = controller;
+		controller->initController();
+		controller->registerRoutes();
+	}
+
+}
+
+
+
 } /* namespace ccFramework */
+
 

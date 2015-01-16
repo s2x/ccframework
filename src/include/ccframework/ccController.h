@@ -20,6 +20,8 @@ public:
     ccResponse *__errorAction(ccRequest *request, ccException e);
     ccRouter *getRouter();
     ccResponse *redirect(std::string url, std::string code = "302");
+	virtual void registerRoutes();
+	virtual void initController();
 	
 	std::string genUrl(std::string route_name);
 	std::string genUrl(std::string route_name, std::map<std::string, std::string> params);

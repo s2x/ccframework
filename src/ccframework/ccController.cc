@@ -72,6 +72,12 @@ ccResponse* ccController::redirect(std::string url, std::string code) {
 
 }
 
+void ccController::registerRoutes() {
+
+}
+
+void ccController::initController() {
+}
 
 } /* namespace ccFramework */
 

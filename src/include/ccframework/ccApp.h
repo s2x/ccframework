@@ -25,9 +25,12 @@ class ccApp {
 	std::streambuf * cout_streambuf;
 	std::streambuf * cerr_streambuf;
 
+	std::map<std::string, ccController*> registred_controllers;
+
 public:
 
 	ccApp(std::string config_file);
+	void registerController(std::string name, ccController *controller);
 	virtual ~ccApp();
 
 	static std::string getConfigValue(std::string name);
