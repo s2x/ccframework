@@ -38,9 +38,9 @@ Version 0.3
 * Add ACL to routing
 
 Version 0.2
-* Simple translation module,
-* Rewrite session module - add session providers (memory, file, memcached)
-* Add examples of use
+* [Simple translation module](https://github.com/s2x/ccframework/issues/3),
+* [Rewrite session module - add session providers (memory, file, memcached)](https://github.com/s2x/ccframework/issues/4)
+* [Add examples of use](https://github.com/s2x/ccframework/issues/5)
  
 Version 0.1
 * Support of array in request,
