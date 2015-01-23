@@ -37,6 +37,9 @@ ccApp::ccApp(std::string config_file) {
 	//set acl
 	this->acl = new ccAcl();
 	this->acl->setAllowAll(true);
+    
+   	ctemplate::addTemplateHelper("COMPONENT",new ccComponentHelper());
+
 }
 ccApp::~ccApp() {
 #if HAVE_IOSTREAM_WITHASSIGN_STREAMBUF

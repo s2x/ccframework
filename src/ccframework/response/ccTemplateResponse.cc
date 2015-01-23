@@ -31,7 +31,6 @@ const std::string& ccTemplateResponse::getLayout() const {
 ccTemplateResponse::ccTemplateResponse(std::string dict_name, std::string template_name) {
 
 	//register helpers
-	ctemplate::addTemplateHelper("COMPONENT",new ccComponentHelper());
 
 	std::string rname = ccApp::getInstance()->getRouter()->getActiveRouteName();
 

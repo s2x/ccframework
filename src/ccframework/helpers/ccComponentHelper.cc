@@ -19,7 +19,10 @@ std::string ccComponentHelper::Modify(
 
 		// if component exits then execute
 		if (ccComponentHelper::components.count(name)) {
-			return ccComponentHelper::components[name](params)->getContent();
+            ccResponse* resp = ccComponentHelper::components[name](params);
+            std::string ret = resp->getContent();
+            delete resp;
+			return ret;
 		}
 	}
 
