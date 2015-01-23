@@ -122,6 +122,7 @@ vendor/yaml-cpp/setting.h\
 	ccframework/acl/ccAcl.cc \
 	ccframework/acl/ccResource.cc \
 	ccframework/helpers/ccBaseHelper.cc \
+	ccframework/helpers/ccComponentHelper.cc \
 	ccframework/form/ccBaseForm.cc \
 	ccframework/form/element/ccBaseFormElement.cc
 

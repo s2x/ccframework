@@ -22,13 +22,18 @@ class ccResource;
 class ccAcl;
 class ccException;
 class ccMultipartParser;
-class ccBaseHelper;
+
+// form and forms elements
 class ccBaseForm;
 class ccBaseFormElement;
 class ccFormElementText;
 class ccFormElementLabel;
 class ccBaseFormRenderer;
 class ccFormElementFormStart;
+
+// helpers
+class ccBaseHelper;
+class ccComponentHelper;
 }
 #include <iostream>
 #include <fstream>
@@ -54,6 +59,7 @@ class ccFormElementFormStart;
 #include "ccException.h"
 #include "ccMultipartParser.h"
 #include "ccBaseHelper.h"
+#include "ccComponentHelper.h"
 #include "ccBaseForm.h"
 #include "ccBaseFormElement.h"
 #include "ccFormElementText.h"
