@@ -11,11 +11,12 @@
 namespace ccFramework {
 
 bool ccStaticRoute::match(ccRequest* request) {
-	this->request_params.clear();
-	std::string request_uri = request->getEnvParamter("REDIRECT_URL",
-			request->getEnvParamter("REQUEST_URI"));
-	request_uri = request_uri.substr(0, request_uri.find_first_of("?"));
 
+	this->request_params.clear();
+    std::string request_uri = this->getFixedRequestUri(request);
+
+	request_uri = request_uri.substr(0, request_uri.find_first_of("?"));
+        
 	if (request_uri.compare(this->pattern)==0) {
 		return true;
 	}

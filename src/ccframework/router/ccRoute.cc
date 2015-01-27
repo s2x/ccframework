@@ -92,6 +92,25 @@ std::string ccRoute::getUrl(std::map<std::string, std::string> params) {
 	return this->pattern;
 }
 
+std::string ccRoute::getFixedRequestUri(ccRequest* request) {
+	std::string request_uri = request->getEnvParamter("REDIRECT_URL",
+			request->getEnvParamter("REQUEST_URI"));
+	std::string script_name = request->getEnvParamter("SCRIPT_NAME");
+    
+    
+    if (script_name!="") {
+        if (request_uri.find(script_name)==0) {
+            request_uri = request_uri.substr(script_name.length());
+        }
+    }
+    
+    if (request_uri.find("/") == std::string::npos) {
+        request_uri = "/"+request_uri;
+    }
+    
+    return request_uri;
+}
+
 } /* namespace ccFramework */
 
 

@@ -20,7 +20,7 @@ Makefile
 /po/stamp-it
 /libtool
 /stamp-h1
-
+/src/test/query_test
 #anjuta 
 .anjuta/
 .anjuta_sym_db.db
@@ -34,3 +34,4 @@ Makefile
 *.dirstamp
 *.pc
 
+/config.h.in~

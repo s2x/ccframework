@@ -88,6 +88,7 @@ ccResponse *ccApp::processRequest(FCGX_Request fcgi_request) {
 				ctemplate::TemplateCache::LAZY_RELOAD);
 
 	}
+    
 	//proces fastcgi headers
 	this->request = new ccRequest(fcgi_request);
 

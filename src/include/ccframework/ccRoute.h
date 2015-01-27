@@ -24,6 +24,7 @@ public:
 
 	virtual bool match(ccRequest *request);
 
+    std::string getFixedRequestUri(ccRequest* request);
 
 	//if is active route then get paramters
 	bool hasRouteParameter(std::string name);
