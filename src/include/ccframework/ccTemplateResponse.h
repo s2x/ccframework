@@ -23,7 +23,8 @@
 #include <set>
 #include <deque>
 #include <ctemplate/template.h>
-#include "ccFramework.h"
+#include "ccClassDeclarations.h"
+
 
 namespace ccFramework {
 class ccTemplateResponse

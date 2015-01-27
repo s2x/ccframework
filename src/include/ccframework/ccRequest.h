@@ -7,9 +7,9 @@
 
 #ifndef CCREQUEST_H_
 #define CCREQUEST_H_
-#include "ccFramework.h"
 #include "fcgiapp.h"
 #include <iostream>
+#include "ccSession.h"
 namespace ccFramework {
 
 class ccRequest {

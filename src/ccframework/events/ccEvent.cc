@@ -5,7 +5,7 @@
  *      Author: piotr
  */
 
-#include "ccframework/ccFramework.h"
+#include "ccEvent.h"
 
 namespace ccFramework {
 

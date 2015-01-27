@@ -8,7 +8,7 @@
 #ifndef CCEXCEPTION_H_
 #define CCEXCEPTION_H_
 
-#include "ccFramework.h"
+#include <iostream>
 
 namespace ccFramework {
 

@@ -5,8 +5,8 @@
  *      Author: piotr
  */
 
-#include "ccframework/ccFramework.h"
-
+#include "ccMultipartParser.h"
+#include "ccCommon.h"
 namespace ccFramework {
 
 ccMultipartParser::ccMultipartParser(std::string query, std::string sep) {

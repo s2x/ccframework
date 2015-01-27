@@ -7,8 +7,9 @@
 
 #ifndef CCFORM_H_
 #define CCFORM_H_
-
-#include "ccFramework.h"
+#include <map>
+#include "ccClassDeclarations.h"
+#include "ctemplate/template.h"
 namespace ccFramework {
 class ccBaseForm {
 protected:

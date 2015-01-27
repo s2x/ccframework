@@ -7,28 +7,27 @@
 
 #ifndef CCSESSION_H_
 #define CCSESSION_H_
-#include "ccFramework.h"
+#include "ccClassDeclarations.h"
+#include "ccConfigLoader.h"
+#include "ccSessionProvider.h"
+#include "ccRequest.h"
 
 namespace ccFramework {
 
 class ccSession {
+	YAML::Node config;
 	std::string id;
-	std::string session_file;
 	ccConfigLoader *session;
-	void loadSession();
+	ccSessionProvider *provider;
 	bool save;
 public:
 	void set(std::string path, std::string val);
 	std::string get(std::string path, std::string val="");
-	ccSession(ccRequest *request);
-	virtual ~ccSession();
-	std::string getSessionFile() {
-		return this->session_file;
-	}
 
-	const std::string& getId() const {
-		return id;
-	}
+	ccSession(ccRequest *request, ccSessionProvider *provider = NULL);
+	virtual ~ccSession();
+
+	const std::string& getId() const;
 
 	void setSave(bool save);
 };

@@ -5,8 +5,8 @@
  *      Author: piotr
  */
 
-#include "ccframework/ccFramework.h"
-
+#include "ccConfigLoader.h"
+#include "ccCommon.h"
 namespace ccFramework {
 
 ccConfigLoader::ccConfigLoader(std::string filename) {

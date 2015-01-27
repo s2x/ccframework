@@ -5,7 +5,7 @@
  *      Author: piotr
  */
 
-#include "ccframework/ccFramework.h"
+#include "ccCommon.h"
 #include <fstream>
 #include "../vendor/md5/md5.h"
 

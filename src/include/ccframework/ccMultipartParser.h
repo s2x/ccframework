@@ -8,7 +8,8 @@
 #ifndef CCMULTIPARTPARSER_H_
 #define CCMULTIPARTPARSER_H_
 
-#include "ccFramework.h"
+#include <map>
+#include <iostream>
 
 namespace ccFramework {
 

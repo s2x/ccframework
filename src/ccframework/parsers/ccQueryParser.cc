@@ -5,7 +5,8 @@
  *      Author: piotr
  */
 
-#include "ccframework/ccFramework.h"
+#include "ccQueryParser.h"
+#include "ccCommon.h"
 
 namespace ccFramework {
 

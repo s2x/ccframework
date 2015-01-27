@@ -26,6 +26,10 @@ int test_genUrl() {
 }
 
 int main() {
+
+	ccSessionProvider *sp = new ccSessionProvider("");
+	sp->load("dasdas");
+
 	if (test_createRoute()) {
 		printf("Test create route: OK\n");
 		if (test_genUrl()) printf("Test get url: OK\n");

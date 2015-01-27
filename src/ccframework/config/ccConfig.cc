@@ -5,7 +5,8 @@
  *      Author: piotr
  */
 
-#include "ccframework/ccFramework.h"
+#include "ccConfig.h"
+#include "ccConfigLoader.h"
 
 namespace ccFramework {
 

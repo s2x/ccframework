@@ -7,7 +7,11 @@
 
 #ifndef CCCOMMON_H_
 #define CCCOMMON_H_
-
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <map>
+#include <vector>
 namespace ccFramework {
 const char SAFE[256] = {
 /*      0 1 2 3  4 5 6 7  8 9 A B  C D E F */

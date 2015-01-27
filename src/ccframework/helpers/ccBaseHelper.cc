@@ -5,7 +5,9 @@
  *      Author: piotr
  */
 
-#include "ccframework/ccFramework.h"
+#include "ccBaseHelper.h"
+#include "ccRequest.h"
+#include "ccApp.h"
 namespace ccFramework {
 
 ccRequest* ccBaseHelper::getRequest() {

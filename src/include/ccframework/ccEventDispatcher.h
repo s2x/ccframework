@@ -8,6 +8,10 @@
 #ifndef CCEVENTDISPATCHER_H_
 #define CCEVENTDISPATCHER_H_
 
+#include <iostream>
+#include <vector>
+#include "ccEvent.h"
+
 namespace ccFramework {
 void *event_func_template (void *name, ...);
 

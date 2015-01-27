@@ -8,6 +8,8 @@
 #ifndef CCCOOKIE_H_
 #define CCCOOKIE_H_
 
+#include <iostream>
+
 namespace ccFramework {
 
 class ccCookie {

@@ -7,6 +7,7 @@
 
 #ifndef CCRESOURCE_H_
 #define CCRESOURCE_H_
+#include <iostream>
 
 namespace ccFramework {
 

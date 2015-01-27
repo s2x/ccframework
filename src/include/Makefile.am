@@ -4,7 +4,8 @@
 SUBDIRS = \
 	ccframework
 
-nobase_include_HEADERS = ccframework/ccApp.h \
+nobase_include_HEADERS = \
+    ccframework/ccApp.h \
 	ccframework/ccCommon.h \
 	ccframework/ccConfig.h \
 	ccframework/ccConfigLoader.h \
@@ -17,8 +18,13 @@ nobase_include_HEADERS = ccframework/ccApp.h \
 	ccframework/ccRequest.h \
 	ccframework/ccResponse.h \
 	ccframework/ccRoute.h \
+	ccframework/ccStaticRoute.h \
+	ccframework/ccPregRoute.h \
 	ccframework/ccRouter.h \
 	ccframework/ccSession.h \
+	ccframework/ccSessionProvider.h \
+	ccframework/ccMemorySessionProvider.h \
+	ccframework/ccYamlSessionProvider.h \
 	ccframework/ccTemplateResponse.h \
 	ccframework/ccRole.h \
 	ccframework/ccAcl.h \
@@ -32,6 +38,7 @@ nobase_include_HEADERS = ccframework/ccApp.h \
 	ccframework/ccFormElementFormStart.h \
 	ccframework/ccFormElementLabel.h \
 	ccframework/ccFormElementText.h \
+	ccframework/ccClassDeclarations.h \
 	ccframework/ctemplate/template.h \
 	ccframework/ctemplate/template_cache.h \
 	ccframework/ctemplate/template_string.h \

@@ -6,6 +6,8 @@
  */
 
 #include "ccBaseForm.h"
+#include "ccBaseFormElement.h"
+#include "ccFormElementFormStart.h"
 namespace ccFramework {
 
 ccBaseForm::ccBaseForm(std::string name) {

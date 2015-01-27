@@ -101,30 +101,36 @@ vendor/yaml-cpp/setting.h\
     vendor/ctemplate/htmlparser/statemachine.h\
 	vendor/md5/md5.cc \
 	vendor/md5/md5.h \
-    ccframework/ccApp.cc \
 	ccframework/ccCommon.cc \
-	ccframework/ccController.cc \
-	ccframework/ccCookie.cc \
-	ccframework/parsers/ccQueryParser.cc \
-	ccframework/parsers/ccMultipartParser.cc \
-	ccframework/ccRequest.cc \
-	ccframework/ccSession.cc \
-	ccframework/ccException.cc \
 	ccframework/config/ccConfig.cc \
 	ccframework/config/ccConfigLoader.cc \
+	ccframework/acl/ccRole.cc \
+	ccframework/acl/ccResource.cc \
+	ccframework/acl/ccAcl.cc \
 	ccframework/events/ccEvent.cc \
 	ccframework/events/ccEventDispatcher.cc \
-	ccframework/response/ccResponse.cc \
-	ccframework/response/ccTemplateResponse.cc \
-	ccframework/router/ccRoute.cc \
-	ccframework/router/ccRouter.cc \
-	ccframework/acl/ccRole.cc \
-	ccframework/acl/ccAcl.cc \
-	ccframework/acl/ccResource.cc \
+	ccframework/ccException.cc \
+	ccframework/ccCookie.cc \
 	ccframework/helpers/ccBaseHelper.cc \
 	ccframework/helpers/ccComponentHelper.cc \
+	ccframework/session/ccSession.cc \
+	ccframework/session/ccSessionProvider.cc \
+	ccframework/session/ccMemorySessionProvider.cc \
+	ccframework/session/ccYamlSessionProvider.cc \
+	ccframework/parsers/ccQueryParser.cc \
+	ccframework/parsers/ccMultipartParser.cc \
+	ccframework/router/ccRoute.cc \
+	ccframework/router/ccPregRoute.cc \
+	ccframework/router/ccStaticRoute.cc \
+	ccframework/router/ccRouter.cc \
+	ccframework/ccController.cc \
+	ccframework/ccRequest.cc \
+	ccframework/response/ccResponse.cc \
+	ccframework/response/ccTemplateResponse.cc \
 	ccframework/form/ccBaseForm.cc \
-	ccframework/form/element/ccBaseFormElement.cc
+	ccframework/form/element/ccBaseFormElement.cc \
+	ccframework/ccApp.cc 
+	
 
 libccframework_la_CXXFLAGS = -Wall -Wwrite-strings -Woverloaded-virtual -Wno-sign-compare -Iinclude -Ivendor/ctemplate -Iinclude/ccframework -std=c++0x
 libccframework_la_LDFLAGS = 

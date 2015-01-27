@@ -17,7 +17,12 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "ccframework/ccFramework.h"
+#include "ccTemplateResponse.h"
+#include "ccApp.h"
+#include "ccRouter.h"
+#include "ccCommon.h"
+#include "ccEventDispatcher.h"
+#include "ccResponse.h"
 
 namespace ccFramework {
 std::deque<std::string> ccTemplateResponse::default_stylesheets;

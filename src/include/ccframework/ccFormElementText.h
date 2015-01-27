@@ -7,7 +7,7 @@
 
 #ifndef CCFORMELEMENTTEXT_H_
 #define CCFORMELEMENTTEXT_H_
-#include "ccFramework.h"
+
 namespace ccFramework {
 
 class ccFormElementText: public ccBaseFormElement {

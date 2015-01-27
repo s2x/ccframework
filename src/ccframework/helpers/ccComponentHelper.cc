@@ -6,7 +6,7 @@
  */
 
 #include "ccComponentHelper.h"
-
+#include "ccResponse.h"
 namespace ccFramework {
 
 std::map<std::string, ccResponse* (*)(std::map<std::string, std::string> params)> ccComponentHelper::components;

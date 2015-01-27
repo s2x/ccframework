@@ -7,8 +7,15 @@
 
 #ifndef CCAPP_H_
 #define CCAPP_H_
-#include "ccFramework.h"
+
 #include "fcgiapp.h"
+#include "ctemplate/template.h"
+#include "ccController.h"
+#include "ccRequest.h"
+#include "ccRouter.h"
+#include "ccAcl.h"
+#include "ccConfigLoader.h"
+#include <map>
 
 namespace ccFramework {
 
@@ -18,6 +25,7 @@ class ccApp {
 	ccRequest *request;
 	ccRouter *router;
 	ccAcl *acl;
+	ccSessionProvider *session_provider;
 	static ccConfigLoader *config;
 	bool loadConfig(std::string config_file);
 
@@ -57,6 +65,15 @@ public:
 	ccRequest *getRequest();
 	ccAcl* getAcl();
 	static  ccConfigLoader* getConfig();
+
+	ccSessionProvider* getSessionProvider() {
+		return session_provider;
+	}
+
+	void setSessionProvider(ccSessionProvider* sessionProvider) {
+		if (this->session_provider != NULL) delete this->session_provider;
+		this->session_provider = sessionProvider;
+	}
 };
 
 } /* namespace ccFramework */

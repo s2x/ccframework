@@ -7,7 +7,13 @@
 
 #ifndef CCCONTROLLER_H_
 #define CCCONTROLLER_H_
-#include <ctemplate/template.h>
+
+#include "ccApp.h"
+#include "ccResponse.h"
+#include "ccRequest.h"
+#include <iostream>
+#include "ccException.h"
+#include "ccRoute.h"
 namespace ccFramework {
 
 class ccController {

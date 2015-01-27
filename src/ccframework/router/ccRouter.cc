@@ -5,8 +5,14 @@
  *      Author: piotr
  */
 
-#include "ccframework/ccFramework.h"
-
+#include "ccRouter.h"
+#include "ccApp.h"
+#include "ccRoute.h"
+#include "ccQueryParser.h"
+#include "ccRequest.h"
+#include "ccAcl.h"
+#include "ccException.h"
+#include <iostream>
 namespace ccFramework {
 
 ccRouter::ccRouter() {
@@ -61,6 +67,12 @@ ccRoute* ccRouter::getActiveRoute() {
 
 void ccRouter::setActiveRoute(ccRoute* activeRoute) {
 	active_route = activeRoute;
+}
+
+std::string ccRouter::getActiveRouteName(){
+	if (this->active_route)
+		return this->active_route->getName();
+	return "";
 }
 
 } /* namespace ccFramework */

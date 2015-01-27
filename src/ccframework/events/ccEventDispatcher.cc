@@ -5,8 +5,8 @@
  *      Author: piotr
  */
 
-#include "ccframework/ccFramework.h"
-
+#include "ccEventDispatcher.h"
+#include "ccEvent.h"
 namespace ccFramework {
 
 ccEventDispatcher *ccEventDispatcher::instance = NULL;

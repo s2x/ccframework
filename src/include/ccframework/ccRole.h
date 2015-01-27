@@ -7,8 +7,7 @@
 
 #ifndef CCROLE_H_
 #define CCROLE_H_
-
-#include "ccFramework.h"
+#include <iostream>
 
 namespace ccFramework {
 

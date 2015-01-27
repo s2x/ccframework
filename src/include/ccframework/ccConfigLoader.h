@@ -7,7 +7,8 @@
 
 #ifndef CCCONFIGLOADER_H_
 #define CCCONFIGLOADER_H_
-
+#include "yaml-cpp/yaml.h"
+#include <iostream>
 namespace ccFramework {
 
 class ccConfigLoader {

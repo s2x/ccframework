@@ -8,6 +8,8 @@
 #ifndef CCEVENT_H_
 #define CCEVENT_H_
 
+#include <map>
+#include <iostream>
 namespace ccFramework {
 
 class ccEvent {

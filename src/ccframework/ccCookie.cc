@@ -5,7 +5,7 @@
  *      Author: piotr
  */
 
-#include "ccframework/ccFramework.h"
+#include "ccCookie.h"
 
 namespace ccFramework {
 

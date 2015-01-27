@@ -5,8 +5,14 @@
  *      Author: piotr
  */
 
-#include "ccframework/ccFramework.h"
+#include "ccRequest.h"
 #include <sstream> 
+#include "ccSession.h"
+#include "ccQueryParser.h"
+#include "ccMultipartParser.h"
+#include "ccCommon.h"
+#include <stdio.h>
+#include <string.h>
 namespace ccFramework {
 
 ccRequest::ccRequest(FCGX_Request request) {

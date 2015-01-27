@@ -7,7 +7,8 @@
 
 #ifndef CCCONFIG_H_
 #define CCCONFIG_H_
-
+#include <iostream>
+#include "ccConfigLoader.h"
 namespace ccFramework {
 
 class ccConfig {

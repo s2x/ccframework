@@ -5,7 +5,9 @@
  *      Author: piotr
  */
 
-#include "../../include/ccframework/ccFramework.h"
+#include "ccAcl.h"
+#include "ccRole.h"
+#include "ccResource.h"
 
 namespace ccFramework {
 

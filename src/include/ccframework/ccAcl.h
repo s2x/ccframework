@@ -8,8 +8,10 @@
 #ifndef CCACL_H_
 #define CCACL_H_
 
-#include "../../include/ccframework/ccFramework.h"
-
+#include "ccRole.h"
+#include "ccResource.h"
+#include <vector>
+#include <map>
 namespace ccFramework {
 
 class ccAcl {

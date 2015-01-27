@@ -8,7 +8,7 @@
 #ifndef CCCOMPONENTHELPER_H_
 #define CCCOMPONENTHELPER_H_
 
-#include "ccFramework.h"
+#include "ccBaseHelper.h"
 
 namespace ccFramework {
 

@@ -7,8 +7,7 @@
 
 #ifndef CCBASEFORMELEMENT_H_
 #define CCBASEFORMELEMENT_H_
-#include "ccFramework.h"
-
+#include "ctemplate/template.h"
 namespace ccFramework {
 
 class ccBaseFormElement {

@@ -5,8 +5,15 @@
  *      Author: piotr
  */
 
-#include "ccframework/ccFramework.h"
-
+#include "ccController.h"
+#include "ccApp.h"
+#include "ccResponse.h"
+#include "ccController.h"
+#include "ccRequest.h"
+#include "ccRouter.h"
+#include "ccTemplateResponse.h"
+#include "ccRoute.h"
+#include "ccException.h"
 namespace ccFramework {
 
 ccController::ccController(ccApp *app) {

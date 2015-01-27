@@ -5,9 +5,22 @@
  *      Author: piotr
  */
 
-#include "ccframework/ccFramework.h"
+#include "ccApp.h"
 #include "fcgio.h"
 #include "fcgi_config.h"  // HAVE_IOSTREAM_WITHASSIGN_STREAMBUF
+#include "ccRouter.h"
+#include "ctemplate/template.h"
+#include "ccConfigLoader.h"
+#include "ccController.h"
+#include "ccAcl.h"
+#include "ccComponentHelper.h"
+#include "ccSession.h"
+#include "ccRequest.h"
+#include "ccException.h"
+#include "ccRoute.h"
+#include "ccCookie.h"
+#include "ccResponse.h"
+
 namespace ccFramework {
 
 ccApp *ccApp::instance = NULL;
@@ -39,7 +52,7 @@ ccApp::ccApp(std::string config_file) {
 	this->acl->setAllowAll(true);
     
    	ctemplate::addTemplateHelper("COMPONENT",new ccComponentHelper());
-
+   	this->session_provider = new ccSessionProvider("");
 }
 ccApp::~ccApp() {
 #if HAVE_IOSTREAM_WITHASSIGN_STREAMBUF
@@ -63,6 +76,7 @@ ccApp::~ccApp() {
 
 ccResponse *ccApp::processRequest(FCGX_Request fcgi_request) {
 
+
 	ccResponse *ret = NULL;
 
 	//reload cache if template changes
@@ -78,7 +92,7 @@ ccResponse *ccApp::processRequest(FCGX_Request fcgi_request) {
 	this->request = new ccRequest(fcgi_request);
 
 	// autostart session
-	this->getRequest()->setSession(new ccSession(request));
+	this->getRequest()->setSession(new ccSession(request, this->getSessionProvider()));
 	if (this->getConfigValue("session.autostart", "0") == "1") {
 		//autosave
 		this->getRequest()->getSession()->setSave(true);

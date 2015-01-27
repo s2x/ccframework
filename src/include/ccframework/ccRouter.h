@@ -7,12 +7,11 @@
 
 #ifndef CCROUTER_H_
 #define CCROUTER_H_
+#include <vector>
 #include <iostream>
-#include <map>
-#include "ccFramework.h"
+#include "ccClassDeclarations.h"
 
 namespace ccFramework {
-
 class ccRouterFunctor
 {
 public:
@@ -69,11 +68,7 @@ public:
 	ccRoute *getRoute(ccRequest *request);
 	ccRoute *getRoute(std::string route_name);
 
-	std::string getActiveRouteName(){
-		if (this->active_route)
-			return this->active_route->getName();
-		return "";
-	}
+	std::string getActiveRouteName();
 	ccRoute* getActiveRoute();
 	void setActiveRoute(ccRoute* activeRoute);
 
