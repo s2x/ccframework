@@ -1,6 +1,9 @@
 #ifndef CCFRAMEWORK_H_
 #define CCFRAMEWORK_H_
 
+//routing functor
+#define create_routing_functor(class_name, function_name) new ccSpecificRouterFunctor< class_name >(this, &class_name::function_name)
+
 #include <iostream>
 #include <fstream>
 #include "yaml-cpp/yaml.h"
