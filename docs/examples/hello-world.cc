@@ -1,7 +1,7 @@
-/*
+﻿/*
  ============================================================================
  Name        : hello-world.cc
- Author      : Piotr Ha�as
+ Author      : Piotr Hałas
  Version     :
  Copyright   : 
  Description : Hello World in ccFramework,
