@@ -20,6 +20,9 @@ Here is list of packages to install before compile ccFramework
 * run autogen: <code>./autogen.sh</code>
 * install: <code>make && make install</code>
 
+Examples
+===========
+Code examples can be found in [docs directory](https://github.com/s2x/ccframework/tree/master/docs/examples). 
 
 RoadMap
 ===========
