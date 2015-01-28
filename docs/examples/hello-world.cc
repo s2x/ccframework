@@ -19,7 +19,7 @@ using namespace ccFramework;
 class ExampleController: public ccController {
 public:
     //custom constructor is needed
-	ExampleController(ccApp *app): ccController(app) {};
+    ExampleController(ccApp *app): ccController(app) {};
     
     //very simple controller, just print hello world
     ccResponse *indexAction(ccRequest *request) {
@@ -41,13 +41,13 @@ public:
 
 int main(void) {
     //initailise main app, set the config file
-	ccApp app("../config.yml");
+    ccApp app("../config.yml");
 
     //register example controller 
     app.registerController("example",new ExampleController(&app));
-	
+    
     //main loop. Wait for connection
     app.run();
 
-	return 0;
+    return 0;
 }
