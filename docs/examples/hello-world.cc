@@ -10,7 +10,7 @@
  */
 
 #include "ccFramework.h"
-#define create_routing_functor(class_name, function_name) new ccSpecificRouterFunctor< class_name >(this, &class_name::function_name) 
+
 using namespace std;
 using namespace ccFramework;
 
