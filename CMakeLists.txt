@@ -211,5 +211,4 @@ add_library(ccframework ${SOURCE_FILES})
 include_directories(src/include/ccframework)
 include_directories(src/include/ccframework/ctemplate)
 include_directories(src/vendor/ctemplate)
-include_directories(./)
 
