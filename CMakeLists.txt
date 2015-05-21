@@ -151,77 +151,30 @@ set(SOURCE_FILES
     src/vendor/ctemplate/template_pathops.cc
     src/vendor/ctemplate/template_string.cc
     src/vendor/md5/md5.cc
-    src/vendor/md5/md5.h
-    src/vendor/yaml-cpp/contrib/graphbuilder.cpp
-    src/vendor/yaml-cpp/contrib/graphbuilderadapter.cpp
-    src/vendor/yaml-cpp/contrib/graphbuilderadapter.h
-    src/vendor/yaml-cpp/binary.cpp
-    src/vendor/yaml-cpp/collectionstack.h
-    src/vendor/yaml-cpp/convert.cpp
-    src/vendor/yaml-cpp/directives.cpp
-    src/vendor/yaml-cpp/directives.h
-    src/vendor/yaml-cpp/emit.cpp
-    src/vendor/yaml-cpp/emitfromevents.cpp
-    src/vendor/yaml-cpp/emitter.cpp
-    src/vendor/yaml-cpp/emitterstate.cpp
-    src/vendor/yaml-cpp/emitterstate.h
-    src/vendor/yaml-cpp/emitterutils.cpp
-    src/vendor/yaml-cpp/emitterutils.h
-    src/vendor/yaml-cpp/exp.cpp
-    src/vendor/yaml-cpp/exp.h
-    src/vendor/yaml-cpp/indentation.h
-    src/vendor/yaml-cpp/memory.cpp
-    src/vendor/yaml-cpp/node.cpp
-    src/vendor/yaml-cpp/node_data.cpp
-    src/vendor/yaml-cpp/nodebuilder.cpp
-    src/vendor/yaml-cpp/nodebuilder.h
-    src/vendor/yaml-cpp/nodeevents.cpp
-    src/vendor/yaml-cpp/nodeevents.h
-    src/vendor/yaml-cpp/null.cpp
-    src/vendor/yaml-cpp/ostream_wrapper.cpp
-    src/vendor/yaml-cpp/parse.cpp
-    src/vendor/yaml-cpp/parser.cpp
-    src/vendor/yaml-cpp/ptr_stack.h
-    src/vendor/yaml-cpp/ptr_vector.h
-    src/vendor/yaml-cpp/regex.cpp
-    src/vendor/yaml-cpp/regex.h
-    src/vendor/yaml-cpp/regeximpl.h
-    src/vendor/yaml-cpp/scanner.cpp
-    src/vendor/yaml-cpp/scanner.h
-    src/vendor/yaml-cpp/scanscalar.cpp
-    src/vendor/yaml-cpp/scanscalar.h
-    src/vendor/yaml-cpp/scantag.cpp
-    src/vendor/yaml-cpp/scantag.h
-    src/vendor/yaml-cpp/scantoken.cpp
-    src/vendor/yaml-cpp/setting.h
-    src/vendor/yaml-cpp/simplekey.cpp
-    src/vendor/yaml-cpp/singledocparser.cpp
-    src/vendor/yaml-cpp/singledocparser.h
-    src/vendor/yaml-cpp/stream.cpp
-    src/vendor/yaml-cpp/stream.h
-    src/vendor/yaml-cpp/streamcharsource.h
-    src/vendor/yaml-cpp/stringsource.h
-    src/vendor/yaml-cpp/tag.cpp
-    src/vendor/yaml-cpp/tag.h
-    src/vendor/yaml-cpp/token.h)
+    src/vendor/md5/md5.h)
 
 set(FROM_TEST_SOURCE_FILES
     src/test/form_test.cc)
 
 set(ROUTER_TEST_SOURCE_FILES
     src/test/router_test.cc)
+
 find_package(Fcgi)
 find_package(Threads)
-find_package(Boost REQUIRED)
-
-add_library(ccframework ${SOURCE_FILES})
-
-add_executable(router-test ${ROUTER_TEST_SOURCE_FILES})
-add_executable(form-test ${FROM_TEST_SOURCE_FILES})
-
-target_link_libraries(router-test ccframework ${FCGI_LIBRARY} ${FCGICC_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
-target_link_libraries(form-test ccframework ${FCGI_LIBRARY} ${FCGICC_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+find_package(Boost)
+find_package(PCRE)
+find_package(YamlCpp)
 
 include_directories(src/include/ccframework)
 include_directories(src/include/ccframework/ctemplate)
 include_directories(src/vendor/ctemplate)
+include_directories(${PCRE_INCLUDE_DIRS})
+include_directories(${YAMLCPP_INCLUDE_DIRS})
+
+add_library(ccframework ${SOURCE_FILES})
+add_executable(router-test ${ROUTER_TEST_SOURCE_FILES})
+add_executable(form-test ${FROM_TEST_SOURCE_FILES})
+
+target_link_libraries(router-test ccframework ${FCGI_LIBRARY} ${FCGICC_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${YAMLCPP_LIBRARY})
+target_link_libraries(form-test ccframework ${FCGI_LIBRARY} ${FCGICC_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${YAMLCPP_LIBRARY})
+
