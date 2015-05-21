@@ -175,6 +175,16 @@ add_library(ccframework ${SOURCE_FILES})
 add_executable(router-test ${ROUTER_TEST_SOURCE_FILES})
 add_executable(form-test ${FROM_TEST_SOURCE_FILES})
 
-target_link_libraries(router-test ccframework ${FCGI_LIBRARY} ${FCGICC_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${YAMLCPP_LIBRARY})
-target_link_libraries(form-test ccframework ${FCGI_LIBRARY} ${FCGICC_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${YAMLCPP_LIBRARY})
+target_link_libraries(router-test ccframework
+    ${FCGI_LIBRARY}
+    ${FCGICC_LIBRARY}
+    ${CMAKE_THREAD_LIBS_INIT}
+    ${YAMLCPP_LIBRARY}
+    ${PCRE_LIBRARY})
+target_link_libraries(form-test ccframework
+    ${FCGI_LIBRARY}
+    ${FCGICC_LIBRARY}
+    ${CMAKE_THREAD_LIBS_INIT}
+    ${YAMLCPP_LIBRARY}
+    ${PCRE_LIBRARY})
 
