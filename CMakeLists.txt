@@ -157,4 +157,6 @@ target_link_libraries(form-test ccframework
     ${PCRE_LIBRARY})
 
 install(TARGETS ccframework DESTINATION lib)
-install(FILES ${HEADER_FILES} DESTINATION include)
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/include
+    DESTINATION ${CMAKE_INSTALL_PREFIX}
+    FILES_MATCHING PATTERN "*")
