@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
 project(ccframework)
+
+# The version number.
+set (ccframework_VERSION_MAJOR 0)
+set (ccframework_VERSION_MINOR 1)
+
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
@@ -160,3 +165,15 @@ install(TARGETS ccframework DESTINATION lib)
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/include
     DESTINATION ${CMAKE_INSTALL_PREFIX}
     FILES_MATCHING PATTERN "*")
+
+
+# build a CPack driven installer package
+include (InstallRequiredSystemLibraries)
+set(CPACK_RESOURCE_FILE_LICENSE
+    "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
+set(CPACK_PACKAGE_VERSION_MAJOR "${ccframework_VERSION_MAJOR}")
+set(CPACK_PACKAGE_VERSION_MINOR "${ccframework_VERSION_MINOR}")
+SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Piotr Hałas <halaspiotr@gmail.com>") #required
+set(CPACK_GENERATOR "DEB")
+SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libyaml-cpp (>= 0.5), libpcre3, libboost, libfcgi")
+include (CPack)
