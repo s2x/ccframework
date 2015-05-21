@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 project(ccframework)
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
 
@@ -117,8 +118,6 @@ set(SOURCE_FILES
     src/include/ccframework/ccStaticRoute.h
     src/include/ccframework/ccTemplateResponse.h
     src/include/ccframework/ccYamlSessionProvider.h
-    src/test/form_test.cc
-    src/test/router_test.cc
     src/vendor/ctemplate/base/arena-inl.h
     src/vendor/ctemplate/base/arena.cc
     src/vendor/ctemplate/base/arena.h
@@ -206,9 +205,22 @@ set(SOURCE_FILES
     src/vendor/yaml-cpp/tag.h
     src/vendor/yaml-cpp/token.h)
 
-#add_executable(ccframework ${SOURCE_FILES})
+set(FROM_TEST_SOURCE_FILES
+    src/test/form_test.cc)
+
+set(ROUTER_TEST_SOURCE_FILES
+    src/test/router_test.cc)
+find_package(Fcgi)
+find_package(Threads)
+
 add_library(ccframework ${SOURCE_FILES})
+
+add_executable(router-test ${ROUTER_TEST_SOURCE_FILES})
+add_executable(form-test ${FROM_TEST_SOURCE_FILES})
+
+target_link_libraries(router-test ccframework ${FCGI_LIBRARY} ${FCGICC_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(form-test ccframework ${FCGI_LIBRARY} ${FCGICC_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+
 include_directories(src/include/ccframework)
 include_directories(src/include/ccframework/ctemplate)
 include_directories(src/vendor/ctemplate)
-
