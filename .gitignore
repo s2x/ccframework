@@ -3,3 +3,5 @@
 *.a
 /CMakeCache.txt
 /cmake_install.cmake
+/form-test
+/router-test

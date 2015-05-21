@@ -4,36 +4,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
 
-set(SOURCE_FILES
-    src/ccframework/acl/ccAcl.cc
-    src/ccframework/acl/ccResource.cc
-    src/ccframework/acl/ccRole.cc
-    src/ccframework/config/ccConfig.cc
-    src/ccframework/config/ccConfigLoader.cc
-    src/ccframework/events/ccEvent.cc
-    src/ccframework/events/ccEventDispatcher.cc
-    src/ccframework/form/element/ccBaseFormElement.cc
-    src/ccframework/form/ccBaseForm.cc
-    src/ccframework/helpers/ccBaseHelper.cc
-    src/ccframework/helpers/ccComponentHelper.cc
-    src/ccframework/parsers/ccMultipartParser.cc
-    src/ccframework/parsers/ccQueryParser.cc
-    src/ccframework/response/ccResponse.cc
-    src/ccframework/response/ccTemplateResponse.cc
-    src/ccframework/router/ccPregRoute.cc
-    src/ccframework/router/ccRoute.cc
-    src/ccframework/router/ccRouter.cc
-    src/ccframework/router/ccStaticRoute.cc
-    src/ccframework/session/ccMemorySessionProvider.cc
-    src/ccframework/session/ccSession.cc
-    src/ccframework/session/ccSessionProvider.cc
-    src/ccframework/session/ccYamlSessionProvider.cc
-    src/ccframework/ccApp.cc
-    src/ccframework/ccCommon.cc
-    src/ccframework/ccController.cc
-    src/ccframework/ccCookie.cc
-    src/ccframework/ccException.cc
-    src/ccframework/ccRequest.cc
+set(HEADER_FILES
     src/include/ccframework/ctemplate/find_ptr.h
     src/include/ccframework/ctemplate/per_expand_data.h
     src/include/ccframework/ctemplate/str_ref.h
@@ -48,42 +19,6 @@ set(SOURCE_FILES
     src/include/ccframework/ctemplate/template_namelist.h
     src/include/ccframework/ctemplate/template_pathops.h
     src/include/ccframework/ctemplate/template_string.h
-    src/include/ccframework/yaml-cpp/contrib/anchordict.h
-    src/include/ccframework/yaml-cpp/contrib/graphbuilder.h
-    src/include/ccframework/yaml-cpp/node/detail/bool_type.h
-    src/include/ccframework/yaml-cpp/node/detail/impl.h
-    src/include/ccframework/yaml-cpp/node/detail/iterator.h
-    src/include/ccframework/yaml-cpp/node/detail/iterator_fwd.h
-    src/include/ccframework/yaml-cpp/node/detail/memory.h
-    src/include/ccframework/yaml-cpp/node/detail/node.h
-    src/include/ccframework/yaml-cpp/node/detail/node_data.h
-    src/include/ccframework/yaml-cpp/node/detail/node_iterator.h
-    src/include/ccframework/yaml-cpp/node/detail/node_ref.h
-    src/include/ccframework/yaml-cpp/node/convert.h
-    src/include/ccframework/yaml-cpp/node/emit.h
-    src/include/ccframework/yaml-cpp/node/impl.h
-    src/include/ccframework/yaml-cpp/node/iterator.h
-    src/include/ccframework/yaml-cpp/node/node.h
-    src/include/ccframework/yaml-cpp/node/parse.h
-    src/include/ccframework/yaml-cpp/node/ptr.h
-    src/include/ccframework/yaml-cpp/node/type.h
-    src/include/ccframework/yaml-cpp/anchor.h
-    src/include/ccframework/yaml-cpp/binary.h
-    src/include/ccframework/yaml-cpp/dll.h
-    src/include/ccframework/yaml-cpp/emitfromevents.h
-    src/include/ccframework/yaml-cpp/emitter.h
-    src/include/ccframework/yaml-cpp/emitterdef.h
-    src/include/ccframework/yaml-cpp/emittermanip.h
-    src/include/ccframework/yaml-cpp/eventhandler.h
-    src/include/ccframework/yaml-cpp/exceptions.h
-    src/include/ccframework/yaml-cpp/mark.h
-    src/include/ccframework/yaml-cpp/noncopyable.h
-    src/include/ccframework/yaml-cpp/null.h
-    src/include/ccframework/yaml-cpp/ostream_wrapper.h
-    src/include/ccframework/yaml-cpp/parser.h
-    src/include/ccframework/yaml-cpp/stlemitter.h
-    src/include/ccframework/yaml-cpp/traits.h
-    src/include/ccframework/yaml-cpp/yaml.h
     src/include/ccframework/ccAcl.h
     src/include/ccframework/ccApp.h
     src/include/ccframework/ccBaseForm.h
@@ -118,6 +53,38 @@ set(SOURCE_FILES
     src/include/ccframework/ccStaticRoute.h
     src/include/ccframework/ccTemplateResponse.h
     src/include/ccframework/ccYamlSessionProvider.h
+)
+
+set(SOURCE_FILES
+    src/ccframework/acl/ccAcl.cc
+    src/ccframework/acl/ccResource.cc
+    src/ccframework/acl/ccRole.cc
+    src/ccframework/config/ccConfig.cc
+    src/ccframework/config/ccConfigLoader.cc
+    src/ccframework/events/ccEvent.cc
+    src/ccframework/events/ccEventDispatcher.cc
+    src/ccframework/form/element/ccBaseFormElement.cc
+    src/ccframework/form/ccBaseForm.cc
+    src/ccframework/helpers/ccBaseHelper.cc
+    src/ccframework/helpers/ccComponentHelper.cc
+    src/ccframework/parsers/ccMultipartParser.cc
+    src/ccframework/parsers/ccQueryParser.cc
+    src/ccframework/response/ccResponse.cc
+    src/ccframework/response/ccTemplateResponse.cc
+    src/ccframework/router/ccPregRoute.cc
+    src/ccframework/router/ccRoute.cc
+    src/ccframework/router/ccRouter.cc
+    src/ccframework/router/ccStaticRoute.cc
+    src/ccframework/session/ccMemorySessionProvider.cc
+    src/ccframework/session/ccSession.cc
+    src/ccframework/session/ccSessionProvider.cc
+    src/ccframework/session/ccYamlSessionProvider.cc
+    src/ccframework/ccApp.cc
+    src/ccframework/ccCommon.cc
+    src/ccframework/ccController.cc
+    src/ccframework/ccCookie.cc
+    src/ccframework/ccException.cc
+    src/ccframework/ccRequest.cc
     src/vendor/ctemplate/base/arena-inl.h
     src/vendor/ctemplate/base/arena.cc
     src/vendor/ctemplate/base/arena.h
@@ -168,6 +135,7 @@ find_package(YamlCpp)
 include_directories(src/include/ccframework)
 include_directories(src/include/ccframework/ctemplate)
 include_directories(src/vendor/ctemplate)
+
 include_directories(${PCRE_INCLUDE_DIRS})
 include_directories(${YAMLCPP_INCLUDE_DIRS})
 
@@ -188,3 +156,5 @@ target_link_libraries(form-test ccframework
     ${YAMLCPP_LIBRARY}
     ${PCRE_LIBRARY})
 
+install(TARGETS ccframework DESTINATION lib)
+install(FILES ${HEADER_FILES} DESTINATION include)
