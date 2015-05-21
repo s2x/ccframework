@@ -5,3 +5,8 @@
 /cmake_install.cmake
 /form-test
 /router-test
+/_CPack_Packages/
+/CPackConfig.cmake
+/CPackSourceConfig.cmake
+/install_manifest.txt
+*.deb

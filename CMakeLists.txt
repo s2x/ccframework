@@ -175,5 +175,5 @@ set(CPACK_PACKAGE_VERSION_MAJOR "${ccframework_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${ccframework_VERSION_MINOR}")
 SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Piotr Hałas <halaspiotr@gmail.com>") #required
 set(CPACK_GENERATOR "DEB")
-SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libyaml-cpp (>= 0.5), libpcre3, libboost, libfcgi")
+SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libyaml-cpp0.5, libpcre3, libboost-dev, libfcgi")
 include (CPack)
