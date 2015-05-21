@@ -212,6 +212,7 @@ set(ROUTER_TEST_SOURCE_FILES
     src/test/router_test.cc)
 find_package(Fcgi)
 find_package(Threads)
+find_package(Boost REQUIRED)
 
 add_library(ccframework ${SOURCE_FILES})
 
