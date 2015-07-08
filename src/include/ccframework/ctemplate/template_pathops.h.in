@@ -1,4 +1,4 @@
-// Copyright (c) 2009, Google Inc.
+// Copyright (c) 2007, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -28,51 +28,46 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // ---
-//
-// This contains some implementation of PerExpandData that is still simple
-// but is not conveniently defined in the header file, e.g., because it would
-// introduce new include dependencies.
+// Author: csilvers@google.com (Craig Silverstein)
 
-#include <config.h>
-#include <ctemplate/find_ptr.h>
-#include <ctemplate/per_expand_data.h>
-#include <ctemplate/template_annotator.h>
+#ifndef TEMPLATE_TEMPLATE_PATHOPS_H_
+#define TEMPLATE_TEMPLATE_PATHOPS_H_
+
+#include <string>
+
+@ac_windows_dllexport_defines@
 
 namespace ctemplate {
 
-using std::string;
+extern @ac_windows_dllexport@
+const char kCWD[];       // a string that's equivalent to "./"
+extern @ac_windows_dllexport@
+const char kRootdir[];   // a string that's equivalent to "/"
 
-#ifndef _MSC_VER
-bool PerExpandData::DataEq::operator()(const char* s1, const char* s2) const {
-  return ((s1 == 0 && s2 == 0) ||
-          (s1 && s2 && *s1 == *s2 && strcmp(s1, s2) == 0));
-}
-#endif
+extern @ac_windows_dllexport@
+std::string PathJoin(const std::string& a, const std::string& b);
 
-PerExpandData::~PerExpandData() {
-  delete map_;
-}
+extern @ac_windows_dllexport@
+bool IsAbspath(const std::string& path);
 
-TemplateAnnotator* PerExpandData::annotator() const {
-  if (annotator_ != NULL) {
-    return annotator_;
-  }
-  // TextTemplateAnnotator has no static state.  So direct static definition
-  // should be safe.
-  static TextTemplateAnnotator g_default_annotator;
-  return &g_default_annotator;
-}
+extern @ac_windows_dllexport@
+bool IsDirectory(const std::string& path);         // checks if path ends with /
 
-void PerExpandData::InsertForModifiers(const char* key, const void* value) {
-  if (!map_)
-    map_ = new DataMap;
-  (*map_)[key] = value;
-}
+extern @ac_windows_dllexport@
+void NormalizeDirectory(std::string* dir);         // adds trailing / if needed
 
-  // Retrieve data specific to this Expand call. Returns NULL if key
-  // is not found.  This should only be used by template modifiers.
-const void* PerExpandData::LookupForModifiers(const char* key) const {
-  return map_ ? find_ptr2(*map_, key) : NULL;
-}
+extern @ac_windows_dllexport@
+std::string Basename(const std::string& path);          // everything after last /
+
+// Returns true iff text contains the word as a full word, i.e. delimited by one
+// of [.,_-#*?:] on both the sides.
+// This is used while loading a template, to check that the file's name matches
+// the auto-escape mode specified by it.
+// NOTE: This assumes that the word doesn't contain any of the delimiter
+// characters.
+extern @ac_windows_dllexport@
+bool ContainsFullWord(const std::string& text, const std::string& word);
 
 }
+
+#endif  // TEMPLATE_TEMPLATE_PATHOPS_H_

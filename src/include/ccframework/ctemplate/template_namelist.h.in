@@ -40,13 +40,13 @@
 #define TEMPLATE_TEMPLATE_NAMELIST_H_
 
 #include <time.h>    // for time_t
-#include <tr1/unordered_set>
+#include @ac_cv_cxx_hash_set@
 #include <string>
 #include <vector>
 #include <ctemplate/template_enums.h>    // for Strip
 #include <ctemplate/template_string.h>   // for StringHash
 
-
+@ac_windows_dllexport_defines@
 
 namespace ctemplate {
 
@@ -64,7 +64,7 @@ namespace ctemplate {
 // TODO (we wish): Make this macro produce the #include for the auto-generated
 // header files, when and if the macro pre-processor supports that
 #define RegisterTemplateFilename(var, name)         \
-  const char* const var = ::ctemplate::TemplateNamelist::RegisterTemplate(name);
+  const char* const var = @ac_google_namespace@::TemplateNamelist::RegisterTemplate(name);
 
 // Class: TemplateNamelist
 //   Each time this class is instantiated, the name passed to
@@ -75,14 +75,14 @@ namespace ctemplate {
 //   sanity-checking code to make sure all the templates used by a program
 //   exist and are syntactically correct.
 
-class  TemplateNamelist {
+class @ac_windows_dllexport@ TemplateNamelist {
   friend class TemporaryRegisterTemplate;
  public:
   // These types should be taken as 'generic' containers.  The only
   // thing you should do with them is call size() and/or iterate
   // between begin() and end(), and the only operations we promise
   // the iterators will support are operator* and operator++.
-  typedef std::tr1::unordered_set<std::string, StringHash> NameListType;
+  typedef @ac_cv_cxx_hash_set_class@<std::string, StringHash> NameListType;
   typedef std::vector<std::string> MissingListType;
   typedef std::vector<std::string> SyntaxListType;
 

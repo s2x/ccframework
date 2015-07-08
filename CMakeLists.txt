@@ -9,6 +9,35 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
 
+set(ac_cv_cxx_hash_map "<tr1/unordered_map>")
+set(ac_cv_cxx_hash_set "<tr1/unordered_set>")
+set(ac_cv_cxx_hash_set_class "std::tr1::unordered_set")
+set(ac_cv_cxx_hash_map_class "std::tr1::unordered_map")
+set(ac_cv_have_stdint_h "1")
+set(ac_cv_have_inttypes_h "1")
+set(ac_have_attribute_weak "1")
+set(ac_google_attribute "1")
+set(ac_cv_uint64 "u_int64_t")
+set(ac_google_namespace "::ctemplate")
+set(ac_google_start_namespace "namespace ctemplate {")
+set(ac_cv_cxx_hash_map_class "std::tr1::unordered_map")
+
+CONFIGURE_FILE(src/include/ccframework/ctemplate/config.h.in    src/include/ccframework/ctemplate/config.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/template.h.in     src/include/ccframework/ctemplate/template.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/find_ptr.h.in  src/include/ccframework/ctemplate/find_ptr.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/per_expand_data.h.in     src/include/ccframework/ctemplate/per_expand_data.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/str_ref.h.in    src/include/ccframework/ctemplate/str_ref.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/template_annotator.h.in     src/include/ccframework/ctemplate/template_annotator.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/template_cache.h.in     src/include/ccframework/ctemplate/template_cache.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/template_dictionary.h.in     src/include/ccframework/ctemplate/template_dictionary.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/template_dictionary_interface.h.in     src/include/ccframework/ctemplate/template_dictionary_interface.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/template_emitter.h.in    src/include/ccframework/ctemplate/template_emitter.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/template_enums.h.in    src/include/ccframework/ctemplate/template_enums.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/template_modifiers.h.in    src/include/ccframework/ctemplate/template_modifiers.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/template_namelist.h.in    src/include/ccframework/ctemplate/template_namelist.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/template_pathops.h.in    src/include/ccframework/ctemplate/template_pathops.h)
+CONFIGURE_FILE(src/include/ccframework/ctemplate/template_string.h.in    src/include/ccframework/ctemplate/template_string.h)
+
 set(HEADER_FILES
     src/include/ccframework/ctemplate/find_ptr.h
     src/include/ccframework/ctemplate/per_expand_data.h
@@ -131,8 +160,12 @@ set(FROM_TEST_SOURCE_FILES
 set(ROUTER_TEST_SOURCE_FILES
     src/test/router_test.cc)
 
+set(REQUEST_TEST_SOURCE_FILES
+    src/test/request_test.cc)
+
+
 find_package(Fcgi)
-find_package(Threads)
+find_package(Threads REQUIRED)
 find_package(Boost)
 find_package(PCRE)
 find_package(YamlCpp)
@@ -147,6 +180,7 @@ include_directories(${YAMLCPP_INCLUDE_DIRS})
 add_library(ccframework ${SOURCE_FILES})
 add_executable(router-test ${ROUTER_TEST_SOURCE_FILES})
 add_executable(form-test ${FROM_TEST_SOURCE_FILES})
+add_executable(request-test ${REQUEST_TEST_SOURCE_FILES})
 
 target_link_libraries(router-test ccframework
     ${FCGI_LIBRARY}
@@ -160,6 +194,14 @@ target_link_libraries(form-test ccframework
     ${CMAKE_THREAD_LIBS_INIT}
     ${YAMLCPP_LIBRARY}
     ${PCRE_LIBRARY})
+
+target_link_libraries(request-test ccframework
+    ${FCGI_LIBRARY}
+    ${FCGICC_LIBRARY}
+    ${CMAKE_THREAD_LIBS_INIT}
+    ${YAMLCPP_LIBRARY}
+    ${PCRE_LIBRARY})
+
 
 install(TARGETS ccframework DESTINATION lib)
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/include

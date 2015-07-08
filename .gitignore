@@ -5,6 +5,7 @@
 /cmake_install.cmake
 /form-test
 /router-test
+/request-test
 /_CPack_Packages/
 /CPackConfig.cmake
 /CPackSourceConfig.cmake

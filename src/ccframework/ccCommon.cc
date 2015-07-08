@@ -8,10 +8,13 @@
 #include "ccCommon.h"
 #include <fstream>
 #include "../vendor/md5/md5.h"
+#include <pcre.h>
 
 namespace ccFramework {
+    std::string array_pattern = "\\[[^\\]]*\\]";
+    pcre *re;
 
-ccCommon::ccCommon() {
+ ccCommon::ccCommon() {
 	// TODO Auto-generated constructor stub
 
 }
@@ -213,13 +216,47 @@ std::vector<std::string> ccCommon::explode(const std::string& s,
     std::vector<std::string> result;
     std::istringstream iss(s);
 
-    for (std::string token; std::getline(iss, token, delim); )
-    {
+    for (std::string token; std::getline(iss, token, delim);) {
         result.push_back(std::move(token));
     }
 
     return result;
 }
+    std::vector<std::string> ccCommon::array_elements(std::string const & s) {
+        std::vector<std::string> ret;
+        const char *error;
+        int   erroffset;
+        int   rc;
+        int   ovector[100];
+        unsigned int offset = 0;
+        unsigned int len    = s.length();
+
+        if (!re)
+        {
+            re = pcre_compile (array_pattern.c_str(),          /* the pattern */
+                               PCRE_MULTILINE,
+                               &error,         /* for error message */
+                               &erroffset,     /* for error offset */
+                               0);             /* use default character tables */
+            if (!re) {
+                printf("pcre_compile failed (offset: %d), %s\n", erroffset, error);
+                return ret;
+            }
+        }
+
+        while (offset < len && (rc = pcre_exec(re, 0, s.c_str(), len, offset, 0, ovector, sizeof(ovector))) >= 0)
+        {
+            for(int i = 0; i < rc; ++i)
+            {
+                cout<<s.substr(ovector[2*i]+1,ovector[2*i+1] - ovector[2*i]-2)<<endl;
+                ret.push_back(s.substr(ovector[2*i]+1,ovector[2*i+1] - ovector[2*i]-2));
+            }
+            offset = ovector[1];
+        }
+        return ret;
+    }
+
+
 
 } /* namespace ccFramework */
 

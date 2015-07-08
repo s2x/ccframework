@@ -60,9 +60,9 @@
 #include <ctemplate/template_modifiers.h>
 #include <ctemplate/template_string.h>
 
+@ac_windows_dllexport_defines@
 
-
-namespace ctemplate {
+@ac_google_start_namespace@
 template <class T, class C> class ArenaAllocator;
 class UnsafeArena;
 template<typename A, int B, typename C, typename D> class small_map;
@@ -72,7 +72,7 @@ template<typename NormalMap> class small_map_default_init;  // in small_map.h
 namespace ctemplate {
 
 
-class  TemplateDictionary : public TemplateDictionaryInterface {
+class @ac_windows_dllexport@ TemplateDictionary : public TemplateDictionaryInterface {
  public:
   // name is used only for debugging.
   // arena is used to store all names and values.  It can be NULL (the
@@ -105,7 +105,7 @@ class  TemplateDictionary : public TemplateDictionaryInterface {
   void SetValue(const TemplateString variable, const TemplateString value);
   void SetIntValue(const TemplateString variable, long value);
   void SetFormattedValue(const TemplateString variable, const char* format, ...)
-#if 1
+#if @ac_google_attribute@
       __attribute__((__format__ (__printf__, 3, 4)))
 #endif
      ;  // starts at 3 because of implicit 1st arg 'this'
@@ -227,7 +227,7 @@ class  TemplateDictionary : public TemplateDictionaryInterface {
   void SetEscapedFormattedValue(const TemplateString variable,
                                 const TemplateModifier& escfn,
                                 const char* format, ...)
-#if 1
+#if @ac_google_attribute@
       __attribute__((__format__ (__printf__, 4, 5)))
 #endif
      ;  // starts at 4 because of implicit 1st arg 'this'
