@@ -231,6 +231,24 @@ std::vector<std::string> ccCommon::explode(const std::string& s,
         unsigned int offset = 0;
         unsigned int len    = s.length();
 
+        size_t bracket_start_pos = s.find_first_of("[");
+        
+        if (bracket_start_pos == string::npos) {
+        
+            ret.push_back(s);
+            return ret;
+        } else {
+            size_t bracket_end_pos = s.find_first_of("]",bracket_start_pos+1);
+            //check if string has valid brackets 
+            if (bracket_end_pos != string::npos) {
+                ret.push_back(s.substr(0,bracket_start_pos));
+            } else {
+                ret.push_back(s);
+                return ret;
+            }
+        }
+        
+        //get all data from brackets
         if (!re)
         {
             re = pcre_compile (array_pattern.c_str(),          /* the pattern */
@@ -248,7 +266,6 @@ std::vector<std::string> ccCommon::explode(const std::string& s,
         {
             for(int i = 0; i < rc; ++i)
             {
-                cout<<s.substr(ovector[2*i]+1,ovector[2*i+1] - ovector[2*i]-2)<<endl;
                 ret.push_back(s.substr(ovector[2*i]+1,ovector[2*i+1] - ovector[2*i]-2));
             }
             offset = ovector[1];
