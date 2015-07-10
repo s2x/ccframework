@@ -82,31 +82,32 @@ void ccRequest::parseCookieParameters() {
 }
 
 bool ccRequest::hasRequestParameter(std::string name) {
-	return this->query_params.count(name);
+	return this->query_params.isSet(name);
+	//return this->query_params.count(name);
 }
 
 std::string ccRequest::getRequestParameter(std::string name,
 		std::string default_value) {
 	if (this->hasRequestParameter(name)) {
-		return ccCommon::UriDecode(this->query_params[name]);
+		return ccCommon::UriDecode(*this->query_params.getByPath(name));
 	}
 	return default_value;
 }
 
 void ccFramework::ccRequest::setRequestParameter(std::string name,
 		std::string value) {
-	this->query_params[name] = value;
+    ccCommon::set_array_element_by_path(&this->query_params,name,value);
 }
 
 std::string ccRequest::getCookie(std::string name, std::string default_value) {
 	if (this->hasCookie(name)) {
-		return this->cookies[name];
+		return *this->cookies.getByPath(name);
 	}
 	return default_value;
 }
 
 bool ccRequest::hasCookie(std::string name) {
-	return this->cookies.count(name);
+	return this->query_params.isSet(name);
 }
 
 
@@ -130,21 +131,19 @@ double ccRequest::getRequestParameterAsDouble(std::string name, double default_v
 }
 
 bool ccRequest::hasPostParameter(std::string name) {
-
-	return (this->post_params.find(name)!=this->post_params.end())?true:false;
+	return this->query_params.isSet(name);
 }
 
 std::string ccRequest::getPostParameter(std::string name,
 		std::string default_value) {
 
-	if (this->hasPostParameter(name)) return ccCommon::UriDecode(this->post_params[name]);
+	if (this->hasPostParameter(name)) return ccCommon::UriDecode(*this->post_params.getByPath(name));
 	return default_value;
 
 }
 
 int ccRequest::getMethod() {
 	if (this->getEnvParamter("REQUEST_METHOD","GET")=="POST") return ccRequest::POST;
-	//if (this->getEnvParamter("REQUEST_METHOD","GET")=="GET") return ccRequest::GET;
 	return ccRequest::GET;
 }
 

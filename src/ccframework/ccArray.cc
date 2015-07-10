@@ -5,6 +5,7 @@
  *      Author: pha
  */
 
+#include <ccCommon.h>
 #include "ccArray.h"
 
 namespace ccFramework {
@@ -26,7 +27,7 @@ std::string ccArray::_int2string(int value, std::string format) {
 }
 
 ccArray::ccArray() {
-	this->isset = false;
+	this->_isset = false;
 	this->last_key_id = 0;
 	this->is_array = false;
 	this->parent = NULL;
@@ -35,7 +36,7 @@ ccArray::ccArray() {
 
 ccArray::ccArray(std::string name) {
 	this->name = name;
-	this->isset = false;
+	this->_isset = false;
 	this->last_key_id = 0;
 	this->is_array = false;
 	this->parent = NULL;
@@ -44,7 +45,7 @@ ccArray::ccArray(std::string name) {
 
 ccArray::ccArray(const ccArray &b) {
 	this->parent = NULL;
-	this->isset = b.isset;
+	this->_isset = b._isset;
 	this->last_key_id = b.last_key_id;
 	this->is_array = b.is_array;
 	this->has_valid_childs = b.has_valid_childs;
@@ -160,7 +161,7 @@ ccArray &ccArray::operator=(const ccArray &b) {
     		return *this;
 
 	//copy some settings
-	this->isset = b.isset;
+	this->_isset = b._isset;
 	this->last_key_id = b.last_key_id;
 	this->is_array = b.is_array;
 	this->has_valid_childs = b.has_valid_childs;
@@ -191,7 +192,7 @@ ccArray &ccArray::operator=(const ccArray &b) {
  */
 ccArray& ccArray::operator=(std::string value) {
 	//cleanup some data
-	this->isset = true;
+	this->_isset = true;
 	this->childs.clear();
 	this->is_array = false;
 	this->has_valid_childs = false;
@@ -200,7 +201,7 @@ ccArray& ccArray::operator=(std::string value) {
 	//update parent nodes
 	ccArray *tmp = this->parent;
 	while (tmp) {
-		tmp->isset=true;
+		tmp->_isset =true;
 		if (tmp->childs.size() > 0) {
 			tmp->has_valid_childs = true;
 		}
@@ -262,7 +263,7 @@ std::ostream& operator<<(std::ostream& os, const ccArray& dt) {
 }
 
 ccArray::operator void*() {
-	if (isset == true)
+	if (_isset == true)
 		return this;
 	//to do cleanup search path
 	ccArray *tmp = this;
@@ -283,7 +284,7 @@ int ccArray::getType() const {
 			return TYPE_ARRAY;
 		return TYPE_LIST;
 	}
-	if (this->isset)
+	if (this->_isset)
 		return TYPE_VALUE;
 	return TYPE_NOT_SET;
 }
@@ -342,4 +343,22 @@ ccArray& ccArray::append() {
 	return *tmp;
 }
 
+	bool ccArray::isSet(std::string path) {
+		ccArray *node = this;
+		std::vector<std::string> items = ccCommon::array_elements(path);
+		for (std::vector<std::string>::iterator it = items.begin(); it != items.end(); ++it) {
+			if (!node->_hasKey(*it)) return false;
+		}
+		return true;
+	}
+
+	ccArray *ccArray::getByPath(std::string path) {
+		ccArray *node = this;
+		std::vector<std::string> items = ccCommon::array_elements(path);
+		for (std::vector<std::string>::iterator it = items.begin(); it != items.end(); ++it) {
+			if (!node->_hasKey(*it)) return nullptr;
+			node = &((*node)[*it]);
+		}
+		return node;
+	}
 } /* namespace ccArray */

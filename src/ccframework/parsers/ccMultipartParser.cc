@@ -53,7 +53,7 @@ void ccMultipartParser::parsePart(std::string part) {
 	    	}
 	    	if (data_section == false && ccCommon::trim(to).length()==0) data_section = true;
 	    }
-	    if (ccCommon::trim(name)!= "") this->QueryElemets[ccCommon::trim(name)] = value;
+	    if (ccCommon::trim(name)!= "") ccCommon::set_array_element_by_path(&_parameters,name,value);
 	  }
 }
 

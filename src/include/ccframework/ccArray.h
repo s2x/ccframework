@@ -35,7 +35,7 @@ private:
 	/**
 	 * is node set (not null)
 	 */
-	bool isset;
+	bool _isset;
 
 	/**
 	 * is node array (not value, not list)
@@ -68,6 +68,7 @@ private:
 	 */
 	static int _string2int(std::string value);
 	static std::string _int2string(int value, std::string format = "%d");
+
 public:
 	/**
 	 * Node types
@@ -123,6 +124,8 @@ public:
 	operator std::string() const;
 	operator void*();
 	friend std::ostream& operator<<(std::ostream& os, const ccArray& dt);
+	bool isSet(std::string path);
+	ccArray *getByPath(std::string path);
 
 
 	/**

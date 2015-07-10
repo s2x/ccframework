@@ -12,15 +12,14 @@ namespace ccFramework {
 
 ccQueryParser::ccQueryParser(std::string query, std::string sep) {
 	this->query = query;
-	this->map_pairs(this->query,this->QueryElemets, sep);
+	this->map_pairs(this->query, sep);
 }
 
 ccQueryParser::~ccQueryParser() {
 	// TODO Auto-generated destructor stub
 }
 
-std::map<std::string, std::string>& ccQueryParser::map_pairs(std::string character_string,
-		std::map<std::string, std::string>& Elements, std::string sep) {
+void ccQueryParser::map_pairs(std::string character_string, std::string sep) {
 	std::string test,key,value;
 	std::vector<std::string>::iterator it;
 	std::vector<std::string> words;
@@ -32,11 +31,12 @@ std::map<std::string, std::string>& ccQueryParser::map_pairs(std::string charact
 		if (pos_eq != std::string::npos) {
 			key = ccCommon::trim(test.substr(0, pos_eq));
 			value = test.substr(pos_eq + 1);
-			Elements.insert(std::pair<std::string, std::string>(key, value));
+
+			ccCommon::set_array_element_by_path(&_parameters,key,value);
+//			Elements.insert(std::pair<std::string, std::string>(key, value));
 		}
 
 	}
-	return Elements;
 }
 
 vector<std::string> ccQueryParser::split(const std::string& s,
@@ -59,10 +59,6 @@ vector<std::string> ccQueryParser::split(const std::string& s,
 		substart = subend + delim.size();
 	}
 	return result;
-}
-
-std::string ccQueryParser::getParameter(std::string name) {
-	return "";
 }
 
 } /* namespace ccFramework */

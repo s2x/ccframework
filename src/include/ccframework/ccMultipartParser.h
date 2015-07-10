@@ -10,19 +10,20 @@
 
 #include <map>
 #include <iostream>
+#include "ccArray.h"
 
 namespace ccFramework {
 
 class ccMultipartParser {
-	std::map<std::string, std::string> QueryElemets;
+	ccArray _parameters;
 	void parsePart(std::string part);
 
 public:
 	ccMultipartParser(std::string query, std::string sep = "&");
 	virtual ~ccMultipartParser();
 
-	const std::map<std::string, std::string>& getAllParameters() const {
-		return QueryElemets;
+	ccArray getAllParameters() const {
+		return _parameters;
 	}
 };
 
