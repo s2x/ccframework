@@ -12,6 +12,7 @@
 #include <sstream>
 #include <map>
 #include <vector>
+#include "ccArray.h"
 namespace ccFramework {
 const char SAFE[256] = {
 /*      0 1 2 3  4 5 6 7  8 9 A B  C D E F */
@@ -80,7 +81,7 @@ public:
 
 	static std::vector<std::string> explode(std::string const & s, char delim);
 	static std::vector<std::string> array_elements(std::string const & s);
-
+	static void set_array_element_by_path(ccArray *node, std::string path, std::string value);
 };
 
 } /* namespace ccFramework */

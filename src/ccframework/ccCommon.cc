@@ -9,6 +9,7 @@
 #include <fstream>
 #include "../vendor/md5/md5.h"
 #include <pcre.h>
+#include <ccArray.h>
 
 namespace ccFramework {
     std::string array_pattern = "\\[[^\\]]*\\]";
@@ -273,7 +274,14 @@ std::vector<std::string> ccCommon::explode(const std::string& s,
         return ret;
     }
 
+	void ccCommon::set_array_element_by_path(ccArray *node, std::string path, std::string value) {
 
+		std::vector<std::string> items = ccCommon::array_elements(path);
+		for (std::vector<std::string>::iterator it = items.begin(); it != items.end(); ++it) {
+			node = &((*node)[*it]);
+		}
+		(*node) = value;
+	}
 
 } /* namespace ccFramework */
 

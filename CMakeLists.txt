@@ -53,6 +53,7 @@ set(HEADER_FILES
     src/include/ccframework/ctemplate/template_namelist.h
     src/include/ccframework/ctemplate/template_pathops.h
     src/include/ccframework/ctemplate/template_string.h
+    src/include/ccframework/ccArray.h
     src/include/ccframework/ccAcl.h
     src/include/ccframework/ccApp.h
     src/include/ccframework/ccBaseForm.h
@@ -90,6 +91,7 @@ set(HEADER_FILES
 )
 
 set(SOURCE_FILES
+    src/ccframework/ccArray.cc
     src/ccframework/acl/ccAcl.cc
     src/ccframework/acl/ccResource.cc
     src/ccframework/acl/ccRole.cc
