@@ -56,6 +56,46 @@ CONFIGURE_FILE(src/include/ccframework/ctemplate/template_pathops.h.in    src/in
 CONFIGURE_FILE(src/include/ccframework/ctemplate/template_string.h.in    src/include/ccframework/ctemplate/template_string.h)
 
 set(HEADER_FILES
+    src/include/ccframework/rapidxml
+    src/include/ccframework/rapidxml/rapidxml_utils.hpp
+    src/include/ccframework/rapidxml/rapidxml_iterators.hpp
+    src/include/ccframework/rapidxml/rapidxml_print.hpp
+    src/include/ccframework/rapidxml/rapidxml.hpp
+    src/include/ccframework/rapidxml/license.txt
+    src/include/ccframework/rapidxml/manual.html
+    src/include/ccframework/rapidjson
+    src/include/ccframework/rapidjson/reader.h
+    src/include/ccframework/rapidjson/error
+    src/include/ccframework/rapidjson/error/en.h
+    src/include/ccframework/rapidjson/error/error.h
+    src/include/ccframework/rapidjson/prettywriter.h
+    src/include/ccframework/rapidjson/memorybuffer.h
+    src/include/ccframework/rapidjson/document.h
+    src/include/ccframework/rapidjson/pointer.h
+    src/include/ccframework/rapidjson/msinttypes
+    src/include/ccframework/rapidjson/msinttypes/stdint.h
+    src/include/ccframework/rapidjson/msinttypes/inttypes.h
+    src/include/ccframework/rapidjson/filewritestream.h
+    src/include/ccframework/rapidjson/filereadstream.h
+    src/include/ccframework/rapidjson/stringbuffer.h
+    src/include/ccframework/rapidjson/encodings.h
+    src/include/ccframework/rapidjson/internal
+    src/include/ccframework/rapidjson/internal/strfunc.h
+    src/include/ccframework/rapidjson/internal/strtod.h
+    src/include/ccframework/rapidjson/internal/swap.h
+    src/include/ccframework/rapidjson/internal/ieee754.h
+    src/include/ccframework/rapidjson/internal/meta.h
+    src/include/ccframework/rapidjson/internal/diyfp.h
+    src/include/ccframework/rapidjson/internal/pow10.h
+    src/include/ccframework/rapidjson/internal/dtoa.h
+    src/include/ccframework/rapidjson/internal/itoa.h
+    src/include/ccframework/rapidjson/internal/stack.h
+    src/include/ccframework/rapidjson/internal/biginteger.h
+    src/include/ccframework/rapidjson/rapidjson.h
+    src/include/ccframework/rapidjson/encodedstream.h
+    src/include/ccframework/rapidjson/memorystream.h
+    src/include/ccframework/rapidjson/writer.h
+    src/include/ccframework/rapidjson/allocators.h
     src/include/ccframework/ctemplate/find_ptr.h
     src/include/ccframework/ctemplate/per_expand_data.h
     src/include/ccframework/ctemplate/str_ref.h
@@ -105,6 +145,8 @@ set(HEADER_FILES
     src/include/ccframework/ccStaticRoute.h
     src/include/ccframework/ccTemplateResponse.h
     src/include/ccframework/ccYamlSessionProvider.h
+    src/include/ccframework/ccJsonSerializer.h
+    src/include/ccframework/ccBaseSerializer.h
 )
 
 set(SOURCE_FILES
@@ -138,6 +180,8 @@ set(SOURCE_FILES
     src/ccframework/ccCookie.cc
     src/ccframework/ccException.cc
     src/ccframework/ccRequest.cc
+    src/ccframework/serializers/ccJsonSerializer.cc
+    src/ccframework/serializers/ccBaseSerializer.cc
     src/vendor/ctemplate/base/arena-inl.h
     src/vendor/ctemplate/base/arena.cc
     src/vendor/ctemplate/base/arena.h
@@ -196,7 +240,7 @@ include_directories(src/vendor/ctemplate)
 include_directories(${PCRE_INCLUDE_DIRS})
 include_directories(${YAMLCPP_INCLUDE_DIRS})
 
-add_library(ccframework ${SOURCE_FILES})
+add_library(ccframework ${SOURCE_FILES} )
 add_executable(router-test ${ROUTER_TEST_SOURCE_FILES})
 add_executable(form-test ${FROM_TEST_SOURCE_FILES})
 add_executable(request-test ${REQUEST_TEST_SOURCE_FILES})

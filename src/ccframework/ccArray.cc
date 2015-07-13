@@ -214,7 +214,7 @@ namespace ccFramework {
     ccArray &ccArray::operator[](std::string key) {
         for (std::vector<ccArray *>::iterator it = this->childs.begin();
              it != this->childs.end(); ++it) {
-            if ((*it)->name == key) {
+            if ((*it)->getName().compare(key)==0) {
                 return *(*it);
             }
         }
@@ -224,11 +224,12 @@ namespace ccFramework {
             if (key == "")
                 key = ccArray::_int2string(this->last_key_id);
             tmp = new ccArray(key);
+//            this->is_array = true;
             if (ccArray::_string2int(key) >= this->last_key_id)
                 this->last_key_id = ccArray::_string2int(key) + 1;
         } else {
             //this is not list, this is map!
-            // this->is_array = true;
+//            this->is_array = false;
             tmp = new ccArray(key);
         }
 
