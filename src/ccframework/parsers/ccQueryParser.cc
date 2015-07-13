@@ -33,7 +33,6 @@ void ccQueryParser::map_pairs(std::string character_string, std::string sep) {
 			value = ccCommon::UriDecode(test.substr(pos_eq + 1));
 
 			ccCommon::set_array_element_by_path(&_parameters,key,value);
-//			Elements.insert(std::pair<std::string, std::string>(key, value));
 		}
 
 	}
@@ -42,6 +41,11 @@ void ccQueryParser::map_pairs(std::string character_string, std::string sep) {
 vector<std::string> ccQueryParser::split(const std::string& s,
 		const std::string& delim, const bool keep_empty) {
 	vector<std::string> result;
+
+	if (s.empty()) {
+		return result;
+	}
+
 	if (delim.empty()) {
 		result.push_back(s);
 		return result;

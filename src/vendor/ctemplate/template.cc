@@ -992,6 +992,8 @@ class HelperTemplateNode : public TemplateNode {
 			}
 
 		}
+    std::map<std::string, TemplateHelper*> helpers = getHelpers();
+
 	if (helpers[name]) {
 		std::string ret = helpers[name]->Modify(params);
 		output_buffer->Emit(ret.c_str(), ret.length());

@@ -22,7 +22,7 @@ set(ac_google_namespace "::ctemplate")
 set(ac_google_start_namespace "namespace ctemplate {")
 set(ac_cv_cxx_hash_map_class "std::tr1::unordered_map")
 
-SET(PKG_CONFIG_REQUIRES glib-2.0)
+SET(PKG_CONFIG_REQUIRES "")
 SET(PKG_CONFIG_LIBDIR
     "\${prefix}/lib"
 )

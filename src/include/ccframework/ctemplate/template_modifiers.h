@@ -82,10 +82,10 @@ class TemplateHelper;
                       const PerExpandData*, ExpandEmitter* outbuf,      \
                       const std::string& arg) const
 
-extern  std::map<std::string, TemplateHelper*> helpers;
+
 
 class  TemplateHelper {
- public:
+public:
   virtual std::string Modify(std::map<std::string,std::string> params) const = 0;
   virtual ~TemplateHelper();   // always need a virtual destructor!
 };
@@ -354,7 +354,8 @@ bool AddModifier(const char* long_name, const TemplateModifier* modifier);
 //   escaping may be inadequate.
 extern 
 bool AddXssSafeModifier(const char* long_name, const TemplateModifier* modifier);
-bool addTemplateHelper(const char* long_name, TemplateHelper* modifier);
+    bool addTemplateHelper(const char* long_name, TemplateHelper* modifier);
+    std::map<std::string, TemplateHelper*> &getHelpers();
 }
 
 #endif  // TEMPLATE_TEMPLATE_MODIFIERS_H_

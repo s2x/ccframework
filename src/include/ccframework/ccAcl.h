@@ -24,7 +24,7 @@ class ccAcl {
 
 //	bool checkPermistion
 public:
-	static const std::string DEFAULT_ROLE;
+	static const char DEFAULT_ROLE[];
 
 	ccAcl();
 	virtual ~ccAcl();

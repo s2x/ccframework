@@ -1017,10 +1017,14 @@ bool AddXssSafeModifier(const char* long_name,
   return AddModifierCommon(long_name, modifier, true);
 }
 
-std::map<std::string, TemplateHelper*> helpers;
+    std::map<std::string, TemplateHelper*> &getHelpers() {
+        static std::map<std::string, TemplateHelper*> helpers;
+        return helpers;
+    }
 
 bool addTemplateHelper(const char* long_name, TemplateHelper* modifier) {
-	helpers[long_name] = modifier;
+    std::map<std::string, TemplateHelper*> helpers = getHelpers();
+    helpers[long_name] = nullptr;
 	return true;
 }
 

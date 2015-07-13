@@ -17,7 +17,7 @@ namespace ccFramework {
 
 ccRouter::ccRouter() {
 	// TODO Auto-generated constructor stub
-
+	this->active_route = nullptr;
 }
 
 ccRouter::~ccRouter() {

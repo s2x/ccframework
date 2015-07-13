@@ -5,8 +5,9 @@
 #include <vector>
 #include <map>
 #include "ccClassDeclarations.h"
-
+#include "ccArray.h"
 namespace ccFramework {
+
 
 
 class ccRoute {
@@ -40,6 +41,7 @@ public:
 
 	// genertaing urls
 	virtual std::string getUrl(std::map<std::string, std::string> params);
+	virtual std::string getUrl(ccArray params);
 	std::string getUrl(std::string query_string);
 
 	virtual ~ccRoute();

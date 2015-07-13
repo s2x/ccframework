@@ -26,16 +26,16 @@ void ccArray_get_leafs(ccArray *root, std::vector<ccArray *> *leafs) {
         }
 
     } else {
-
         leafs->push_back(root);
     }
 }
 
 std::string build_list(ccArray *root) {
     std::vector<ccArray *> leafs;
-
-    ccArray_get_leafs(root, &leafs);
     std::string query = "";
+
+    if (root->hasChildrens()) ccArray_get_leafs(root, &leafs); 
+    else return "No pamars set!";
 
     for (std::vector<ccArray *>::iterator it = leafs.begin(); it != leafs.end();
          ++it) {
