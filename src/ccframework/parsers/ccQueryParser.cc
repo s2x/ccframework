@@ -29,8 +29,8 @@ void ccQueryParser::map_pairs(std::string character_string, std::string sep) {
 		test = *it;
 		const std::string::size_type pos_eq = test.find('=');
 		if (pos_eq != std::string::npos) {
-			key = ccCommon::trim(test.substr(0, pos_eq));
-			value = test.substr(pos_eq + 1);
+			key = ccCommon::UriDecode(ccCommon::trim(test.substr(0, pos_eq)));
+			value = ccCommon::UriDecode(test.substr(pos_eq + 1));
 
 			ccCommon::set_array_element_by_path(&_parameters,key,value);
 //			Elements.insert(std::pair<std::string, std::string>(key, value));
