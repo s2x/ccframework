@@ -22,6 +22,23 @@ set(ac_google_namespace "::ctemplate")
 set(ac_google_start_namespace "namespace ctemplate {")
 set(ac_cv_cxx_hash_map_class "std::tr1::unordered_map")
 
+SET(PKG_CONFIG_REQUIRES glib-2.0)
+SET(PKG_CONFIG_LIBDIR
+    "\${prefix}/lib"
+)
+SET(PKG_CONFIG_INCLUDEDIR
+    "\${prefix}/include/ccframework"
+)
+SET(PKG_CONFIG_LIBS
+    "-L\${libdir} -lccframework -lfcgi++ -lfcgi -lpthread -lyaml-cpp -lpcre"
+)
+SET(PKG_CONFIG_CFLAGS
+    "-I\${includedir}"
+)
+CONFIGURE_FILE(
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/ccframework.pc.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc"
+)
 CONFIGURE_FILE(src/include/ccframework/ctemplate/config.h.in    src/include/ccframework/ctemplate/config.h)
 CONFIGURE_FILE(src/include/ccframework/ctemplate/template.h.in     src/include/ccframework/ctemplate/template.h)
 CONFIGURE_FILE(src/include/ccframework/ctemplate/find_ptr.h.in  src/include/ccframework/ctemplate/find_ptr.h)
@@ -209,6 +226,9 @@ install(TARGETS ccframework DESTINATION lib)
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/include
     DESTINATION ${CMAKE_INSTALL_PREFIX}
     FILES_MATCHING PATTERN "*")
+
+INSTALL(FILES "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pc"
+        DESTINATION lib/pkgconfig)
 
 
 # build a CPack driven installer package

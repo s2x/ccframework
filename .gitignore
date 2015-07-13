@@ -11,3 +11,4 @@
 /CPackSourceConfig.cmake
 /install_manifest.txt
 *.deb
+/ccframework.pc

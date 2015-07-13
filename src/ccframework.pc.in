@@ -1,13 +1,9 @@
-prefix=@prefix@
-exec_prefix=@exec_prefix@
-libdir=@libdir@
-datarootdir=@datarootdir@
-datadir=@datadir@
-includedir=@includedir@/ccframework
-
-Name: ccframework
-Description: Sample library created by Anjuta project wizard.
-Version: @VERSION@
-Requires: 
-Libs: -L${libdir} -lccframework
-Cflags: -I${includedir}
+Name: ${PROJECT_NAME}
+Description: ${PROJECT_DESCRIPTION}
+Version: ${PROJECT_VERSION}
+Requires: ${PKG_CONFIG_REQUIRES}
+prefix=${CMAKE_INSTALL_PREFIX}
+includedir=${PKG_CONFIG_INCLUDEDIR}
+libdir=${PKG_CONFIG_LIBDIR}
+Libs: ${PKG_CONFIG_LIBS}
+Cflags: ${PKG_CONFIG_CFLAGS}
