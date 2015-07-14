@@ -12,3 +12,4 @@
 /install_manifest.txt
 *.deb
 /ccframework.pc
+/docs/examples/*.fcgi

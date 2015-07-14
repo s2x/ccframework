@@ -12,6 +12,7 @@
 namespace ccFramework {
 
 class ccResponse {
+protected:
 	std::map<std::string, std::string> headers;
 	std::string content;
 	std::map<std::string, ccCookie*> cookies;
@@ -21,9 +22,7 @@ public:
 	ccResponse(std::string content);
 	virtual ~ccResponse();
 
-	const std::string& getContent() const {
-		return content;
-	}
+	std::string getContent();
 
 	void setContent(const std::string& content) {
 		this->content = content;

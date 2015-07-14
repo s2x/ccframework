@@ -61,5 +61,8 @@ std::string ccResponse:: getHeaders() {
 	return ret;
 }
 
+	std::string ccResponse::getContent() {
+		return this->content;
+	}
 } /* namespace ccFramework */
 

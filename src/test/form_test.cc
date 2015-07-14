@@ -13,7 +13,10 @@ int main() {
 	test_data["array"][""] = "test2";
 	test_data["dapa"] = "test";
 
-	std::cout<<ccJsonSerializer::Dump(test_data)<<std::endl;
+	ccJsonResponse js(test_data);
+	std::cout<<js.getContent()<<std::endl;
+
+	//std::cout<<ccJsonSerializer::Dump(test_data)<<std::endl;
 
 	return 0;
 	//controller.genUrl("default",{}).c_str()

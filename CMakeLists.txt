@@ -144,6 +144,7 @@ set(HEADER_FILES
     src/include/ccframework/ccSessionProvider.h
     src/include/ccframework/ccStaticRoute.h
     src/include/ccframework/ccTemplateResponse.h
+    src/include/ccframework/ccJsonResponse.h
     src/include/ccframework/ccYamlSessionProvider.h
     src/include/ccframework/ccJsonSerializer.h
     src/include/ccframework/ccBaseSerializer.h
@@ -166,6 +167,7 @@ set(SOURCE_FILES
     src/ccframework/parsers/ccQueryParser.cc
     src/ccframework/response/ccResponse.cc
     src/ccframework/response/ccTemplateResponse.cc
+    src/ccframework/response/ccJsonResponse.cc
     src/ccframework/router/ccPregRoute.cc
     src/ccframework/router/ccRoute.cc
     src/ccframework/router/ccRouter.cc

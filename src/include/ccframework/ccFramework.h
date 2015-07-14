@@ -40,6 +40,10 @@
 #include "ccStaticRoute.h"
 #include "ccTemplateResponse.h"
 #include "ccYamlSessionProvider.h"
+#include "ccJsonResponse.h"
+#include "ccBaseSerializer.h"
+#include "ccJsonSerializer.h"
+
 
 
 #endif /* CCFRAMEWORK_H_ */

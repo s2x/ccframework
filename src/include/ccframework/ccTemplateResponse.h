@@ -19,6 +19,7 @@
 
 #ifndef _CC_TEMPLATE_H_
 #define _CC_TEMPLATE_H_
+
 #include <iostream>
 #include <set>
 #include <deque>
@@ -27,53 +28,73 @@
 
 
 namespace ccFramework {
-class ccTemplateResponse
-{
+    class ccTemplateResponse {
 
-public:
-	ccTemplateResponse(std::string dict_name, std::string template_name);
-	~ccTemplateResponse();
-	const std::string& getLayout() const;
-	void setLayout(const std::string& layout);
-	void setParameter(std::string param, std::string val);
-	void addCss(std::string uri);
-    void addJs(std::string uri, bool footer = false);
-	void setTitle(std::string value);
-	void setDescription(std::string value);
-	void setKeywords(std::string value);
-	void addMetatag(std::map<std::string, std::string> params);
+    public:
+        ccTemplateResponse(std::string dict_name, std::string template_name);
 
-	ctemplate::TemplateDictionary *getDict();
-	ctemplate::TemplateDictionary *getLayoutDict();
-	ccResponse *render();
-	void static addDefaultCss(std::string uri);
-	void static addDefaultHeadJs(std::string uri);
-	void static addDefaultFooterJs(std::string uri);
-	std::string getDescription();
-	std::string getKeywords();
-	std::string getTitle();
+        ~ccTemplateResponse();
 
-protected:
-	std::string renderCssList(std::deque<std::string> stylesheets);
-	std::string renderJsList(std::deque<std::string> javascripts);
-	std::string renderMetaList(std::deque<std::string> javascripts);
-	std::deque<std::string> stylesheets;
-    std::deque<std::string> javascripts_head;
-    std::deque<std::string> javascripts_foot;
-	std::deque<std::string> metas;
-	static std::deque<std::string> default_stylesheets;
-	static std::deque<std::string> default_head_javascripts;
-	static std::deque<std::string> default_footer_javascripts;
-	std::string layout;
-	std::string title;
-	std::string keywords;
-	std::string description;
-	std::string template_name;
-	ctemplate::TemplateDictionary *dict;
-	ctemplate::TemplateDictionary *layout_dict;
-private:
+        const std::string &getLayout() const;
 
-};
+        void setLayout(const std::string &layout);
+
+        void setParameter(std::string param, std::string val);
+
+        void addCss(std::string uri);
+
+        void addJs(std::string uri, bool footer = false);
+
+        void setTitle(std::string value);
+
+        void setDescription(std::string value);
+
+        void setKeywords(std::string value);
+
+        void addMetatag(std::map<std::string, std::string> params);
+
+        ctemplate::TemplateDictionary *getDict();
+
+        ctemplate::TemplateDictionary *getLayoutDict();
+
+        ccResponse *render();
+
+        void static addDefaultCss(std::string uri);
+
+        void static addDefaultHeadJs(std::string uri);
+
+        void static addDefaultFooterJs(std::string uri);
+
+        std::string getDescription();
+
+        std::string getKeywords();
+
+        std::string getTitle();
+
+    protected:
+        std::string renderCssList(std::deque<std::string> stylesheets);
+
+        std::string renderJsList(std::deque<std::string> javascripts);
+
+        std::string renderMetaList(std::deque<std::string> javascripts);
+
+        std::deque<std::string> stylesheets;
+        std::deque<std::string> javascripts_head;
+        std::deque<std::string> javascripts_foot;
+        std::deque<std::string> metas;
+        static std::deque<std::string> default_stylesheets;
+        static std::deque<std::string> default_head_javascripts;
+        static std::deque<std::string> default_footer_javascripts;
+        std::string layout;
+        std::string title;
+        std::string keywords;
+        std::string description;
+        std::string template_name;
+        ctemplate::TemplateDictionary *dict;
+        ctemplate::TemplateDictionary *layout_dict;
+    private:
+
+    };
 }
 #endif // _CC_TEMPLATE_H_
 
