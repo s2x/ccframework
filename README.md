@@ -43,14 +43,16 @@ Version 0.3
 Version 0.2
 * [Simple translation module](https://github.com/s2x/ccframework/issues/3),
 * [Rewrite session module - add session providers (memory, file, memcached)](https://github.com/s2x/ccframework/issues/4)
-* [Add examples of use](https://github.com/s2x/ccframework/issues/5)
+* ~~[Add examples of use](https://github.com/s2x/ccframework/issues/5)~~
 * Add config provider for Yaml
+* Add Json response and config provider
+* Add Xml response and config provider
  
 Version 0.1
-* Support of array in request,
+* ~~Support of array in request,~~
 * Add config provider for simple ini
 * Switch to ccArray as config provider
-* Switch to cmake
-* Completly remove yaml-cpp from source - use it as system library,
+* ~~Switch to cmake~~
+* ~~Completly remove yaml-cpp from source - use it as system library,~~
 * ~~Cleanup dependencies and fix automake files.~~
 
