@@ -1,7 +1,7 @@
 Source: libccframework
 Priority: optional
 Maintainer: Piotr Hałas <piotr@halas.net.pl>
-Build-Depends: debhelper (>= 9), autotools-dev
+Build-Depends: debhelper (>= 9), autotools-dev, libboost-dev
 Standards-Version: 3.9.5
 Section: libs
 Homepage: https://github.com/s2x/ccframework
