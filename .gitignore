@@ -9,7 +9,7 @@ Makefile
 /aclocal.m4
 /compile
 /depcomp
-/install-sh
+# /install-sh
 /missing
 /src/test/router_test
 /src/test/form_test
