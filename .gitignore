@@ -6,20 +6,20 @@ Makefile
 # http://www.gnu.org/software/autoconf
 
 /autom4te.cache
-/aclocal.m4
-/compile
-/depcomp
+#aclocal.m4
+#compile
+#depcomp
 # /install-sh
-/missing
+#/missing
 /src/test/router_test
 /src/test/form_test
-/config.h
-/config.log
-/config.status
+#config.h
+#config.log
+#config.status
 /po/POTFILES
 /po/stamp-it
-/libtool
-/stamp-h1
+#libtool
+#stamp-h1
 /src/test/query_test
 #anjuta 
 .anjuta/
