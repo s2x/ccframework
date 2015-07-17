@@ -355,7 +355,7 @@ bool AddModifier(const char* long_name, const TemplateModifier* modifier);
 extern 
 bool AddXssSafeModifier(const char* long_name, const TemplateModifier* modifier);
 bool addTemplateHelper(const char* long_name, TemplateHelper* modifier);
-    std::map<std::string, TemplateHelper*> &getHelpers();
+std::map<std::string, TemplateHelper*> &getHelpers();
 }
 
 #endif  // TEMPLATE_TEMPLATE_MODIFIERS_H_
