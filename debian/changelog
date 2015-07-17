@@ -1,0 +1,5 @@
+libccframework (0.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Piotr Hałas <piotr@halas.net.pl>  Fri, 17 Jul 2015 10:07:41 +0200
