@@ -4,6 +4,7 @@ project(ccframework)
 # The version number.
 set (ccframework_VERSION_MAJOR 0)
 set (ccframework_VERSION_MINOR 1)
+set (ccframework_VERSION_PATCH 1)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
@@ -279,11 +280,31 @@ INSTALL(FILES "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pc"
 
 # build a CPack driven installer package
 include (InstallRequiredSystemLibraries)
+set(CPACK_SOURCE_GENERATOR "TGZ") 
 set(CPACK_RESOURCE_FILE_LICENSE
     "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 set(CPACK_PACKAGE_VERSION_MAJOR "${ccframework_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${ccframework_VERSION_MINOR}")
+set(CPACK_PACKAGE_VERSION_PATCH "${ccframework_VERSION_PATCH}")
+
 SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Piotr Hałas <halaspiotr@gmail.com>") #required
 set(CPACK_GENERATOR "DEB")
 SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libyaml-cpp0.5, libpcre3, libboost-dev, libfcgi")
+# The following components are regex's to match anywhere (unless anchored)
+# in absolute path + filename to find files or directories to be excluded
+# from source tarball.
+set(CPACK_SOURCE_IGNORE_FILES
+"Makefile\\\\.in$"
+"~$"
+"^${PROJECT_SOURCE_DIR}/_CPack_Packages/"
+"^${PROJECT_SOURCE_DIR}/CMakeFiles/"
+"^${PROJECT_SOURCE_DIR}/.git/"
+"^${PROJECT_SOURCE_DIR}/.idea/"
+)
+
+list (APPEND CPACK_SOURCE_IGNORE_FILES "/.*\\\\.tar\\\\.gz")
+
+set(CPACK_SOURCE_PACKAGE_FILE_NAME
+  "${CMAKE_PROJECT_NAME}-${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}")
+
 include (CPack)
