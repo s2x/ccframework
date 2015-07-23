@@ -231,16 +231,13 @@ class  TemplateDictionary : public TemplateDictionaryInterface {
       __attribute__((__format__ (__printf__, 4, 5)))
 #endif
      ;  // starts at 4 because of implicit 1st arg 'this'
-  void SetEscapedValueAndShowSection(const TemplateString variable,
-                                     const TemplateString value,
-                                     const TemplateModifier& escfn,
-                                     const TemplateString section_name);
 
 
  private:
   friend class SectionTemplateNode;   // for access to GetSectionValue(), etc.
   friend class TemplateTemplateNode;  // for access to GetSectionValue(), etc.
   friend class VariableTemplateNode;  // for access to GetSectionValue(), etc.
+  friend class HelperTemplateNode; // for access to GetSectionValue(), etc.
   // For unittesting code using a TemplateDictionary.
   friend class TemplateDictionaryPeer;
 
@@ -454,6 +451,5 @@ class  TemplateDictionary : public TemplateDictionaryInterface {
 };
 
 }
-
 
 #endif  // TEMPLATE_TEMPLATE_DICTIONARY_H_

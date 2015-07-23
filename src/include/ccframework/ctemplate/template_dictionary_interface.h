@@ -66,9 +66,9 @@ class  TemplateDictionaryInterface {
  protected:
   // The interface as follows is used at expand-time by Expand.
   friend class VariableTemplateNode;
-  friend class HelperTemplateNode;
   friend class SectionTemplateNode;
   friend class TemplateTemplateNode;
+  friend class HelperTemplateNode;  
   // This class reaches into our internals for testing.
   friend class TemplateDictionaryPeer;
   friend class TemplateDictionaryPeerIterator;
@@ -140,6 +140,5 @@ class  TemplateDictionaryInterface {
 };
 
 }
-
 
 #endif  // TEMPLATE_TEMPLATE_DICTIONARY_INTERFACE_H_

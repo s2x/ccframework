@@ -66,9 +66,8 @@
 #include <stddef.h>
 #include <new>
 #include <memory>
-_START_GOOGLE_NAMESPACE_
 
-
+namespace ctemplate {
 
 // T is the type we want to allocate, and C is the type of the arena.
 // ArenaAllocator has the thread-safety characteristics of C.
@@ -138,7 +137,7 @@ template<class T, class C> const int ArenaAllocator<T, C>::kAlignment =
 
 
 // 'new' must be in the global namespace.
-_END_GOOGLE_NAMESPACE_
+}
 using GOOGLE_NAMESPACE::UnsafeArena;
 
 
@@ -161,7 +160,7 @@ inline void* operator new[](size_t size,
   return arena->Alloc(size);
 }
 
-_START_GOOGLE_NAMESPACE_
+namespace ctemplate {
 
 // Ordinarily in C++, one allocates all instances of a class from an
 // arena.  If that's what you want to do, you don't need Gladiator.
@@ -207,13 +206,13 @@ class Gladiator {
   // the arena concept.  If it does pose a problem, flesh out the
   // ArrayGladiator class below.
 
-  void* operator new(const size_t size) {
+  void* operator new(size_t size) {
     void* ret = ::operator new(1 + size);
     static_cast<char *>(ret)[size] = 1;     // mark as heap-allocated
     return ret;
   }
   // the ignored parameter keeps us from stepping on placement new
-  template<class T> void* operator new(const size_t size, const int ignored,
+  template<class T> void* operator new(size_t size, const int ignored,
                                        T* allocator) {
     if (allocator) {
       void* ret = allocator->AllocAligned(1 + size,
@@ -224,7 +223,7 @@ class Gladiator {
       return operator new(size);          // this is the function above
     }
   }
-  void operator delete(void* memory, const size_t size) {
+  void operator delete(void* memory, size_t size) {
     if (static_cast<char*>(memory)[size]) {
       assert (1 == static_cast<char *>(memory)[size]);
       ::operator delete(memory);
@@ -234,7 +233,7 @@ class Gladiator {
       // the Boolean marker flag.
     }
   }
-  template<class T> void operator delete(void* memory, const size_t size,
+  template<class T> void operator delete(void* memory, size_t size,
                                          const int ign, T* allocator) {
     // This "placement delete" can only be called if the constructor
     // throws an exception.
@@ -258,28 +257,28 @@ class ArenaOnlyGladiator {
   // virtual ~ArenaOnlyGladiator() { }
 
   // can't just return NULL here -- compiler gives a warning. :-|
-  void* operator new(const size_t /*size*/) {
+  void* operator new(size_t /*size*/) {
     assert(0);
     return reinterpret_cast<void *>(1);
   }
-  void* operator new[](const size_t /*size*/) {
+  void* operator new[](size_t /*size*/) {
     assert(0);
     return reinterpret_cast<void *>(1);
   }
 
   // the ignored parameter keeps us from stepping on placement new
-  template<class T> void* operator new(const size_t size, const int ignored,
+  template<class T> void* operator new(size_t size, const int ignored,
                                        T* allocator) {
     assert(allocator);
     return allocator->AllocAligned(size, BaseArena::kDefaultAlignment);
   }
-  template<class T> void* operator new[](const size_t size,
+  template<class T> void* operator new[](size_t size,
                                          const int ignored, T* allocator) {
     assert(allocator);
     return allocator->AllocAligned (size, BaseArena::kDefaultAlignment);
   }
-  void operator delete(void* /*memory*/, const size_t /*size*/) { }
-  template<class T> void operator delete(void* memory, const size_t size,
+  void operator delete(void* /*memory*/, size_t /*size*/) { }
+  template<class T> void operator delete(void* memory, size_t size,
                                          const int ign, T* allocator) { }
   void operator delete [](void* /*memory*/) { }
   template<class T> void operator delete(void* memory,
@@ -295,7 +294,7 @@ class ArenaOnlyGladiator {
 
 class ArrayGladiator : public Gladiator {
  public:
-  void * operator new[] (const size_t size) {
+  void * operator new[] (size_t size) {
     const int sizeplus = size + kHeaderSize;
     void * const ret = ::operator new(sizeplus);
     *static_cast<Arena **>(ret) = NULL;  // mark as heap-allocated
@@ -303,7 +302,7 @@ class ArrayGladiator : public Gladiator {
     return ret + kHeaderSize;
   }
   // the ignored parameter keeps us from stepping on placement new
-  template<class T> void * operator new[] (const size_t size,
+  template<class T> void * operator new[] (size_t size,
                                            const int ignored, T * allocator) {
     if (allocator) {
       const int sizeplus = size + kHeaderSize;
@@ -319,7 +318,7 @@ class ArrayGladiator : public Gladiator {
   void operator delete [] (void * memory) {
     memory -= kHeaderSize;
     Arena * const arena = *static_cast<Arena **>(memory);
-    const size_t sizeplus = *static_cast<size_t *>(memory + sizeof(arena));
+    size_t sizeplus = *static_cast<size_t *>(memory + sizeof(arena));
     if (arena) {
       arena->SlowFree(memory, sizeplus);
     } else {
@@ -331,7 +330,7 @@ class ArrayGladiator : public Gladiator {
     // This "placement delete" can only be called if the constructor
     // throws an exception.
     memory -= kHeaderSize;
-    const size_t sizeplus = *static_cast<size_t *>(memory + sizeof(Arena *));
+    size_t sizeplus = *static_cast<size_t *>(memory + sizeof(Arena *));
     if (allocator) {
       allocator->Free(memory, 1 + size);
     } else {
@@ -347,6 +346,6 @@ class ArrayGladiator : public Gladiator {
 
 #endif  // ********** example
 
-_END_GOOGLE_NAMESPACE_
+}
 
 #endif  // BASE_ARENA_INL_H_

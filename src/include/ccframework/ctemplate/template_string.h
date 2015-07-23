@@ -40,12 +40,12 @@
 
 #include <assert.h>
 #if 1
-#include <stdint.h>       // one place @ac_cv_unit64@ might live
+#include <stdint.h>       // one place  might live
 #endif
 #if 1
-#include <inttypes.h>     // another place @ac_cv_unit64@ might live
+#include <inttypes.h>     // another place  might live
 #endif
-#include <sys/types.h>    // final place @ac_cv_unit64@ might live
+#include <sys/types.h>    // final place  might live
 
 class TemplateStringTest;          // needed for friendship declaration
 class StaticTemplateStringTest;
@@ -353,6 +353,5 @@ const StaticTemplateString kStsEmpty =
     STS_INIT_WITH_HASH(kStsEmpty, "", 1457976849674613049ULL);
 
 }
-
 
 #endif  // TEMPLATE_TEMPLATE_STRING_H_

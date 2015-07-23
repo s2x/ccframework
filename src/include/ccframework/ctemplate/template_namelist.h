@@ -160,5 +160,4 @@ class  TemplateNamelist {
 
 }
 
-
 #endif  // TEMPLATE_TEMPLATE_NAMELIST_H_

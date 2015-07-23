@@ -14,7 +14,7 @@ Debian 7 installation instructions
 ===========
 Here is list of packages to install before compile ccFramework
 * install some debian packages
-<code>apt-get install g++ autoconf intltool libtool libglib2.0-dev libfcgi-dev libboost-dev git</code>
+<code>apt-get install g++ libpcre3-dev libyaml-cpp-dev libfcgi-dev libboost-dev git</code>
 * clone repo: <code>git clone https://github.com/s2x/ccframework.git</code>
 * change dir: <code>cd ccframework</code>
 * run autogen: <code>./autogen.sh</code>
@@ -44,10 +44,13 @@ Version 0.2
 * [Simple translation module](https://github.com/s2x/ccframework/issues/3),
 * [Rewrite session module - add session providers (memory, file, memcached)](https://github.com/s2x/ccframework/issues/4)
 * [Add examples of use](https://github.com/s2x/ccframework/issues/5)
+* Add config provider for Yaml
  
 Version 0.1
 * Support of array in request,
-* Switch to ccArray with simple ini (un)serializer,
-* Completly remove yaml-cpp from source - no more boosts needed,
+* Add config provider for simple ini
+* Switch to ccArray as config provider
+* Switch to cmake
+* Completly remove yaml-cpp from source - use it as system library,
 * ~~Cleanup dependencies and fix automake files.~~
 
