@@ -79,6 +79,8 @@ public:
 	static std::string replaceAll(std::string from, std::string to, std::string str);
 
 	static std::vector<std::string> explode(std::string const & s, char delim);
+	static std::vector<std::string> array_elements(std::string const & s);
+
 };
 
 } /* namespace ccFramework */

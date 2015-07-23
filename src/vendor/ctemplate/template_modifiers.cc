@@ -82,9 +82,9 @@ bool HasInsecureProtocol(const char* in, int inlen) {
 }
 }  // namespace URL
 
-_START_GOOGLE_NAMESPACE_
+namespace ctemplate {
 
-using HTMLPARSER_NAMESPACE::HtmlParser;
+using ctemplate_htmlparser::HtmlParser;
 
 // A most-efficient way to append a string literal to the var named 'out'.
 // The ""s ensure literal is actually a string literal
@@ -807,6 +807,7 @@ void PrefixLine::Modify(const char* in, size_t inlen,
 }
 PrefixLine prefix_line;
 
+
 // Must be at least one more than the maximum number of alternative modifiers
 // specified in any given element of g_modifiers.
 # define MAX_SAFE_ALTERNATIVES 10  // If the compiler complains, increase it.
@@ -1422,4 +1423,4 @@ vector<const ModifierAndValue*> GetDefaultModifierForJson() {
   return GetModifierForJson(NULL, NULL);
 }
 
-_END_GOOGLE_NAMESPACE_
+}

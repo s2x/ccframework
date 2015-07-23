@@ -279,7 +279,7 @@
 #include "base/macros.h"  // for uint32
 #include "base/util.h"    // for CHECK, etc
 
-_START_GOOGLE_NAMESPACE_
+namespace ctemplate {
 
 // Annoying stuff for windows -- make sure clients (in this case
 // unittests) can import the class definitions and variables.
@@ -693,6 +693,6 @@ class CTEMPLATE_DLL_DECL SafeArena : public BaseArena {
   DISALLOW_COPY_AND_ASSIGN(SafeArena);
 };
 
-_END_GOOGLE_NAMESPACE_
+}
 
 #endif  // BASE_ARENA_H_

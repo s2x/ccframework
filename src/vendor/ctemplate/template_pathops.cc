@@ -48,7 +48,7 @@
 # endif
 #endif
 
-_START_GOOGLE_NAMESPACE_
+namespace ctemplate {
 
 using std::string;
 
@@ -142,4 +142,4 @@ bool ContainsFullWord(const string& text, const string& word) {
   return false;
 }
 
-_END_GOOGLE_NAMESPACE_
+}

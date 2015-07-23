@@ -114,9 +114,9 @@ using HASH_NAMESPACE::unordered_map;
 using HASH_NAMESPACE::hash_map;
 #endif
 
-_START_GOOGLE_NAMESPACE_
+namespace ctemplate {
 
-using HTMLPARSER_NAMESPACE::HtmlParser;
+using ctemplate_htmlparser::HtmlParser;
 
 TemplateId GlobalIdForSTS_INIT(const TemplateString& s) {
   return s.GetGlobalId();   // normally this method is private
@@ -655,7 +655,7 @@ static void WriteOneHeaderEntry(
   }
 
   // print out the variable, but only if we haven't seen it before.
-  if (vars_seen.find(variable) == vars_seen.end()) {
+  if (!vars_seen.count(variable)) {
     if (variable == kMainSectionName || variable.find("BI_") == 0) {
       // We don't want to write entries for __MAIN__ or the built-ins
     } else {
@@ -665,7 +665,7 @@ static void WriteOneHeaderEntry(
                 << AS_STR(GOOGLE_NAMESPACE) << "::StaticTemplateString "
                 << prefix << variable << " = STS_INIT_WITH_HASH("
                 << prefix << variable << ", \"" << variable << "\", "
-                << id << "LLU);\n";
+                << id << "ULL);\n";
       outstring->append(outstream.str());
     }
     vars_seen[variable] = true;
@@ -2811,14 +2811,6 @@ bool Template::ReloadIfChangedLocked()
   }
 }
 
-bool Template::ReloadIfChanged() LOCKS_EXCLUDED(g_template_mutex) {
-  // ReloadIfChanged() is protected by g_template_mutex so when it's
-  // called from different threads, they don't stomp on tree_ and
-  // state_.  (This is the only write-locker on g_template_mutex.)
-  WriterMutexLock ml(&g_template_mutex);
-  return ReloadIfChangedLocked();
-}
-
 // ----------------------------------------------------------------------
 // Template::ExpandLocked()
 // Template::ExpandWithDataAndCache()
@@ -2902,4 +2894,4 @@ bool Template::ExpandWithDataAndCache(
   return ExpandLocked(expand_emitter, dict, per_expand_data, cache);
 }
 
-_END_GOOGLE_NAMESPACE_
+}

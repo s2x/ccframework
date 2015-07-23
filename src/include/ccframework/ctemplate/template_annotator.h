@@ -133,5 +133,4 @@ class  TextTemplateAnnotator : public TemplateAnnotator {
 
 }
 
-
 #endif  // TEMPLATE_TEMPLATE_ANNOTATOR_H_

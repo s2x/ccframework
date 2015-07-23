@@ -69,6 +69,8 @@
 #include <ctemplate/template_emitter.h>   // so we can inline operator()
 #include <ctemplate/per_expand_data.h>    // could probably just forward-declare
 
+
+
 namespace ctemplate {
 
 class Template;
@@ -80,9 +82,9 @@ class TemplateHelper;
                       const PerExpandData*, ExpandEmitter* outbuf,      \
                       const std::string& arg) const
 
-extern std::map<std::string, TemplateHelper*> helpers;
+extern  std::map<std::string, TemplateHelper*> helpers;
 
-class TemplateHelper {
+class  TemplateHelper {
  public:
   virtual std::string Modify(std::map<std::string,std::string> params) const = 0;
   virtual ~TemplateHelper();   // always need a virtual destructor!
@@ -305,8 +307,8 @@ class  PrefixLine : public TemplateModifier {
 };
 extern  PrefixLine prefix_line;
 
+
 #undef MODIFY_SIGNATURE_
-#undef MODIFY_HELPER_SIGNATURE_
 
 
 // Registers a new template modifier.
@@ -351,15 +353,8 @@ bool AddModifier(const char* long_name, const TemplateModifier* modifier);
 //   is used in a different context (say Javascript) where this
 //   escaping may be inadequate.
 extern 
-bool AddXssSafeModifier(const char* long_name,
-                        const TemplateModifier* modifier);
-
-
-
-extern
+bool AddXssSafeModifier(const char* long_name, const TemplateModifier* modifier);
 bool addTemplateHelper(const char* long_name, TemplateHelper* modifier);
-
 }
-
 
 #endif  // TEMPLATE_TEMPLATE_MODIFIERS_H_
