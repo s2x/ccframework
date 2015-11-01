@@ -1,9 +1,7 @@
-prefix=@prefix@
-exec_prefix=@exec_prefix@
-libdir=@libdir@
-datarootdir=@datarootdir@
-datadir=@datadir@
-includedir=@includedir@/ccframework
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=@CMAKE_INSTALL_PREFIX@/bin
+libdir=@CMAKE_INSTALL_PREFIX@/lib
+includedir=@CMAKE_INSTALL_PREFIX@/include/ccframework
 
 Name: ccframework
 Description: Sample library created by Anjuta project wizard.
