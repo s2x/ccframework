@@ -37,6 +37,7 @@ CONFIGURE_FILE(src/include/ccframework/ctemplate/template_modifiers.h.in    src/
 CONFIGURE_FILE(src/include/ccframework/ctemplate/template_namelist.h.in    src/include/ccframework/ctemplate/template_namelist.h)
 CONFIGURE_FILE(src/include/ccframework/ctemplate/template_pathops.h.in    src/include/ccframework/ctemplate/template_pathops.h)
 CONFIGURE_FILE(src/include/ccframework/ctemplate/template_string.h.in    src/include/ccframework/ctemplate/template_string.h)
+CONFIGURE_FILE(src/ccframework.pc.in    src/ccframework.pc)
 
 set(HEADER_FILES
     src/include/ccframework/ctemplate/find_ptr.h
@@ -219,3 +220,5 @@ SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Piotr Hałas <halaspiotr@gmail.com>") #requ
 set(CPACK_GENERATOR "DEB")
 SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libyaml-cpp0.5, libpcre3, libboost-dev, libfcgi")
 include (CPack)
+
+install(FILES src/ccframework.pc DESTINATION lib/pkgconfig)
