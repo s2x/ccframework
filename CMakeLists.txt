@@ -221,4 +221,4 @@ set(CPACK_GENERATOR "DEB")
 SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libyaml-cpp0.5, libpcre3, libboost-dev, libfcgi")
 include (CPack)
 
-install(FILES src/ccframework.pc DESTINATION lib/pkgconfig)
+install(FILES ${PROJECT_SOURCE_DIR}/src/ccframework.pc DESTINATION lib/pkgconfig)
