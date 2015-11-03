@@ -208,7 +208,7 @@ install(TARGETS ccframework DESTINATION lib)
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/include
     DESTINATION ${CMAKE_INSTALL_PREFIX}
     FILES_MATCHING PATTERN "*")
-
+# install(FILES ${PROJECT_SOURCE_DIR}/src/ccframework.pc DESTINATION lib/pkgconfig)
 
 # build a CPack driven installer package
 include (InstallRequiredSystemLibraries)
@@ -221,4 +221,3 @@ set(CPACK_GENERATOR "DEB")
 SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libyaml-cpp0.5, libpcre3, libboost-dev, libfcgi")
 include (CPack)
 
-install(FILES ${PROJECT_SOURCE_DIR}/src/ccframework.pc DESTINATION lib/pkgconfig)
