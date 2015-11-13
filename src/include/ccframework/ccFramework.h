@@ -40,6 +40,13 @@
 #include "ccStaticRoute.h"
 #include "ccTemplateResponse.h"
 #include "ccYamlSessionProvider.h"
-
+#include "interfaces/ccDataProviderInterface.h"
+#include "interfaces/ccConfigProviderInterface.h"
+#include "data_provider/ccStringDataProvider.h"
+#include "data_provider/ccFileDataProvider.h"
+#include "config_provider/ccInfoConfigProvider.h"
+#include "config_provider/ccIniConfigProvider.h"
+#include "config_provider/ccJsonConfigProvider.h"
+#include "config_provider/ccXmlConfigProvider.h"
 
 #endif /* CCFRAMEWORK_H_ */

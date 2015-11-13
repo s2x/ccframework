@@ -87,6 +87,14 @@ set(HEADER_FILES
     src/include/ccframework/ccStaticRoute.h
     src/include/ccframework/ccTemplateResponse.h
     src/include/ccframework/ccYamlSessionProvider.h
+    src/include/ccframework/interfaces/ccDataProviderInterface.h
+    src/include/ccframework/interfaces/ccConfigProviderInterface.h
+    src/include/ccframework/data_provider/ccStringDataProvider.h
+    src/include/ccframework/data_provider/ccFileDataProvider.h
+    src/include/ccframework/config_provider/ccInfoConfigProvider.h
+    src/include/ccframework/config_provider/ccIniConfigProvider.h
+    src/include/ccframework/config_provider/ccJsonConfigProvider.h
+    src/include/ccframework/config_provider/ccXmlConfigProvider.h
 )
 
 set(SOURCE_FILES
