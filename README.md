@@ -50,7 +50,7 @@ Version 0.1
 * Support of array in request,
 * Add config provider for simple ini
 * Switch to ccArray as config provider
-* Switch to cmake
+* ~~Switch to cmake~~
 * Completly remove yaml-cpp from source - use it as system library,
 * ~~Cleanup dependencies and fix automake files.~~
 
