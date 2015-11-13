@@ -1,0 +1,22 @@
+Source: libccframework
+Priority: optional
+Maintainer: Piotr Hałas <piotr@halas.net.pl>
+Build-Depends: debhelper (>= 9), cmake, intltool, pkg-config, libglib2.0-dev, libboost-dev, libpcre3-dev, libfcgi-dev, libyaml-cpp-dev
+Standards-Version: 3.9.5
+Section: libs
+Homepage: https://github.com/s2x/ccframework
+#Vcs-Git: git://anonscm.debian.org/collab-maint/libccframework.git
+#Vcs-Browser: http://anonscm.debian.org/?p=collab-maint/libccframework.git;a=summary
+
+Package: libccframework-dev
+Section: libdevel
+Architecture: any
+Depends: libccframework (= ${binary:Version}), ${misc:Depends}
+Description: C++ framework for web projects
+ Extreme fast C++ framework for web projects. Designed for low-cost VPS as well as for high-performance, multi-processor servers.
+
+Package: libccframework
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: C++ framework for web projects
+ Extreme fast C++ framework for web projects. Designed for low-cost VPS as well as for high-performance, multi-processor servers.

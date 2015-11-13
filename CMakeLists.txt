@@ -3,7 +3,7 @@ project(ccframework)
 
 # The version number.
 set (ccframework_VERSION_MAJOR 0)
-set (ccframework_VERSION_MINOR 1)
+set (ccframework_VERSION_MINOR 2)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
@@ -37,6 +37,7 @@ CONFIGURE_FILE(src/include/ccframework/ctemplate/template_modifiers.h.in    src/
 CONFIGURE_FILE(src/include/ccframework/ctemplate/template_namelist.h.in    src/include/ccframework/ctemplate/template_namelist.h)
 CONFIGURE_FILE(src/include/ccframework/ctemplate/template_pathops.h.in    src/include/ccframework/ctemplate/template_pathops.h)
 CONFIGURE_FILE(src/include/ccframework/ctemplate/template_string.h.in    src/include/ccframework/ctemplate/template_string.h)
+CONFIGURE_FILE(src/ccframework.pc.in    src/ccframework.pc)
 
 set(HEADER_FILES
     src/include/ccframework/ctemplate/find_ptr.h
@@ -215,7 +216,7 @@ install(TARGETS ccframework DESTINATION lib)
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/include
     DESTINATION ${CMAKE_INSTALL_PREFIX}
     FILES_MATCHING PATTERN "*")
-
+# install(FILES ${PROJECT_SOURCE_DIR}/src/ccframework.pc DESTINATION lib/pkgconfig)
 
 # build a CPack driven installer package
 include (InstallRequiredSystemLibraries)
