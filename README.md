@@ -43,13 +43,13 @@ Version 0.3
 Version 0.2
 * [Simple translation module](https://github.com/s2x/ccframework/issues/3),
 * [Rewrite session module - add session providers (memory, file, memcached)](https://github.com/s2x/ccframework/issues/4)
-* [Add examples of use](https://github.com/s2x/ccframework/issues/5)
+* ~~[Add examples of use](https://github.com/s2x/ccframework/issues/5)~~
 
 Version 0.1
-* Support of array in request as ptree,
-* Add config provider for xml,json,ini, info - parsers and emiters form ptree lib
-* Switch to ptree as config structure
+* [Support of array in request as ptree](https://github.com/s2x/ccframework/issues/6),
+* [Add config provider for xml,json,ini, info - parsers and emiters form ptree lib](https://github.com/s2x/ccframework/issues/10)
+* [Switch to ptree as config structure](https://github.com/s2x/ccframework/issues/9)
 * ~~Switch to cmake~~
-* Completly remove yaml-cpp from source - use ptree and libyaml library,
+* [Completly remove yaml-cpp from source - use ptree and libyaml library](https://github.com/s2x/ccframework/issues/9)
 * ~~Cleanup dependencies and fix automake files.~~
 
