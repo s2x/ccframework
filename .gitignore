@@ -11,3 +11,7 @@
 /CPackSourceConfig.cmake
 /install_manifest.txt
 *.deb
+docs/examples/get-query-param.fcgi
+docs/examples/hello-world.fcgi
+src/ccframework.pc
+

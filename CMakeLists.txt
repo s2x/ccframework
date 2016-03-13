@@ -208,7 +208,7 @@ install(TARGETS ccframework DESTINATION lib)
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/include
     DESTINATION ${CMAKE_INSTALL_PREFIX}
     FILES_MATCHING PATTERN "*")
-# install(FILES ${PROJECT_SOURCE_DIR}/src/ccframework.pc DESTINATION lib/pkgconfig)
+install(FILES ${PROJECT_SOURCE_DIR}/src/ccframework.pc DESTINATION lib/pkgconfig)
 
 # build a CPack driven installer package
 include (InstallRequiredSystemLibraries)

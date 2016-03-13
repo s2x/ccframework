@@ -5,7 +5,7 @@
  Version     :
  Copyright   : 
  Description : Hello World in ccFramework,
- Compile     : g++ hello-world.cc -std=c++11 `pkg-config --cflags --libs ccframework` -lfcgi++ -lfcgi  -o hello-world.fcgi
+ Compile     : g++ get-query-param.cc `pkg-config --cflags --libs ccframework` -o get-query-param.fcgi
  ============================================================================
  */
 

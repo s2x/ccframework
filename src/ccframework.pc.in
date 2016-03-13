@@ -7,6 +7,6 @@ Name: ccframework
 Description: Sample library created by Anjuta project wizard.
 Version: @VERSION@
 Requires: 
-Libs: -L@CMAKE_INSTALL_PREFIX@/lib -lccframework
-Cflags: -I@CMAKE_INSTALL_PREFIX@/include/ccframework
+Libs: -L@CMAKE_INSTALL_PREFIX@/lib -lccframework -lfcgi++ -lfcgi -lyaml-cpp -lpcre -pthread
+Cflags: -I@CMAKE_INSTALL_PREFIX@/include/ccframework -std=c++11
 

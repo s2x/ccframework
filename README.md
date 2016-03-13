@@ -17,7 +17,7 @@ Here is list of packages to install before compile ccFramework
 <code>apt-get install g++ libpcre3-dev libyaml-cpp-dev libfcgi-dev libboost-dev git</code>
 * clone repo: <code>git clone https://github.com/s2x/ccframework.git</code>
 * change dir: <code>cd ccframework</code>
-* run autogen: <code>./autogen.sh</code>
+* run cmake: <code>cmake .</code>
 * install: <code>make && make install</code>
 
 Examples
