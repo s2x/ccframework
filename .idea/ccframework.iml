@@ -1,8 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cmake/FindFcgi.cmake" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cmake/FindPCRE.cmake" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cmake/FindYamlCpp.cmake" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework.pc.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/acl/ccAcl.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/acl/ccResource.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/acl/ccRole.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/ccApp.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/ccArray.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/ccCommon.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/ccController.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/ccCookie.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/ccException.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/ccRequest.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/config/ccConfig.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/config/ccConfigLoader.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/events/ccEvent.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/events/ccEventDispatcher.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/form/ccBaseForm.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/form/element/ccBaseFormElement.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/helpers/ccBaseHelper.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/helpers/ccComponentHelper.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/parsers/ccMultipartParser.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/parsers/ccQueryParser.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/response/ccJsonResponse.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/response/ccResponse.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/response/ccTemplateResponse.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/router/ccPregRoute.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/router/ccRoute.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/router/ccRouter.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/router/ccStaticRoute.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/serializers/ccBaseSerializer.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/serializers/ccJsonSerializer.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/session/ccMemorySessionProvider.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/session/ccSession.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/session/ccSessionProvider.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ccframework/session/ccYamlSessionProvider.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/config.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/find_ptr.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/per_expand_data.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/str_ref.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_annotator.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_cache.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_dictionary.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_dictionary_interface.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_emitter.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_enums.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_modifiers.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_namelist.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_pathops.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_string.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/form_test.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/request_test.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/router_test.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/base/arena-inl.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/base/arena.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/base/arena.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/base/fileutil.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/base/macros.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/base/manual_constructor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/base/mutex.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/base/small_map.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/base/thread_annotations.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/base/util.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/diff_tpl_auto_escape.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/htmlparser.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/htmlparser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/htmlparser_cpp.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/htmlparser_fsm.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/jsparser.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/jsparser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/jsparser_fsm.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/statemachine.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/statemachine.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/indented_writer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/make_tpl_varnames_h.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/per_expand_data.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/template.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/template_annotator.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/template_cache.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/template_dictionary.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/template_modifiers.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/template_modifiers_internal.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/template_namelist.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/template_pathops.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/ctemplate/template_string.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/md5/md5.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/vendor/md5/md5.h" isTestSource="false" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/src/include/ccframework" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate" />
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/cilk" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/sanitizer" />
+          <root url="file:///usr/local/include" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/src/include/ccframework" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate" />
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/cilk" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/sanitizer" />
+          <root url="file:///usr/local/include" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/per_expand_data.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/str_ref.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_namelist.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_pathops.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_modifiers.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/find_ptr.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/config.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_dictionary_interface.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_string.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_emitter.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_cache.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_dictionary.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_annotator.h.in" />
+          <root url="file://$MODULE_DIR$/src/include/ccframework/ctemplate/template_enums.h.in" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/template_cache.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/base/manual_constructor.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/htmlparser.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/statemachine.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/htmlparser.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/base/macros.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/base/mutex.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/base/thread_annotations.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/template_dictionary.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/jsparser.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/template_modifiers_internal.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/per_expand_data.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/indented_writer.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/base/small_map.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/jsparser.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/make_tpl_varnames_h.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/jsparser_fsm.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/base/fileutil.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/base/arena.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/template_annotator.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/htmlparser_cpp.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/template.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/statemachine.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/base/util.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/base/arena-inl.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/template_namelist.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/template_string.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/diff_tpl_auto_escape.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/htmlparser/htmlparser_fsm.h" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/template_modifiers.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/template_pathops.cc" />
+          <root url="file://$MODULE_DIR$/src/vendor/ctemplate/base/arena.cc" />
+        </excluded>
+      </library>
+    </orderEntry>
   </component>
 </module>
