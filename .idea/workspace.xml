@@ -15,63 +15,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7abd7995-950f-4da6-8b47-8e3cbb03cddd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/config.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/find_ptr.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/per_expand_data.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/request_test.cc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/str_ref.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_annotator.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_cache.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_dictionary.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_dictionary_interface.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_emitter.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_enums.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_modifiers.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_namelist.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_pathops.h.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_string.h.in" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ccHttpCodes.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ccframework/server/ccPreforkServer.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/include/ccframework/ccPreforkServer.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/examples/server-example.cc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/base/arena-inl.h" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/base/arena-inl.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/base/arena.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/base/arena.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/base/arena.h" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/base/arena.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ccframework/ccCommon.cc" afterPath="$PROJECT_DIR$/src/ccframework/ccCommon.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/ccframework/ccCommon.h" afterPath="$PROJECT_DIR$/src/include/ccframework/ccCommon.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/ccframework/ctemplate/config.h" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/config.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/base/fileutil.h" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/base/fileutil.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/ccframework/ctemplate/find_ptr.h" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/find_ptr.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/htmlparser.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/htmlparser.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/htmlparser.h" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/htmlparser.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/htmlparser_cpp.h" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/htmlparser_cpp.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/indented_writer.h" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/indented_writer.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/jsparser.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/jsparser.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/jsparser.h" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/jsparser.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/make_tpl_varnames_h.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/make_tpl_varnames_h.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/base/manual_constructor.h" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/base/manual_constructor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/base/mutex.h" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/base/mutex.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/per_expand_data.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/per_expand_data.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/base/small_map.h" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/base/small_map.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/statemachine.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/statemachine.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/statemachine.h" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/htmlparser/statemachine.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/template.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/template.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template.h" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/template_annotator.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/template_annotator.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_annotator.h" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_annotator.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/template_cache.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/template_cache.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/template_dictionary.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/template_dictionary.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_dictionary.h" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_dictionary.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_dictionary_interface.h" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_dictionary_interface.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_emitter.h" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_emitter.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_enums.h" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_enums.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/template_modifiers.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/template_modifiers.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_modifiers.h" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_modifiers.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/template_modifiers_internal.h" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/template_modifiers_internal.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/template_namelist.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/template_namelist.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_namelist.h" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_namelist.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/template_pathops.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/template_pathops.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor/ctemplate/template_string.cc" afterPath="$PROJECT_DIR$/src/vendor/ctemplate/template_string.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_string.h" afterPath="$PROJECT_DIR$/src/include/ccframework/ctemplate/template_string.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/ccframework/ccFramework.h" afterPath="$PROJECT_DIR$/src/include/ccframework/ccFramework.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ccframework.iws" />
@@ -93,88 +42,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <file leaf-file-name="ccPreforkServer.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/include/ccframework/ccPreforkServer.h">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="197" column="29" selection-start-line="197" selection-start-column="29" selection-end-line="197" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="request_test.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/request_test.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+              <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
               <folding>
-                <element signature="e#0#47#0" expanded="true" />
+                <element signature="e#117#131#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ccQueryParser.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ccframework/parsers/ccQueryParser.cc">
+      <file leaf-file-name="server-example.cc" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/examples/server-example.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ccCommon.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ccframework/ccCommon.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="250" column="85" selection-start-line="250" selection-start-column="85" selection-end-line="250" selection-end-column="85" />
+            <state vertical-scroll-proportion="0.83425415">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
-                <element signature="e#76#97#0" expanded="true" />
+                <element signature="e#396#420#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="ccPreforkServer.cc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ccframework/server/ccPreforkServer.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17857143">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state vertical-scroll-proportion="-37.714287">
+              <caret line="144" column="25" selection-start-line="144" selection-start-column="25" selection-end-line="144" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ccCommon.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/include/ccframework/ccCommon.h">
+      <file leaf-file-name="ccApp.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/include/ccframework/ccApp.h">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="81" column="71" selection-start-line="81" selection-start-column="71" selection-end-line="81" selection-end-column="71" />
+              <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ccPregRoute.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ccframework/router/ccPregRoute.cc">
+      <file leaf-file-name="ccApp.cc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ccframework/ccApp.cc">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+              <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="196" selection-end-column="78" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ccPregRoute.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/include/ccframework/ccPregRoute.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-              <folding>
-                <element signature="e#124#141#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -204,6 +121,11 @@
         <option value="$PROJECT_DIR$/src/test/request_test.cc" />
         <option value="$PROJECT_DIR$/src/ccframework/ccCommon.cc" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/include/ccframework/ccFramework.h" />
+        <option value="$PROJECT_DIR$/src/include/ccframework/ccHttpCodes.h" />
+        <option value="$PROJECT_DIR$/src/ccframework/server/ccPreforkServer.cc" />
+        <option value="$PROJECT_DIR$/src/include/ccframework/ccPreforkServer.h" />
+        <option value="$PROJECT_DIR$/docs/examples/server-example.cc" />
       </list>
     </option>
   </component>
@@ -296,32 +218,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ccframework" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$1$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ccframework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ccframework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ctemplate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -337,6 +233,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/examples" />
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
@@ -412,14 +309,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1922" height="1056" extended-state="0" />
-    <editor active="false" />
+    <frame x="-1" y="0" width="1922" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21274355" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13383298" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869378" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -431,7 +329,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -453,83 +350,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/vendor/ctemplate/make_tpl_varnames_h.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/ctemplate/base/mutex.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/ctemplate/base/arena.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ccframework/config/ccConfigLoader.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17128874">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ccframework/events/ccEvent.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17128874">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ccframework/acl/ccAcl.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ccframework/config/ccConfig.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ccframework/acl/ccRole.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/ctemplate/make_tpl_varnames_h.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake/FindFcgi.cmake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5350734">
-          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake/FindPCRE.cmake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43719414">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -652,13 +472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ccframework/ccApp.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="11" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/include/ccframework/ctemplate/template_emitter.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -757,22 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ccframework/parsers/ccQueryParser.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="197" column="29" selection-start-line="197" selection-start-column="29" selection-end-line="197" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ccframework/router/ccPregRoute.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -791,17 +588,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18292683">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/include/ccframework/ccCommon.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.6994992">
           <caret line="81" column="71" selection-start-line="81" selection-start-column="71" selection-end-line="81" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ccframework/ccCommon.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.098497495">
+          <caret line="250" column="36" selection-start-line="250" selection-start-column="36" selection-end-line="250" selection-end-column="36" />
+          <folding>
+            <element signature="e#76#97#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ccframework/parsers/ccQueryParser.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/request_test.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.17529215">
           <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
@@ -809,21 +632,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ccframework/ccCommon.cc">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19866444">
+          <caret line="197" column="0" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/ccframework/ccMultipartParser.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="250" column="85" selection-start-line="250" selection-start-column="85" selection-end-line="250" selection-end-column="85" />
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/ccframework/ccHttpCodes.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.21153846">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/fcgio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ccframework/config/ccConfigLoader.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1923077">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/ccframework/ccFramework.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1923077">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/examples/hello-world.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/fcgiapp.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33277592">
+          <caret line="159" column="11" selection-start-line="159" selection-start-column="11" selection-end-line="159" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/ccframework/ccApp.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ccframework/ccApp.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="196" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ccframework/server/ccPreforkServer.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-37.714287">
+          <caret line="144" column="25" selection-start-line="144" selection-start-column="25" selection-end-line="144" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/ccframework/ccPreforkServer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
           <folding>
-            <element signature="e#76#97#0" expanded="true" />
+            <element signature="e#117#131#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/docs/examples/server-example.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17857143">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
+        <state vertical-scroll-proportion="0.83425415">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="e#396#420#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

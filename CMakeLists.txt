@@ -178,7 +178,7 @@ include_directories(src/vendor/ctemplate)
 include_directories(${PCRE_INCLUDE_DIRS})
 include_directories(${YAMLCPP_INCLUDE_DIRS})
 
-add_library(ccframework ${SOURCE_FILES})
+add_library(ccframework ${SOURCE_FILES} src/ccframework/server/ccPreforkServer.cc src/include/ccframework/ccHttpCodes.h)
 add_executable(router-test ${ROUTER_TEST_SOURCE_FILES})
 add_executable(form-test ${FROM_TEST_SOURCE_FILES})
 add_executable(request-test ${REQUEST_TEST_SOURCE_FILES})

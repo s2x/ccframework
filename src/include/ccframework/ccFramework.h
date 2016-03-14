@@ -8,6 +8,8 @@
 #include <fstream>
 #include "yaml-cpp/yaml.h"
 
+#include "ccPreforkServer.h"
+#include "ccHttpCodes.h"
 #include "ccAcl.h"
 #include "ccApp.h"
 #include "ccBaseFormElement.h"
