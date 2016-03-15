@@ -4,6 +4,7 @@ project(ccframework)
 # The version number.
 set (ccframework_VERSION_MAJOR 0)
 set (ccframework_VERSION_MINOR 2)
+set (ccframework_VERSION_PATCH 2)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
@@ -21,6 +22,7 @@ set(ac_cv_uint64 "u_int64_t")
 set(ac_google_namespace "::ctemplate")
 set(ac_google_start_namespace "namespace ctemplate {")
 set(ac_cv_cxx_hash_map_class "std::tr1::unordered_map")
+set(PC_FILE ${CMAKE_BINARY_DIR}/src/ccframework.pc)
 
 CONFIGURE_FILE(src/include/ccframework/ctemplate/config.h.in    src/include/ccframework/ctemplate/config.h)
 CONFIGURE_FILE(src/include/ccframework/ctemplate/template.h.in     src/include/ccframework/ctemplate/template.h)
@@ -37,7 +39,7 @@ CONFIGURE_FILE(src/include/ccframework/ctemplate/template_modifiers.h.in    src/
 CONFIGURE_FILE(src/include/ccframework/ctemplate/template_namelist.h.in    src/include/ccframework/ctemplate/template_namelist.h)
 CONFIGURE_FILE(src/include/ccframework/ctemplate/template_pathops.h.in    src/include/ccframework/ctemplate/template_pathops.h)
 CONFIGURE_FILE(src/include/ccframework/ctemplate/template_string.h.in    src/include/ccframework/ctemplate/template_string.h)
-CONFIGURE_FILE(src/ccframework.pc.in    src/ccframework.pc)
+CONFIGURE_FILE(src/ccframework.pc.in  ${PC_FILE} @ONLY)
 
 set(HEADER_FILES
     src/include/ccframework/ctemplate/find_ptr.h
@@ -204,11 +206,9 @@ target_link_libraries(request-test ccframework
     ${PCRE_LIBRARY})
 
 
-install(TARGETS ccframework DESTINATION lib)
-install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/include
-    DESTINATION ${CMAKE_INSTALL_PREFIX}
-    FILES_MATCHING PATTERN "*")
-install(FILES ${PROJECT_SOURCE_DIR}/src/ccframework.pc DESTINATION lib/pkgconfig)
+install(TARGETS ccframework DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/include DESTINATION ${CMAKE_INSTALL_PREFIX} FILES_MATCHING PATTERN "*")
+install(FILES ${PC_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
 
 # build a CPack driven installer package
 include (InstallRequiredSystemLibraries)
@@ -216,6 +216,7 @@ set(CPACK_RESOURCE_FILE_LICENSE
     "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 set(CPACK_PACKAGE_VERSION_MAJOR "${ccframework_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${ccframework_VERSION_MINOR}")
+set(CPACK_PACKAGE_VERSION_PATCH "${ccframework_VERSION_PATCH}")
 SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Piotr Hałas <halaspiotr@gmail.com>") #required
 set(CPACK_GENERATOR "DEB")
 SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libyaml-cpp0.5, libpcre3, libboost-dev, libfcgi")
