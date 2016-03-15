@@ -37,16 +37,17 @@ namespace ccFramework {
     static void alrmHandler(int sig) {
     }
 
-
     typedef struct _child {
         int file;
         bool avail;
+        time_t last_active;
     } child_t;
 
     child_t *child_new(int fd, bool avail = false) {
         child_t *c = (child_t *) malloc(sizeof(child_t));
         c->file = fd;
         c->avail = avail;
+        c->last_active = time(NULL);
         return c;
     }
 
@@ -85,7 +86,11 @@ namespace ccFramework {
         fd_set rfs;
 
         time_t last_exit = time(NULL);
+        time_t last_child_update = time(NULL);
         uint32_t abnormal_exit = 0;
+
+        uint32_t avail = 0;
+        std::list<pid_t> avail_list;
 
         while (g_keepGoing) {
             while (m_children.size() < maxSpare) {
@@ -134,14 +139,15 @@ namespace ccFramework {
                     ret--;
 
                     char state;
-                    ret = recv(x->file, &state, 1, 0);
+                    ssize_t cnt = recv(x->file, &state, 1, 0);
 
-                    if (ret == 1) {
+                    if (cnt == 1) {
                         //child is not avaiable
                         if (state != '\x00') {
                             x->avail = true;
                         } else {
                             x->avail = false;
+                            x->last_active = time(NULL);
                         }
                     } else {
                         //TRACE0("recv failed with child %d, %d\n", pid, ret);
@@ -163,23 +169,29 @@ namespace ccFramework {
                         }
                     }
                 }
+
+                if (x->avail) {
+
+                }
             }
 
             _reapChildren();
-
-            uint32_t avail = 0;
-            std::list <pid_t> avail_list;
+            avail = 0;
+            avail_list.clear();
 
             for (idx = m_children.begin(); idx != m_children.end(); idx++) {
                 x = idx->second;
                 if (x->avail) {
                     avail++;
-                    avail_list.push_back(idx->first);
+                    if (time(NULL) - x->last_active > maxInactiveTime ) {
+                        avail_list.push_back(idx->first);
+                    }
                 }
             }
 
             if (!g_keepGoing)
                 break;
+
 
             if (avail < minSpare) {
                 while (avail < minSpare && m_children.size() < maxChildren) {
@@ -189,7 +201,7 @@ namespace ccFramework {
                 }
             } else if (avail > maxSpare) {
                 //too many avaiable work process, kill some of them.
-                avail_list.sort();
+//                avail_list.sort(); add option for this
                 std::list<pid_t>::iterator idx2;
                 for (idx2 = avail_list.begin(); idx2 != avail_list.end(); idx2++) {
                     if (avail <= maxSpare)
@@ -206,6 +218,7 @@ namespace ccFramework {
                     }
                 }
             }
+
         }
         //TRACE0("main process quit\n");
         _cleanupChildren();
@@ -298,8 +311,9 @@ namespace ccFramework {
             if (ret <= 0)
                 break;
 
+
             if (FD_ISSET(parent, &rfs)) {
-                //TRACE0("parent ask me to quit\n");
+                cout << "parent ask me to quit" << endl;
                 break;
             }
 
@@ -311,7 +325,6 @@ namespace ccFramework {
 
             ret = FCGX_Accept_r(&request);
             if (ret == 0) {
-                //TRACE0("accept new connection, %d\n", request.ipcFd);
                 _notifyParent(parent, '\x00');
                 //_setCloseOnExec(request.ipcFd);
                 requestCount++;

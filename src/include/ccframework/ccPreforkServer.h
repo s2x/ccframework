@@ -21,9 +21,10 @@ namespace ccFramework {
         PreforkServer(ccApp *application) {
             minSpare = 1;
             maxSpare = 5;
-            maxChildren = 50;
+            maxChildren = 10;
             maxRequests = 0;
             maxExecTime = 60;
+            maxInactiveTime = 10;
             m_pid = -1;
             PreforkServer::application = application;
         }
@@ -73,6 +74,14 @@ namespace ccFramework {
             PreforkServer::maxExecTime = maxExecTime;
         }
 
+        uint32_t getMaxInactiveTime() const {
+            return  maxInactiveTime;
+        }
+
+        void setMaxInactiveTime(uint32_t  maxInactiveTime) {
+            PreforkServer:: maxInactiveTime =  maxInactiveTime;
+        }
+
         ccApp *getApplication() const {
             return application;
         }
@@ -116,6 +125,7 @@ namespace ccFramework {
         uint32_t maxChildren;
         uint32_t maxRequests;
         uint32_t maxExecTime;
+        uint32_t maxInactiveTime;
 
         pid_t m_pid;
         map<pid_t, child_t *> m_children;

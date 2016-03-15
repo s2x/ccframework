@@ -51,6 +51,7 @@ int main(void) {
     app.registerController("example", new ExampleController(&app));
 
     PreforkServer server(&app);
+    server.setMaxSpare(1);
     int sockfd = FCGX_OpenSocket("/tmp/myfcgiserver.sock", 1024);
     server.run(sockfd, false);
     return 0;
