@@ -1,3 +1,14 @@
+libccframework (0.2.2-1ubuntu1) unstable; urgency=medium
+
+  * Add prefork server - no spawnfcgi is no longer required to run app
+  * Fix some debian packages stuff
+  * Fix examples build instructions
+  * Add new server example
+  * Fix .pc file in debian packages
+  * Old automake files cleanup
+
+ -- Piotr Halas <piotr@halas.net.pl>  Tue, 15 Mar 2016 07:24:49 +0100
+
 libccframework (0.1-1) unstable; urgency=low
 
   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
