@@ -4,7 +4,7 @@ project(ccframework)
 # The version number.
 set (ccframework_VERSION_MAJOR 0)
 set (ccframework_VERSION_MINOR 2)
-set (ccframework_VERSION_PATCH 2)
+set (ccframework_VERSION_PATCH 3)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 

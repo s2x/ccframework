@@ -1,3 +1,9 @@
+libccframework (0.2.3-1ubuntu1) wily; urgency=medium
+
+  * Fix performance of fcgi server 
+
+ -- Piotr Hałas <piotr@halas.net.pl>  Tue, 15 Mar 2016 23:35:19 +0100
+
 libccframework (0.2.2-1ubuntu2) vivid; urgency=medium
 
   * fix debian/ubuntu packages info
